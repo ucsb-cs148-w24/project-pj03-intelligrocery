@@ -3,7 +3,7 @@
 #Attendence
 - All present
 
-#Meeting Notes
+#Scribed Discussion
 -Discussed project ideas
 -Got github setup
 -Planned which tech stack each pair would do for "Hello World"
