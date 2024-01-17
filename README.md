@@ -22,7 +22,7 @@ To test the application, use Expo.
 
 We recommend downloading the application on your mobile device.
 
-Documentation found <a href="https://www.google.com/" target="_blank">here</a>.
+Documentation found <a href="https://expo.dev" target="_blank">here</a>.
 
 ## User Roles and Permissions
 
