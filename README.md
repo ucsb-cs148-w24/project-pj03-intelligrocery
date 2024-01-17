@@ -1,6 +1,6 @@
 # Intelligrocery
 
-Intelligrocery is a mobile application that serves as a grocery list. 
+Intelligrocery is a mobile application that serves as a grocery list. Users can search up recipes with the ability of seeing what they have and don't have -- having the option of adding missing ingredients to their own grocery list.
 
 ## Group Members:
 - Eric Marzouk @EricM5
