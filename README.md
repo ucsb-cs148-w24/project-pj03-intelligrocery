@@ -8,7 +8,8 @@ Intelligrocery is a mobile application that serves as a grocery list. Users can 
 - Daniel Rose @dannyrose30
 - Audrey Zhou @apzhou0
 - Joshua Son @Joshuason55
- 
+- Michael Hu @michaelhu88
+- Anderson Lee @andersonlee3
 
 ## Tech Stack
 
