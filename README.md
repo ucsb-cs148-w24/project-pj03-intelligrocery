@@ -13,7 +13,15 @@ Intelligrocery is a mobile application that serves as a grocery list. Users can 
 
 ## Tech Stack
 
-For frontend, we are using React Native, and for backend we are using Firebase.
+Frontend: React Native
+Backend: Firebase
+
+## Testing/Viewing the Application
+To test the application, use Expo. 
+
+We recommend downloading the application on your mobile device.
+
+Documentation found <a href="https://www.google.com/" target="_blank">here</a>.
 
 ## User Roles and Permissions
 
