@@ -6,4 +6,3 @@
 - As a User, I can input my dietary information so that the app recommends recipes I can eat
 - As a user, I can ask the app what recipe I can make out of my current ingredients
 - As a user I can record my history of recipes to track my progress and help the app learn my likes
-
