@@ -1,10 +1,4 @@
-# My Project
+Hi I'm Michael Hu and I'm a 3rd year CS major. I have experience with backend development with python and the flask framework. 
 
-## Introduction
+My idea for this project is to have rankings for recipes (yelp-like) and the app will give the user recommendations. 
 
-This is a project about...
-
-## Features
-
-- Feature 1
-- Feature 2
