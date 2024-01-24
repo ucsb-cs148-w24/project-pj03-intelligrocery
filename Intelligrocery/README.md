@@ -1,5 +1,8 @@
 <h1>Intelligrocery</h1>
 
+## Installing Expo packages
+
+npm install expo
 
 ## Run the application
 
