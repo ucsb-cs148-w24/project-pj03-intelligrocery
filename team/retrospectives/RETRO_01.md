@@ -5,15 +5,15 @@
 * Absent: 
 
 ## Action item
-Start:
+### Start:
 - Start coding
 - Code/branch organization, formatting, and task management so everyone knows what updates are
 - Start heading toward unified vision with regular communication
-Stop:
+### Stop:
 - Contemplating frameworks
 - Procrastination
 - Stop making issues without clear criteria
-Continue:
+### Continue:
 - Effective communication
 - Welcoming environment
 - Slack channel for tech, iMessage general
