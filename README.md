@@ -25,6 +25,6 @@ Documentation found <a href="https://expo.dev" target="_blank">here</a>.
 
 ## User Roles and Permissions
 
-Cooks (home or professional) are general users, who are able to edit and view the ingredients in their own pantries and grocery lists. They can look up and view recipes, but they cannot add or edit recipes in the app. 
+Cooks (home or professional) are general users, who are able to edit and view the ingredients in their own pantries and grocery lists. They can create custom recipes that only they can access. They can also look up and view publically-viewable recipes, but they cannot add to or edit these recipes. 
 
 ## Deployment
