@@ -1,18 +1,22 @@
 # Date of Retrospective: 01/26/23
 
 * Led by: Nadav Avital
-* Present: Anderson Lee, Danny Rose, Michael Hu, Audrey Zhou, Josh Sun, Nadav Avital
-* Absent: Eric Marzouk
+* Present: Anderson Lee, Danny Rose, Michael Hu, Audrey Zhou, Josh Sun, Nadav Avital, Eric Marzouk
+* Absent: 
 
 ## Action item
-
-* a goal: identify something the team wants to get better at
-* a change/experiment: identify one thing that the team will change about how it works together
-* a measurement: identify at least one way to measure whether the change helped the team achieve the goal, or move closer to it.
-
-## Optional
-
-* Record anything else you think the team might want to remember from this retro
+Start:
+- Start coding
+- Code/branch organization, formatting, and task management so everyone knows what updates are
+- Start heading toward unified vision with regular communication
+Stop:
+- Contemplating frameworks
+- Procrastination
+- Stop making issues without clear criteria
+Continue:
+- Effective communication
+- Welcoming environment
+- Slack channel for tech, iMessage general
 
 ## Retro Assessment
 
