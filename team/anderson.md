@@ -1,0 +1,1 @@
+Hello, my name is Anderson Lee and I am a third year computer science major. An idea I have for this project is for us to implement a feature where it can scan the nutrition facts of a specific food and store its information in a database. The app then can calculate specific measurements of each nutrition based on serving size.
