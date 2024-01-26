@@ -11,3 +11,8 @@
 | Anderson Lee | Some familiarity with React but not with ReactNative | Experience with Node.Js but no databases | Python, HTML/CSS, Typescript |
 
 Nadav send in the react native help channel: [2 Hour intro](https://www.youtube.com/watch?v=0-S5a0eXPoc&pp=ygUMcmVhY3QgbmF0aXZl)
+
+Learning plan:
+- Everyone, but especially Danny and Josh, will learn AmazonDB basic concepts
+- Everyone will learn some ReactNative concepts
+- Everyone clarifies they know Git concepts by asking other team members when issues arise
