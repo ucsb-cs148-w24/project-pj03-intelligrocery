@@ -75,15 +75,17 @@ Table: GroceryItem (primary key UserID, sort key GroceryID, local secondary for 
 	GroceryID: Number
 	GroceryName: String
 	Quantity: String
+	Unit: String
 	DateTimeAdded: String
 }
 
 Table: PantryItem (primary key UserID, secondary key PantryID, local secondary for PantryName, DateTimeAdded)
 {
 	UserID: Number
-PantryID: Number
+	PantryID: Number
 	PantryName: String
 	Quantity: String
+	Unit: String
 	DateTimeAdded: String
 }
 </pre>
