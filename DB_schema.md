@@ -72,7 +72,7 @@ RecipesID: Number
 Table: GroceryItem (primary key UserID, sort key GroceryID, local secondary for GroceryName, DateTimeAdded)
 {
 	UserID: Number
-GroceryID: Number
+	GroceryID: Number
 	GroceryName: String
 	Quantity: String
 	DateTimeAdded: String
