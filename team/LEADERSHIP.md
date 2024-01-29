@@ -3,9 +3,9 @@
 # Week one
 | Product Owner      | Scrum Master              | Scribe                                | 
 |-----------|-------------------|--------------------------------------------------------|
-| Eric Marzouk | Danny Rose | Nadav Avital | Danny + Josh
+| Eric Marzouk | Danny Rose | Nadav Avital | Danny + Anderson
 
 # Week two
 | Product Owner      | Scrum Master              | Scribe                                | 
 |-----------|-------------------|--------------------------------------------------------|
-| Josh Son | Michael Hu | Josh
+| Josh Son | Michael Hu | Anderson Lee
