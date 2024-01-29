@@ -56,8 +56,6 @@ Store user primary key:
 {
 	UserID: Number 
 	UserName: String
-	GroceryList: List of Strings
-	Pantry: List of Strings
 }
 
 Table: Recipes (primary key UserID, sort key RecipeID, local secondary for RecipeName, DateTimeAdded)
