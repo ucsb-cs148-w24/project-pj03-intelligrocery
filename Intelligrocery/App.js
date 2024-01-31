@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import PantryScreen from "./components/PantryScreen";
+import GroceryListScreen from "./components/GroceryListScreen";
+import RecipeScreen from "./components/RecipeScreen";
 // import { withAuthenticator } from '@aws-amplify/ui-react';
 // import { Amplify } from 'aws-amplify';
 // import config from './src/amplifyconfiguration.json';
@@ -9,34 +11,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // Amplify.configure(config);
 
-function GroceryListScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Hello CS148! (and the world too)</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-function PantryScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Your Pantry!</Text>
-    </View>
-  );
-}
-
-function RecipeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Recipes!</Text>
-    </View>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
@@ -47,5 +24,3 @@ function App() {
     </NavigationContainer>
   );
 }
-
-export default (App);
