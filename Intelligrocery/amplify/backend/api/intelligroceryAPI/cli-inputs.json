@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/intelligroceryAPI": {
+      "name": "/intelligroceryAPI",
+      "lambdaFunction": "intelligroceryFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

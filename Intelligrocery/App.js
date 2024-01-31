@@ -1,7 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { withAuthenticator } from '@aws-amplify/ui-react';
+// import { Amplify } from 'aws-amplify';
+// import config from './src/amplifyconfiguration.json';
+// import '@aws-amplify/ui-react/styles.css';
 
-export default function App() {
+// Amplify.configure(config);
+
+function GroceryListScreen() {
   return (
     <View style={styles.container}>
       <Text>Hello CS148! (and the world too)</Text>
@@ -10,11 +18,34 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function PantryScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Your Pantry!</Text>
+    </View>
+  );
+}
+
+function RecipeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Recipes!</Text>
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="GroceryList" component={GroceryListScreen} />
+        <Tab.Screen name="Pantry" component={PantryScreen} />
+        <Tab.Screen name="Recipes" component={RecipeScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default (App);
