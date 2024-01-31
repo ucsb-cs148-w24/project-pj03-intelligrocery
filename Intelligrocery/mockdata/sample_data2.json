@@ -1,0 +1,53 @@
+{
+    "name": "Cookie base classic s'mores",
+    "url": "http://www.bbcgoodfood.com/recipes/cookie-base-classic-smores",
+    "images": {
+        "THUMBNAIL": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812-s.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=adecc9f439279cf22022fdf3c4d443f348f095a18cb137c01f5a7bf708085a81",
+            "width": 100,
+            "height": 100
+        },
+        "SMALL": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812-m.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f5010472e2ef0fdc0a263bff829df90f80ed43adde807d08377e5d90b86d76a6",
+            "width": 200,
+            "height": 200
+        },
+        "REGULAR": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=266ab99612a089055035dbab3a3977df6f97a3fd3e4e7f4b5383b874e007f93f",
+            "width": 300,
+            "height": 300
+        }
+    },
+    "ingredients": [
+        {
+            "text": "16 chocolate chip cookie",
+            "quantity": 16.0,
+            "measure": "<unit>",
+            "food": "chocolate chip cookie",
+            "weight": 256.0,
+            "foodCategory": "quick breads and pastries",
+            "foodId": "food_b3fskc2ba827nsae9u7lmbumkrtg",
+            "image": "https://www.edamam.com/food-img/69f/69fa62927382f644af40d1f11d339901.jpg"
+        },
+        {
+            "text": "8 marshmallow (vegetarian brand, if required)",
+            "quantity": 8.0,
+            "measure": "<unit>",
+            "food": "marshmallow",
+            "weight": 57.6,
+            "foodCategory": "candy",
+            "foodId": "food_bkif6umbr6xns2ac1pl7vaxypd3f",
+            "image": "https://www.edamam.com/food-img/9c8/9c86a95af817e527adebbf8781aa7c4f.jpg"
+        },
+        {
+            "text": "8 tsp chocolate hazelnut spread (we used Nutella)",
+            "quantity": 8.0,
+            "measure": "teaspoon",
+            "food": "chocolate hazelnut spread",
+            "weight": 49.3333333358356,
+            "foodCategory": "chocolate",
+            "foodId": "food_aaz5y9abcv9nupabqhgm4a7hozy6",
+            "image": "https://www.edamam.com/food-img/375/37567989ef8d6f7392094111de56f62b.jpg"
+        }
+    ]
+}
