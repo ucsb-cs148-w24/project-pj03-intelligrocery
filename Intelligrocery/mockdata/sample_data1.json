@@ -1,0 +1,68 @@
+{
+    "name": "Spaghetti Frittata",
+    "url": "https://food52.com/recipes/38849-spaghetti-frittata",
+    "images": {
+        "THUMBNAIL": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-s.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a0f78d1f6e1f285df2f8d779c5a925bf5ecb0fb31efc6c34b0f96d04a9d72218",
+            "width": 100,
+            "height": 100
+        },
+        "SMALL": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-m.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4e23dca3b6fd3d4308a9b8828c9c0eff644d5979633d01b75f685ca8daf540c2",
+            "width": 200,
+            "height": 200
+        },
+        "REGULAR": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e0c6d79a52fffd5888a9b7152c61a95d52cd6218a45c9de81c8715fd368d71d0",
+            "width": 300,
+            "height": 300
+        },
+        "LARGE": {
+            "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-l.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d41c56829942adf2c69e5077169ae6eb97249fe4cb3478cdda702efc321e5ac3",
+            "width": 600,
+            "height": 600
+        }
+    },
+    "ingredients": [
+        {
+            "text": "6 eggs",
+            "quantity": 6.0,
+            "measure": "<unit>",
+            "food": "eggs",
+            "weight": 258.0,
+            "foodCategory": "Eggs",
+            "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+            "image": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg"
+        },
+        {
+            "text": "3 tablespoons grated Parmesan",
+            "quantity": 3.0,
+            "measure": "tablespoon",
+            "food": "Parmesan",
+            "weight": 27.88242187452861,
+            "foodCategory": "Cheese",
+            "foodId": "food_a104ppxa06d3emb272fkcab3cugd",
+            "image": "https://www.edamam.com/food-img/f58/f588658627c59d5041e4664119829aa9.jpg"
+        },
+        {
+            "text": "300 grams cold cooked spaghetti",
+            "quantity": 300.0,
+            "measure": "gram",
+            "food": "cooked spaghetti",
+            "weight": 300.0,
+            "foodCategory": "grains",
+            "foodId": "food_bcwokz3b2oo23xbi9zcjiav8mo2n",
+            "image": "https://www.edamam.com/food-img/222/22205c8592e82a675d90e3673d710bb5.jpg"
+        },
+        {
+            "text": "180 grams pancetta",
+            "quantity": 180.0,
+            "measure": "gram",
+            "food": "pancetta",
+            "weight": 180.0,
+            "foodCategory": "cured meats",
+            "foodId": "food_aan01koavbb7p5a81qsnfa763n8v",
+            "image": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg"
+        }
+    ]
+}
