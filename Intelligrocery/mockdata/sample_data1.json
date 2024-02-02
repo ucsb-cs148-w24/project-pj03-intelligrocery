@@ -1,0 +1,293 @@
+{
+    "Recipes": [
+        {
+            "name": "Spaghetti Frittata",
+            "url": "https://food52.com/recipes/38849-spaghetti-frittata",
+            "images": {
+                "THUMBNAIL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-s.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a0f78d1f6e1f285df2f8d779c5a925bf5ecb0fb31efc6c34b0f96d04a9d72218",
+                    "width": 100,
+                    "height": 100
+                },
+                "SMALL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-m.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4e23dca3b6fd3d4308a9b8828c9c0eff644d5979633d01b75f685ca8daf540c2",
+                    "width": 200,
+                    "height": 200
+                },
+                "REGULAR": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e0c6d79a52fffd5888a9b7152c61a95d52cd6218a45c9de81c8715fd368d71d0",
+                    "width": 300,
+                    "height": 300
+                },
+                "LARGE": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/05e/05ef8de0f16b0db8f49d41258e031c1a-l.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjED4aCXVzLWVhc3QtMSJHMEUCIQDMBSuK%2FhGg1YIZNpqogx9CfDmt10%2FdhPzcE0DMbjA6vQIgPiv7V%2F%2FAkXqvbljYtG3SpQAMMVVGSXvZjJ0T4WeeRWMqwgUI9%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDEtwlfgwUkN1pyz24SqWBc9CfDbQ6swA3wSztKoWE9%2BsvfxSQs5CWce59e9HEyGw1IkjzwKvFsj0sZz6i04CHkJaTYsUs%2FbfNtn8LQgqkIq8u1BSRQJelYgDtkflskHI%2Bn12V6LVkX%2FHKMwQ5E9NHHyIXoEBEqshTNs2lR6aECFnGjT7PEqFZsY4ErpQYVl2fgI%2FPTzCjZFcP9%2B2YGqckkVE7Nl5mrr%2BTuKc00b29CjI646KRH3ho0ABMSRqJPBpFex%2FoqSwSZcVhWcS2zHfT0h9IsWTYjAQYOqd3Dfjmf30jpTQoJRTVlt7hBf0LdvSFwaMKw4SgYasMYd93Sx48oRgILHK26AGnyb3U%2BAQixs4IBcIt1%2FzpXtTXRBIgwHQSerxANt%2BIS8c6x2PbA5CZ%2BYI0RsvPFkA8mfcYHCu247kFFN9CkbOhNy7YKytWGfqz3oxFXGglFAfYYqOGpvl%2F9f8i55FFcrDxQQnEAbMsLCN%2BYSfQvVOvTBK87PpfFO%2Bz1FOEkAFGUOEMoUI2LOyms5DjAu2ktQKw4bWKZ3xY5DJsESxrQHpj6RUCM%2FQhYja2Wpk60M0y6IRp3hSy01bwBJdBK9BOj8RFmCP3FXk4ennfPPR8OCFA31Iz7HZe3ZR6tpkebv%2Bf7ANtOcpIkZbIpeix7qB81Shmxan6FcMohltkaEtSqONzF3o9KtttLU%2FT6Ql5EK0zmCZuewqNZqSriKv1MY5ph8miQpBDa%2BTMoYMATlz%2F0VTR2Wi0AAJekgjmqan6%2BngX02DQTxd9BIq4gWmcHVCe1KQ%2BwOBWLvXQffNDct5TOpsOdX0CIP15txCtlLGuczQ8YdvXLB%2B2xbIIZKKtjbiTAIgI3ekQuSxiziKgNTO%2FqROT9VmmA0NQoQCKqEq3DyOMKy54K0GOrEBYsIZS2cdcE%2FW1vDjo6AMynmFlRj2v%2FLtkGdILDPijc0aV%2BDPVGRoPmFIdGs15iFuOzMaHWs%2FMmB1q8vztIfU%2B%2BPQ%2Bfyc%2F42OGoAJacM5P73Yzofc3EdCeCV1F56vgoZX36QmjOz3aDsjt1W0XoD7fsE25cDVT65%2Fl6YkCMPGmFQwW6c3KV%2F1KAVniHeAfsyCVb6UT5LMlaR6SNJOCEjAS2%2BL1e97RQF3AscQnCiT%2BYrO&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240129T222939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFAP5BQA5Z%2F20240129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d41c56829942adf2c69e5077169ae6eb97249fe4cb3478cdda702efc321e5ac3",
+                    "width": 600,
+                    "height": 600
+                }
+            },
+            "ingredients": [
+                {
+                    "text": "6 eggs",
+                    "quantity": 6.0,
+                    "measure": "<unit>",
+                    "food": "eggs",
+                    "weight": 258.0,
+                    "foodCategory": "Eggs",
+                    "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+                    "image": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg"
+                },
+                {
+                    "text": "3 tablespoons grated Parmesan",
+                    "quantity": 3.0,
+                    "measure": "tablespoon",
+                    "food": "Parmesan",
+                    "weight": 27.88242187452861,
+                    "foodCategory": "Cheese",
+                    "foodId": "food_a104ppxa06d3emb272fkcab3cugd",
+                    "image": "https://www.edamam.com/food-img/f58/f588658627c59d5041e4664119829aa9.jpg"
+                },
+                {
+                    "text": "300 grams cold cooked spaghetti",
+                    "quantity": 300.0,
+                    "measure": "gram",
+                    "food": "cooked spaghetti",
+                    "weight": 300.0,
+                    "foodCategory": "grains",
+                    "foodId": "food_bcwokz3b2oo23xbi9zcjiav8mo2n",
+                    "image": "https://www.edamam.com/food-img/222/22205c8592e82a675d90e3673d710bb5.jpg"
+                },
+                {
+                    "text": "180 grams pancetta",
+                    "quantity": 180.0,
+                    "measure": "gram",
+                    "food": "pancetta",
+                    "weight": 180.0,
+                    "foodCategory": "cured meats",
+                    "foodId": "food_aan01koavbb7p5a81qsnfa763n8v",
+                    "image": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg"
+                }
+            ]
+        },
+        {
+            "name": "Cookie base classic s'mores",
+            "url": "http://www.bbcgoodfood.com/recipes/cookie-base-classic-smores",
+            "images": {
+                "THUMBNAIL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812-s.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=adecc9f439279cf22022fdf3c4d443f348f095a18cb137c01f5a7bf708085a81",
+                    "width": 100,
+                    "height": 100
+                },
+                "SMALL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812-m.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f5010472e2ef0fdc0a263bff829df90f80ed43adde807d08377e5d90b86d76a6",
+                    "width": 200,
+                    "height": 200
+                },
+                "REGULAR": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/d3d/d3d0a1601547a5a9e4dc4df99cd92812.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLWVhc3QtMSJIMEYCIQDuUpAkRX4ATqqp%2FEnVj6rHWYTpLfJubo9cGR0qXR%2B18QIhAOrWXvpn2k0Py2TxPuaQgShImckZi%2Fin%2Bkx6cdX5ZCWzKrkFCDYQABoMMTg3MDE3MTUwOTg2IgzTDnz68cLTF%2BIuHOkqlgVaBsMPcP4Jhe0cFYlYEMYoGxFNortmzpky1fkcOEjmQAbeb7l2JJozyS0KPRWAX%2F2d47Tlf%2FkYF3AJQvW%2FnMQscoTjIXmHU7xzTwYZYLxYd3Va7kG3YpLfPq%2F1GQOR%2Flc86yRAWNaF%2By%2FbJVeS1I9dlYxDMY8sutLuzd2YUYk6KF0X%2BqQgy6YOv90hCj93pJUJFk9dUCfQ1LbIHRwXAErhosoS6pDs8JkBgl3LxBxT5Tr9S2CA5XqsUDZox%2FdxDs1Zc4QH17nnPDIT6xncXvIIuxT05Y9xYWpp2vL8rOwSmWkfHoa2sSxN1YWxgqELJoy9ZBuuEofa6dNKA%2FTLzOoNH8je1apz%2FBA3q79pXt2LrrqUhfwdoe0fjakc1F%2FEs78Ve2BlA7MkFNiMbYJmy%2FUplfbaL2IvYFAEWwzKjsUXpgpHiWdiZBVBZJdh05Cv%2FgW2BDZTe6Jlq8VqTo7O4JBYxhcp5x9P%2B1L5cMj1zUvlbz85SJSbVVvfE8eUmy9lQ4LhxLI0EpijKthVbJe%2BCwM1%2BVmuW%2Fz2SVVLD4ya%2FZ75K21XQZdnBpnc%2FfOSDl0ISNbq33f3DaKZIU4I1B7JPiI0F3A1bENLproBQK93JS3bRvW4%2FSWjoMdAW3SEAMUQNAiuIbxyAFkc8NsmcvTcYzYVZgXwr9zu2I8SgDkhDzmuIzxn5ypebX1Mgbo5nUp8stwMA8m04%2BFSoi9OX0BiS6jxu79pDQyfMdhNDBuspYQL7Jhp4XYNX1LgJLR0Fu%2FXQxkT9Nh3tb4Wsn9dfEwVUQej3H%2Bp4q7X32HZnxumQJtjszmfSh73ml%2BbANgD23KBmfdUzLMN%2F45W6GJuc%2FQtui0hsSNCmH4XymMkYqcGnNtyhOmmjQvebjDx6%2BqtBjqwAenlFQQWfr0naljeLB1Csq6SoB0BVsIlHa6vAe15w0GtWCWTQj62OK3xJP7WhBVoAme7pyXvH%2BBl9%2FCE%2FlHq4jGcJrNwS6V9qZAhkap3bmVWRvlamhbH2ifAQkgXKkbOts9qWM017H5IaaWEgq7UnWeMsnxQcoX6tANrtCU0LXUmgPBAinE2EaCOUrJFBN9iZgyZVYv82GsNPKy0gR7XtqqcVHkeTspTwJM7UwAt%2B6RY&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T222134Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFFBOXPSTK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=266ab99612a089055035dbab3a3977df6f97a3fd3e4e7f4b5383b874e007f93f",
+                    "width": 300,
+                    "height": 300
+                }
+            },
+            "ingredients": [
+                {
+                    "text": "16 chocolate chip cookie",
+                    "quantity": 16.0,
+                    "measure": "<unit>",
+                    "food": "chocolate chip cookie",
+                    "weight": 256.0,
+                    "foodCategory": "quick breads and pastries",
+                    "foodId": "food_b3fskc2ba827nsae9u7lmbumkrtg",
+                    "image": "https://www.edamam.com/food-img/69f/69fa62927382f644af40d1f11d339901.jpg"
+                },
+                {
+                    "text": "8 marshmallow (vegetarian brand, if required)",
+                    "quantity": 8.0,
+                    "measure": "<unit>",
+                    "food": "marshmallow",
+                    "weight": 57.6,
+                    "foodCategory": "candy",
+                    "foodId": "food_bkif6umbr6xns2ac1pl7vaxypd3f",
+                    "image": "https://www.edamam.com/food-img/9c8/9c86a95af817e527adebbf8781aa7c4f.jpg"
+                },
+                {
+                    "text": "8 tsp chocolate hazelnut spread (we used Nutella)",
+                    "quantity": 8.0,
+                    "measure": "teaspoon",
+                    "food": "chocolate hazelnut spread",
+                    "weight": 49.3333333358356,
+                    "foodCategory": "chocolate",
+                    "foodId": "food_aaz5y9abcv9nupabqhgm4a7hozy6",
+                    "image": "https://www.edamam.com/food-img/375/37567989ef8d6f7392094111de56f62b.jpg"
+                }
+            ]
+        },
+        {
+            "name": "Caramel Cake",
+            "url": "http://www.bbcgoodfood.com/recipes/cookie-base-classic-smores",
+            "images": {
+                "THUMBNAIL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/482/482417e9943411f0e7db4be74a7b5114-s.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDjVTabLnJoQV5Qge2WRO53UhhtHDI5djKj%2BBY%2F1JX30gIgGuMsLuWajb5%2FpEr8vXyuXaduJ%2BSbdHeBlq%2BoUG999aEquAUINhAAGgwxODcwMTcxNTA5ODYiDG6AK%2BNReNFObL99cyqVBazwYlhfsBhqMg2ApTpdKB5Is2u2CTXr6PzNNjC8WF5n4FBaHu32L54EwgVOQZAZrGjCeOLx0RG9D9D5Om8hqBzSBrElNSzBnCK%2BtbYPFkSnf9UwFu738Snrg2FxvGa6NV8ruR7THr1uqQebC62CgqBpOmHajU2Lr6AOOuiRGFlL4lEaCGvWHRp4z6d3Y7ABduRrf5E3nB1TUyNeefjZ07CRhaxKWjdBm%2BaOKUc%2B2szuoeP6rwU9%2BnljzHEQWh4HHLIe%2BW9vc0eG7Pi96M%2FNRhorTO55Eamfbwh1fvj7yS8esNO9do%2FGDZ2j0lcC8B2CILTJ1Sp4HBK7%2Fhl0cdX4N9IBx18H1G%2FAmMMFTP9Mq1pwFH%2Fan2oOEjn94peQO3hl7WRokQCDaUyv8ye0ukNKxyKt4ak%2FJjghlhz2nzGtPU3G0DiuxhmjMrr72COd8XDNKlQFBczNqTLXFB9NEDj6AJW6UMNUZ7E5KZ3s4pthZ6vu35b5N1E3jyHFlpCjOlQj5YqSQpKqVhQcuCZpe%2B6D0Y3EIZjUnrYaTKJ1VD4VrLbfCFG8Y%2BWM%2Bv1iummSDue5PGI8GHRny0qy8zKKpUTkvPXL2VYdgQf5FwPDaSOKQK4FiAQSXfWEzpVSSeeNCWLS3qDfX8xHAI3Xc9WkjdMk41J9bswH3RtyoKNs%2BToOta9%2FWq6UTfU5uvcXPT8aTp6HhsBxXzRFUD0rAnzlsDFU9kbAfQeNwgaoXmFOaHoqJAClZM2izLeuLsiG5aS1vXwRnEUWK0z5nirNHOvcYx2EEaSMcJk1zB7UsESpBkmhu9X5QmNHrP1nOtig8ntGq2arWkr4pdAfs2P3IXHuDVD7cYnRjz0kn4IRytIXMZxzbVpVrWheao4wsenqrQY6sQGvTANxgI1Gn2gZ3SoAIjaMeSMRcv3oxo%2FLEOaENKuFZbIv4MEO827wyKYnI35%2Fw%2BXed0BbRTvkP4K7PNkxtD6U78v3C6FeCQsyEqLyWges10%2F064hgaZQf4CZ3w2dPWA0cXv%2F1qCUzsIVtBegvgjnVjYKMuiWa5gahvXsjEF7z1w60Se7F%2FOXWtmAhF4liKkP36l0SZQ9B%2FmfktG%2FZxEvUrdD2ScGu%2BffnBRk%2B8fPyTNA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T223657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFDDMZM7MK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8df054f7f6a3143c092d14375f2dc9cda71458bf069de6e12815727a9ae0d921",
+                    "width": 100,
+                    "height": 100
+                },
+                "SMALL": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/482/482417e9943411f0e7db4be74a7b5114-m.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDjVTabLnJoQV5Qge2WRO53UhhtHDI5djKj%2BBY%2F1JX30gIgGuMsLuWajb5%2FpEr8vXyuXaduJ%2BSbdHeBlq%2BoUG999aEquAUINhAAGgwxODcwMTcxNTA5ODYiDG6AK%2BNReNFObL99cyqVBazwYlhfsBhqMg2ApTpdKB5Is2u2CTXr6PzNNjC8WF5n4FBaHu32L54EwgVOQZAZrGjCeOLx0RG9D9D5Om8hqBzSBrElNSzBnCK%2BtbYPFkSnf9UwFu738Snrg2FxvGa6NV8ruR7THr1uqQebC62CgqBpOmHajU2Lr6AOOuiRGFlL4lEaCGvWHRp4z6d3Y7ABduRrf5E3nB1TUyNeefjZ07CRhaxKWjdBm%2BaOKUc%2B2szuoeP6rwU9%2BnljzHEQWh4HHLIe%2BW9vc0eG7Pi96M%2FNRhorTO55Eamfbwh1fvj7yS8esNO9do%2FGDZ2j0lcC8B2CILTJ1Sp4HBK7%2Fhl0cdX4N9IBx18H1G%2FAmMMFTP9Mq1pwFH%2Fan2oOEjn94peQO3hl7WRokQCDaUyv8ye0ukNKxyKt4ak%2FJjghlhz2nzGtPU3G0DiuxhmjMrr72COd8XDNKlQFBczNqTLXFB9NEDj6AJW6UMNUZ7E5KZ3s4pthZ6vu35b5N1E3jyHFlpCjOlQj5YqSQpKqVhQcuCZpe%2B6D0Y3EIZjUnrYaTKJ1VD4VrLbfCFG8Y%2BWM%2Bv1iummSDue5PGI8GHRny0qy8zKKpUTkvPXL2VYdgQf5FwPDaSOKQK4FiAQSXfWEzpVSSeeNCWLS3qDfX8xHAI3Xc9WkjdMk41J9bswH3RtyoKNs%2BToOta9%2FWq6UTfU5uvcXPT8aTp6HhsBxXzRFUD0rAnzlsDFU9kbAfQeNwgaoXmFOaHoqJAClZM2izLeuLsiG5aS1vXwRnEUWK0z5nirNHOvcYx2EEaSMcJk1zB7UsESpBkmhu9X5QmNHrP1nOtig8ntGq2arWkr4pdAfs2P3IXHuDVD7cYnRjz0kn4IRytIXMZxzbVpVrWheao4wsenqrQY6sQGvTANxgI1Gn2gZ3SoAIjaMeSMRcv3oxo%2FLEOaENKuFZbIv4MEO827wyKYnI35%2Fw%2BXed0BbRTvkP4K7PNkxtD6U78v3C6FeCQsyEqLyWges10%2F064hgaZQf4CZ3w2dPWA0cXv%2F1qCUzsIVtBegvgjnVjYKMuiWa5gahvXsjEF7z1w60Se7F%2FOXWtmAhF4liKkP36l0SZQ9B%2FmfktG%2FZxEvUrdD2ScGu%2BffnBRk%2B8fPyTNA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T223657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFDDMZM7MK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0cbf419ec0fc5beb1a2c061869dbc1093898b67b9fcb6d285f8b8434c6b076da",
+                    "width": 200,
+                    "height": 200
+                },
+                "REGULAR": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/482/482417e9943411f0e7db4be74a7b5114.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDjVTabLnJoQV5Qge2WRO53UhhtHDI5djKj%2BBY%2F1JX30gIgGuMsLuWajb5%2FpEr8vXyuXaduJ%2BSbdHeBlq%2BoUG999aEquAUINhAAGgwxODcwMTcxNTA5ODYiDG6AK%2BNReNFObL99cyqVBazwYlhfsBhqMg2ApTpdKB5Is2u2CTXr6PzNNjC8WF5n4FBaHu32L54EwgVOQZAZrGjCeOLx0RG9D9D5Om8hqBzSBrElNSzBnCK%2BtbYPFkSnf9UwFu738Snrg2FxvGa6NV8ruR7THr1uqQebC62CgqBpOmHajU2Lr6AOOuiRGFlL4lEaCGvWHRp4z6d3Y7ABduRrf5E3nB1TUyNeefjZ07CRhaxKWjdBm%2BaOKUc%2B2szuoeP6rwU9%2BnljzHEQWh4HHLIe%2BW9vc0eG7Pi96M%2FNRhorTO55Eamfbwh1fvj7yS8esNO9do%2FGDZ2j0lcC8B2CILTJ1Sp4HBK7%2Fhl0cdX4N9IBx18H1G%2FAmMMFTP9Mq1pwFH%2Fan2oOEjn94peQO3hl7WRokQCDaUyv8ye0ukNKxyKt4ak%2FJjghlhz2nzGtPU3G0DiuxhmjMrr72COd8XDNKlQFBczNqTLXFB9NEDj6AJW6UMNUZ7E5KZ3s4pthZ6vu35b5N1E3jyHFlpCjOlQj5YqSQpKqVhQcuCZpe%2B6D0Y3EIZjUnrYaTKJ1VD4VrLbfCFG8Y%2BWM%2Bv1iummSDue5PGI8GHRny0qy8zKKpUTkvPXL2VYdgQf5FwPDaSOKQK4FiAQSXfWEzpVSSeeNCWLS3qDfX8xHAI3Xc9WkjdMk41J9bswH3RtyoKNs%2BToOta9%2FWq6UTfU5uvcXPT8aTp6HhsBxXzRFUD0rAnzlsDFU9kbAfQeNwgaoXmFOaHoqJAClZM2izLeuLsiG5aS1vXwRnEUWK0z5nirNHOvcYx2EEaSMcJk1zB7UsESpBkmhu9X5QmNHrP1nOtig8ntGq2arWkr4pdAfs2P3IXHuDVD7cYnRjz0kn4IRytIXMZxzbVpVrWheao4wsenqrQY6sQGvTANxgI1Gn2gZ3SoAIjaMeSMRcv3oxo%2FLEOaENKuFZbIv4MEO827wyKYnI35%2Fw%2BXed0BbRTvkP4K7PNkxtD6U78v3C6FeCQsyEqLyWges10%2F064hgaZQf4CZ3w2dPWA0cXv%2F1qCUzsIVtBegvgjnVjYKMuiWa5gahvXsjEF7z1w60Se7F%2FOXWtmAhF4liKkP36l0SZQ9B%2FmfktG%2FZxEvUrdD2ScGu%2BffnBRk%2B8fPyTNA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T223657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFDDMZM7MK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=67a4c148f8c3a73800d42006aa90b76362c7baea743a125ec79fc5f01a7c314b",
+                    "width": 300,
+                    "height": 300
+                },
+                "LARGE": {
+                    "url": "https://edamam-product-images.s3.amazonaws.com/web-img/482/482417e9943411f0e7db4be74a7b5114-l.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG0aCXVzLWVhc3QtMSJHMEUCIQDjVTabLnJoQV5Qge2WRO53UhhtHDI5djKj%2BBY%2F1JX30gIgGuMsLuWajb5%2FpEr8vXyuXaduJ%2BSbdHeBlq%2BoUG999aEquAUINhAAGgwxODcwMTcxNTA5ODYiDG6AK%2BNReNFObL99cyqVBazwYlhfsBhqMg2ApTpdKB5Is2u2CTXr6PzNNjC8WF5n4FBaHu32L54EwgVOQZAZrGjCeOLx0RG9D9D5Om8hqBzSBrElNSzBnCK%2BtbYPFkSnf9UwFu738Snrg2FxvGa6NV8ruR7THr1uqQebC62CgqBpOmHajU2Lr6AOOuiRGFlL4lEaCGvWHRp4z6d3Y7ABduRrf5E3nB1TUyNeefjZ07CRhaxKWjdBm%2BaOKUc%2B2szuoeP6rwU9%2BnljzHEQWh4HHLIe%2BW9vc0eG7Pi96M%2FNRhorTO55Eamfbwh1fvj7yS8esNO9do%2FGDZ2j0lcC8B2CILTJ1Sp4HBK7%2Fhl0cdX4N9IBx18H1G%2FAmMMFTP9Mq1pwFH%2Fan2oOEjn94peQO3hl7WRokQCDaUyv8ye0ukNKxyKt4ak%2FJjghlhz2nzGtPU3G0DiuxhmjMrr72COd8XDNKlQFBczNqTLXFB9NEDj6AJW6UMNUZ7E5KZ3s4pthZ6vu35b5N1E3jyHFlpCjOlQj5YqSQpKqVhQcuCZpe%2B6D0Y3EIZjUnrYaTKJ1VD4VrLbfCFG8Y%2BWM%2Bv1iummSDue5PGI8GHRny0qy8zKKpUTkvPXL2VYdgQf5FwPDaSOKQK4FiAQSXfWEzpVSSeeNCWLS3qDfX8xHAI3Xc9WkjdMk41J9bswH3RtyoKNs%2BToOta9%2FWq6UTfU5uvcXPT8aTp6HhsBxXzRFUD0rAnzlsDFU9kbAfQeNwgaoXmFOaHoqJAClZM2izLeuLsiG5aS1vXwRnEUWK0z5nirNHOvcYx2EEaSMcJk1zB7UsESpBkmhu9X5QmNHrP1nOtig8ntGq2arWkr4pdAfs2P3IXHuDVD7cYnRjz0kn4IRytIXMZxzbVpVrWheao4wsenqrQY6sQGvTANxgI1Gn2gZ3SoAIjaMeSMRcv3oxo%2FLEOaENKuFZbIv4MEO827wyKYnI35%2Fw%2BXed0BbRTvkP4K7PNkxtD6U78v3C6FeCQsyEqLyWges10%2F064hgaZQf4CZ3w2dPWA0cXv%2F1qCUzsIVtBegvgjnVjYKMuiWa5gahvXsjEF7z1w60Se7F%2FOXWtmAhF4liKkP36l0SZQ9B%2FmfktG%2FZxEvUrdD2ScGu%2BffnBRk%2B8fPyTNA%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240131T223657Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFDDMZM7MK%2F20240131%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=bfe2fb7c61481c55f3cddd596af66d9c80f375221d70922cdd9007dabdfae1f9",
+                    "width": 600,
+                    "height": 600
+                }
+            },
+            "ingredients": [
+                {
+                    "text": "2 cup sifted cake flour(not self-rising; sift before measuring),for cake",
+                    "quantity": 2.0,
+                    "measure": "cup",
+                    "food": "cake flour",
+                    "weight": 274.0,
+                    "foodCategory": "grains",
+                    "foodId": "food_ani7vifaibaoiyb7mwh2obf054t3",
+                    "image": "https://www.edamam.com/food-img/eac/eacc8e9c06b6fd880448fc528580f920.jpg"
+                },
+                {
+                    "text": "2 tbsp sifted cake flour,for cake",
+                    "quantity": 2.0,
+                    "measure": "tablespoon",
+                    "food": "cake flour",
+                    "weight": 17.12499999971046,
+                    "foodCategory": "grains",
+                    "foodId": "food_ani7vifaibaoiyb7mwh2obf054t3",
+                    "image": "https://www.edamam.com/food-img/eac/eacc8e9c06b6fd880448fc528580f920.jpg"
+                },
+                {
+                    "text": "1 tsp Baking Powder,for cake",
+                    "quantity": 1.0,
+                    "measure": "teaspoon",
+                    "food": "Baking Powder",
+                    "weight": 4.6,
+                    "foodCategory": "condiments and sauces",
+                    "foodId": "food_bad4zycbt4w60dbut111vaub2g3e",
+                    "image": "https://www.edamam.com/food-img/a84/a8410ec57a2e62a1ad9955ac14d40af6.jpg"
+                },
+                {
+                    "text": "3/4 tsp Baking Soda,for cake",
+                    "quantity": 0.75,
+                    "measure": "teaspoon",
+                    "food": "Baking Soda",
+                    "weight": 3.4499999999999997,
+                    "foodCategory": "condiments and sauces",
+                    "foodId": "food_asa4cjoa3lmt8ibwdg0cpblheo69",
+                    "image": "https://www.edamam.com/food-img/7e5/7e55e4482cc2fde91f427fc568e6f5b8.jpeg"
+                },
+                {
+                    "text": "1/2 tsp Salt,for cake",
+                    "quantity": 0.5,
+                    "measure": "teaspoon",
+                    "food": "Salt",
+                    "weight": 3.0,
+                    "foodCategory": "Condiments and sauces",
+                    "foodId": "food_btxz81db72hwbra2pncvebzzzum9",
+                    "image": "https://www.edamam.com/food-img/694/6943ea510918c6025795e8dc6e6eaaeb.jpg"
+                },
+                {
+                    "text": "1 stick unsalted butter, softened(4 oz),for cake",
+                    "quantity": 4.0,
+                    "measure": "ounce",
+                    "food": "unsalted butter",
+                    "weight": 113.3980925,
+                    "foodCategory": "Dairy",
+                    "foodId": "food_awz3iefajbk1fwahq9logahmgltj",
+                    "image": "https://www.edamam.com/food-img/713/71397239b670d88c04faa8d05035cab4.jpg"
+                },
+                {
+                    "text": "1 cup Granulated Sugar,for cake",
+                    "quantity": 1.0,
+                    "measure": "cup",
+                    "food": "Granulated Sugar",
+                    "weight": 200.0,
+                    "foodCategory": "sugars",
+                    "foodId": "food_axi2ijobrk819yb0adceobnhm1c2",
+                    "image": "https://www.edamam.com/food-img/ecb/ecb3f5aaed96d0188c21b8369be07765.jpg"
+                },
+                {
+                    "text": "1 tsp pure vanilla extract,for cake",
+                    "quantity": 1.0,
+                    "measure": "teaspoon",
+                    "food": "vanilla extract",
+                    "weight": 4.2,
+                    "foodCategory": "Condiments and sauces",
+                    "foodId": "food_bh1wvnqaw3q7ciascfoygaabax2a",
+                    "image": "https://www.edamam.com/food-img/90f/90f910b0bf82750d4f6528263e014cca.jpg"
+                },
+                {
+                    "text": "2 x large eggs, at room temperature 30 minutes,for cake",
+                    "quantity": 2.0,
+                    "measure": "<unit>",
+                    "food": "eggs",
+                    "weight": 100.0,
+                    "foodCategory": "Eggs",
+                    "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+                    "image": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg"
+                },
+                {
+                    "text": "1 cup Buttermilk,well shaken,for cake",
+                    "quantity": 1.0,
+                    "measure": "cup",
+                    "food": "Buttermilk",
+                    "weight": 245.0,
+                    "foodCategory": "Milk",
+                    "foodId": "food_axwuni1bjd81cybjn45rwb25o4jb",
+                    "image": "https://www.edamam.com/food-img/768/768bea3c8421a7ae987bc00c4a2b82e8.jpg"
+                },
+                {
+                    "text": "1 cup Heavy Cream,for caramel glaze",
+                    "quantity": 1.0,
+                    "measure": "cup",
+                    "food": "Heavy Cream",
+                    "weight": 238.0,
+                    "foodCategory": "Dairy",
+                    "foodId": "food_bgtkr21b5v16mca246x9ebnaswyo",
+                    "image": "https://www.edamam.com/food-img/484/4848d71f6a14dd5076083f5e17925420.jpg"
+                },
+                {
+                    "text": "1/2 cup packed light brown sugar,for caramel glaze",
+                    "quantity": 0.5,
+                    "measure": "cup",
+                    "food": "light brown sugar",
+                    "weight": 110.0,
+                    "foodCategory": "sugars",
+                    "foodId": "food_aodgtqwbmeu5f6bxeffn0art3bga",
+                    "image": "https://www.edamam.com/food-img/8c6/8c6662bd73900645c6385b51a95d9b03.jpg"
+                },
+                {
+                    "text": "1 tbsp Light Corn Syrup,for caramel glaze",
+                    "quantity": 1.0,
+                    "measure": "tablespoon",
+                    "food": "Light Corn Syrup",
+                    "weight": 22.0,
+                    "foodCategory": "sugars",
+                    "foodId": "food_b8n4w6faic9hd1a7t9vx1bxq42wr",
+                    "image": "https://www.edamam.com/food-img/148/1488bb6a128ff5142e0a52d5eeb36d36.jpg"
+                },
+                {
+                    "text": "1 tsp pure vanilla extract,for caramel glaze",
+                    "quantity": 1.0,
+                    "measure": "teaspoon",
+                    "food": "vanilla extract",
+                    "weight": 4.2,
+                    "foodCategory": "Condiments and sauces",
+                    "foodId": "food_bh1wvnqaw3q7ciascfoygaabax2a",
+                    "image": "https://www.edamam.com/food-img/90f/90f910b0bf82750d4f6528263e014cca.jpg"
+                }
+            ]
+        }
+    ]
+}

@@ -21,9 +21,12 @@ export default class RecipeScreen extends React.Component {
     return (
       <View>
         <SearchBar
-        placeholder="Type Here..."
+        placeholder="Search a recipe..."
+        placeholderTextColor=""
         onChangeText={this.updateSearch}
         value={search}
+        containerStyle={{ backgroundColor: 'lightgrey' }}
+        inputContainerStyle={{ backgroundColor: "#EEEEEE" }}
         />
         <Button
         title ='Enter'
@@ -34,34 +37,3 @@ export default class RecipeScreen extends React.Component {
     );
   }
 }
-  /*const [recipe, setRecipe] = useState("");
-
-  return (
-    <View style = {styles.container}>
-      <View style = {styles.inputContainer}>
-        <TextInput style = {styles.userInput}
-        placeholder='Search a recipe...'
-        value = {recipe}
-        onChangeText={(text) => setRecipe(text)}></TextInput>
-      </View>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create ({
-  container: {
-    flex: 1,
-    padding: 20
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  userInput: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: '#777',
-    borderRadius: 10,
-    fontSize: 36
-  }
-})*/
