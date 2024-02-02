@@ -4,16 +4,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PantryScreen from "./components/PantryScreen";
 import GroceryListScreen from "./components/GroceryListScreen";
 import RecipeScreen from "./components/RecipeScreen";
-// import { withAuthenticator } from '@aws-amplify/ui-react';
-// import { Amplify } from 'aws-amplify';
-// import config from './src/amplifyconfiguration.json';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Amplify } from 'aws-amplify';
+import config from './src/amplifyconfiguration.json';
 // import '@aws-amplify/ui-react/styles.css';
 
-// Amplify.configure(config);
+Amplify.configure(config);
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
@@ -24,3 +24,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+export default withAuthenticator(App)
