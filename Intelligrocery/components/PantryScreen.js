@@ -8,6 +8,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import PantryItem from "./PantryItem";
 
 function PantryScreen() {
@@ -43,7 +44,7 @@ function PantryScreen() {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={toggleInputVisibility}>
-        <Text>+</Text>
+        <Icon name="plus" style={styles.showInput} />
       </TouchableOpacity>
       {inputVisible && (
         <View style={styles.inputContainer}>
@@ -85,9 +86,10 @@ function PantryScreen() {
         {pantryItems.map((item, index) => (
           <PantryItem
             key={index}
-            name={item.name}
-            quantity={item.quantity}
-            unit={item.unit}
+            initName={item.name}
+            initQuantity={item.quantity}
+            initUnit={item.unit}
+            editable={false}
             onDelete={() => deletePantryItem(index)}
           />
         ))}
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     marginBottom: 10,
+    borderRadius: 5,
     paddingHorizontal: 10,
   },
   detailsInput: {
@@ -123,10 +126,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     paddingHorizontal: 10,
+    borderRadius: 5,
     width: 150,
   },
   addItem: {
-    backgroundColor: "blue",
+    backgroundColor: "green",
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
@@ -136,6 +140,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
   },
+  showInput: {
+    color: "green",
+    fontSize: 30,
+  }
 });
 
 export default PantryScreen;
