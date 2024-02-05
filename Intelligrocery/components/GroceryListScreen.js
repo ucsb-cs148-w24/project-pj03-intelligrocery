@@ -8,6 +8,6 @@ function GroceryListScreen () {
       <Text>Your Grocery List!</Text>
     </View>
   );
-};
+}
 
 export default GroceryListScreen;
