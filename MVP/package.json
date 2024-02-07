@@ -1,0 +1,40 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/metro-config": "^0.17.3",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
+    "axios": "^1.6.7",
+    "expo": "^50.0.4",
+    "expo-status-bar": "~1.11.1",
+    "node-fetch": "^3.3.2",
+    "node-http": "^0.0.5",
+    "react": "18.2.0",
+    "react-native": "0.73.2",
+    "react-native-bouncy-checkbox": "^3.0.7",
+    "react-native-dialog": "^9.3.0",
+    "react-native-elements": "^3.4.3",
+    "react-native-flex-layout": "^0.1.5",
+    "react-native-fs": "^2.20.0",
+    "react-native-gesture-handler": "^2.14.1",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-modal": "^13.0.1",
+    "react-native-vector-icons": "^10.0.3",
+    "react-navigation": "^5.0.0",
+    "react-swipe-to-delete-ios": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "react-native-dotenv": "^3.4.9"
+  },
+  "private": true
+}
