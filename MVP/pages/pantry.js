@@ -11,7 +11,6 @@ const Pantry = ({ navigation }) => {
 
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {
-        console.log('Button pressed');
         setOverlayVisible(true);
     };
 
@@ -20,7 +19,6 @@ const Pantry = ({ navigation }) => {
     };
 
     const handleOverlayAdd = (ingredient, quantity, units) => {
-        console.log('Adding ingredient:', ingredient, quantity, units);
         setOverlayVisible(false);
         setPantry([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...pantry]);
     };
