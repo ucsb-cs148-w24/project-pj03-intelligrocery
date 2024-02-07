@@ -1,62 +1,34 @@
-# OSX
-#
-.DS_Store
-
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
-
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
-
-# node.js
-#
+# dependencies
 node_modules/
-package-lock.json # include if you are using npm - don't use both yarn and npm
-npm-debug.log
-yarn-error.log
-yarn.lock # include if you are using yarn - don't use both npm and yarn
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
+# Expo
+.expo/
+dist/
+web-build/
 
-# Fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use Fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+# Metro
+.metro-health-check*
 
-# Bundle artifact
-*.jsbundle
-Share
-Improve this answer
-Follow
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
