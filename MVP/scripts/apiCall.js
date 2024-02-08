@@ -1,4 +1,4 @@
-import {app_id, app_key} from '@env'
+import {app_id, app_key} from 'react-native-dotenv'
 import axios from 'axios';
 
 export async function performApiCall(foodName) {
