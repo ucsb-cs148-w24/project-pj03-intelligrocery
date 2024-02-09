@@ -20,7 +20,8 @@ For frontend, we are using React Native, and for backend we are using AWS. For d
 To test the application, use Expo. 
 
 We recommend downloading the application on your mobile device. It requires npm package manager to be installed.
-To run the app, see our README within the app [here](https://github.com/ucsb-cs148-w24/project-pj03-intelligrocery/blob/main/Intelligrocery/README.md).
+
+Please run the app from the Intelligrocery/ directoy, and refer to our README within that directory [here](https://github.com/ucsb-cs148-w24/project-pj03-intelligrocery/blob/main/Intelligrocery/README.md) for further instructions.
 
 ## User Roles and Permissions
 
