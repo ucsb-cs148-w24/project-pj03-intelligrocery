@@ -19,9 +19,8 @@ For frontend, we are using React Native, and for backend we are using AWS. For d
 ## Testing/Viewing the Application
 To test the application, use Expo. 
 
-We recommend downloading the application on your mobile device.
-
-Documentation found <a href="https://expo.dev" target="_blank">here</a>.
+We recommend downloading the application on your mobile device. It requires npm package manager to be installed.
+To run the app, see our README within the app [here](https://github.com/ucsb-cs148-w24/project-pj03-intelligrocery/blob/main/Intelligrocery/README.md).
 
 ## User Roles and Permissions
 
