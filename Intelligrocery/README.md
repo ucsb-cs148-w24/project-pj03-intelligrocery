@@ -2,7 +2,7 @@
 
 ## How to deploy
 To ensure all correct packages are installed, run these commands:\
-rm -rf node_modules/\
+rm -rf node_modules/\ (if these already exist for you)
 npm install
 
 Then, to start the app, run:\
