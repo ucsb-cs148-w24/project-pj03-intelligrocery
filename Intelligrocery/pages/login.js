@@ -1,6 +1,6 @@
 //React Native
 import React, { useState, useEffect } from 'react'
-import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ImageBackground } from 'react-native'
+import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native'
 import { useNavigation } from '@react-navigation/core'
 
 //Firebase
@@ -35,7 +35,7 @@ const LoginScreen = () => {
             userCredentials = await auth.signInWithEmailAndPassword(email, password);
             console.log('Signed in with: ', userCredentials.user.email);
           } catch (error) {
-              alert(error.message)
+            Alert.alert("Hi there!", "\nIt appears that either your login information is incorrect or you don't have an account. \n\nIf you don't have an account, please input an email and password and then click \'Register\'!");
           }
     };
 
