@@ -1,4 +1,4 @@
-# Lec05 Meeting (Sprint Planning)
+# Lec05 Meeting (Sprint Planning lec07 and lec08)
 
 #Attendance
 
