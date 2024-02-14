@@ -96,6 +96,16 @@ export default StyleSheet.create({
     checkedText: {
         textDecorationLine: 'line-through',
     },
+    editableItem: {
+        backgroundColor: '#eee',
+
+    },
+    editableText: {
+        backgroundColor: '#eee',
+        borderBottomWidth: 1,
+        borderColor: "gray",
+        color: "gray",
+    },
     checkButton: {
         backgroundColor: 'black',
         borderRadius: 10,
