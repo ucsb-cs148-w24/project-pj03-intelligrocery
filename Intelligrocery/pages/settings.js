@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/core'
 
 //Firebase
 import { auth } from '../firebase'
+import { signOut } from "firebase/auth";
+
 
 const SettingsScreen = () => {
     const navigation = useNavigation();
@@ -12,7 +14,7 @@ const SettingsScreen = () => {
     const handleSignOut = async () => {
         try {
             const email = auth.currentUser?.email
-            userCredentials = await auth.signOut()
+            userCredentials = await signOut(auth)
             console.log('Logged out with: ', email);
             navigation.replace("Login")
         }

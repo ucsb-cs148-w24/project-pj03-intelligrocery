@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/core'
 
 //Firebase
 import { auth } from '../firebase'
+import { createUserWithEmailAndPassword,  signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('')
@@ -15,7 +16,7 @@ const LoginScreen = () => {
     useEffect( () => {
         const unsubscribe = auth.onAuthStateChanged( user => {
             if (user) {
-                navigation.navigate("Tabs")
+                navigation.replace("Tabs")
             }
         })
         return unsubscribe
@@ -23,7 +24,7 @@ const LoginScreen = () => {
 
     const handleSignUp = async () => {
         try {
-          userCredentials = await auth.createUserWithEmailAndPassword(email, password);
+          userCredentials = await createUserWithEmailAndPassword(auth, email, password);
           console.log('Registered with: ', userCredentials.user.email);
         } catch (error) {
             alert(error.message)
@@ -32,7 +33,7 @@ const LoginScreen = () => {
 
     const handleLogin = async () => {
         try {
-            userCredentials = await auth.signInWithEmailAndPassword(email, password);
+            userCredentials = await signInWithEmailAndPassword(auth, email, password);
             console.log('Signed in with: ', userCredentials.user.email);
           } catch (error) {
             Alert.alert("Hi there!", "\nIt appears that either your login information is incorrect or you don't have an account. \n\nIf you don't have an account, please input an email and password and then click \'Register\'!");
