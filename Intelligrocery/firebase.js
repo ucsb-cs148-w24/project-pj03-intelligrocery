@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-
-
+import { signOut, getAuth } from "firebase/auth";
+import { getFirestore, collection, doc, addDoc, setDoc, increment, serverTimestamp } from "firebase/firestore";
 
 // // Import the functions you need from the SDKs you need
 // import firebase from 'firebase/compat/app';
@@ -12,7 +10,6 @@ import { getFirestore } from "firebase/firestore";
 
 // // TODO: Add SDKs for Firebase products that you want to use
 // // https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCgZL6ChP6aGjz-D5C6ABklibgGuFKR-nw",
@@ -24,6 +21,36 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const auth = getAuth();
-export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig); //this line should be before others to make a default app
 export const db = getFirestore(app);
+
+export const auth = getAuth();
+
+const handleSignOut = async ({navigation}) => {
+  //Note: for some reason needed to pass in as {}
+  try {
+      const email = auth.currentUser?.email
+      userCredentials = await signOut(auth)
+      console.log('Logged out with: ', email);
+      navigation.replace("Login")
+  }
+  catch (error) {
+      alert(error.message)
+  }
+}
+
+const addDocFB = async (docData, collectionName) => {
+  //Takes a reference to an ingredient doc and adds it to the database
+  docData.userID = auth.currentUser.uid;
+  docData.timeAdded = serverTimestamp();
+  try {
+    await addDoc(collection(db, collectionName), docData);
+  } catch (error) {
+      alert(error.message)
+  }
+}
+
+export {handleSignOut, addDocFB};
+
+
+

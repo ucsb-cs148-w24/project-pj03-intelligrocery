@@ -5,6 +5,8 @@ import styles from '../styles/styles';
 import AddIngredient from './addIngredient';
 import PantryItem from './pantryItem';
 
+import { addDocFB } from '../firebase'
+
 const Pantry = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [pantry, setPantry] = useState([]);
@@ -21,6 +23,19 @@ const Pantry = ({ navigation }) => {
     const handleOverlayAdd = (ingredient, quantity, units) => {
         setOverlayVisible(false);
         setPantry([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...pantry]);
+        try {
+          addDocFB(
+            data = {
+              groceryName : ingredient,
+              quantity : quantity,
+              unit : units,
+              isChecked : false,
+            }, 
+           collectionName = "pantry");
+          console.log("Added ", ingredient);
+        } catch(error) {
+          console.log(error.message);
+        } 
     };
 
     React.useLayoutEffect(() => {

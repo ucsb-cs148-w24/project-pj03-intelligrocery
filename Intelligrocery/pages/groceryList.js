@@ -1,13 +1,24 @@
 // // GroceryList.js
+
+//React
 import React, {useState} from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import styles from '../styles/styles';
-import AddIngredient from './addIngredient';
-import IngredientItem from './ingredientItem';
 
+//Pages
+import AddIngredient from './addIngredient';
+import GroceryItem from './groceryItem';
+
+//Firebase
+import { addDocFB } from '../firebase'
+
+
+//timestamp: serverTimestamp()
 const GroceryList = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-    const [groceryList, setGroceryList] = useState([]);
+    const [groceryList, setGroceryList] = useState([]); //will be a list of DB references instead
+
+    //db queries and initialize groceryList, after we write to database
 
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {
@@ -21,7 +32,20 @@ const GroceryList = ({ navigation }) => {
     const handleOverlayAdd = (ingredient, quantity, units) => {
         setOverlayVisible(false);
         setGroceryList([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...groceryList]);
-    };
+        try {
+          addDocFB(
+            data = {
+              groceryName : ingredient,
+              quantity : quantity,
+              unit : units,
+              isChecked : false,
+            }, 
+           collectionName = "groceryList");
+          console.log("Added ", ingredient);
+        } catch(error) {
+          console.log(error.message);
+        } 
+      };
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -60,7 +84,7 @@ const GroceryList = ({ navigation }) => {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <AddIngredient isVisible={isOverlayVisible} onClose={handleOverlayClose} onAdd={handleOverlayAdd} />
           {groceryList.map((item, index) => (
-            <IngredientItem 
+            <GroceryItem 
               key={item.id} 
               toggleCheck={toggleCheck}
               handleDelete={handleDelete}

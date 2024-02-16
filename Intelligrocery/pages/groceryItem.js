@@ -6,7 +6,7 @@ import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Spacer } from 'react-native-flex-layout';
 
-export default function IngredientItem({item, toggleCheck, handleDelete}) {
+export default function GroceryItem({item, toggleCheck, handleDelete}) {
     
     const swipeableRef = React.useRef(null);
 
