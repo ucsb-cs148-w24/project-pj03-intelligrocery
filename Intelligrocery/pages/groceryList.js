@@ -2,7 +2,7 @@
 
 //React
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import styles from '../styles/styles';
 
 //Pages
@@ -10,7 +10,7 @@ import AddIngredient from './addIngredient';
 import GroceryItem from './groceryItem';
 
 //Firebase
-import { addDocFB } from '../firebase'
+import { addDocFB, deleteDocFB } from '../firebase'
 
 
 //timestamp: serverTimestamp()
@@ -29,22 +29,32 @@ const GroceryList = ({ navigation }) => {
         setOverlayVisible(false);
     };
 
-    const handleOverlayAdd = (ingredient, quantity, units) => {
+    const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        setGroceryList([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...groceryList]);
-        try {
-          addDocFB(
+        // const id = Math.random().toFixed(16).slice(2)
+        const id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
+        setGroceryList([{ingredient, quantity, units, id}, ...groceryList]);
+        console.log("Next id in groceryList: ", id);
+        const dbID = await addDocFB(
             data = {
-              groceryName : ingredient,
-              quantity : quantity,
-              unit : units,
+              ingredient,
+              quantity,
+              units,
               isChecked : false,
-            }, 
-           collectionName = "groceryList");
-          console.log("Added ", ingredient);
-        } catch(error) {
-          console.log(error.message);
-        } 
+              // appListKey: id,
+            },
+          collectionName = "groceryList");
+          console.log("Added to grocery list: ", ingredient);
+          setGroceryList(prevList => { //calling setGroceryList seems to let the past set finish first
+            const updatedList = prevList.map(item => {
+                if (item.id === id) {
+                    return { ...item, dbID };
+                }
+                return item;
+            });
+           console.log("Made this item have dbID: ", dbID)
+          return updatedList;
+      });
       };
 
     React.useLayoutEffect(() => {
@@ -67,10 +77,16 @@ const GroceryList = ({ navigation }) => {
     }
 
     const handleDelete = (id) => {
+      console.log("Id to try and delete from grocery list: ", id)
+      const index = groceryList.findIndex((item) => item.id === id);
+      if (index != -1) {
         const newGroceryList = [...groceryList];
-        const index = newGroceryList.findIndex((item) => item.id === id);
+        const item = newGroceryList[index]
         newGroceryList.splice(index, 1);
         setGroceryList(newGroceryList);
+        deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+        console.log("Deleted grocery list item: ", item.ingredient);
+      }
     }
     
     return groceryList.length === 0 ? (

@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { signOut, getAuth } from "firebase/auth";
-import { getFirestore, collection, doc, addDoc, setDoc, increment, serverTimestamp } from "firebase/firestore";
+import { getFirestore, collection, doc, addDoc, setDoc, deleteDoc, increment, serverTimestamp } from "firebase/firestore";
+import Alert from 'react-native';
 
 // // Import the functions you need from the SDKs you need
 // import firebase from 'firebase/compat/app';
@@ -44,13 +45,25 @@ const addDocFB = async (docData, collectionName) => {
   docData.userID = auth.currentUser.uid;
   docData.timeAdded = serverTimestamp();
   try {
-    await addDoc(collection(db, collectionName), docData);
+    const docRef = await addDoc(collection(db, collectionName), docData);
+    return docRef.id;
   } catch (error) {
-      alert(error.message)
+      Alert.alert("There seems to have been an issue adding your grocery list item to the database.")
+      alert(error.message);
   }
 }
 
-export {handleSignOut, addDocFB};
+const deleteDocFB = async (collectionName, documentID) => {
+  try {
+    await deleteDoc(doc(db, collectionName, documentID));
+  } catch (error) {
+    Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
+    alert(error.message);
+  }
+}
+
+
+export {handleSignOut, addDocFB, deleteDocFB};
 
 
 

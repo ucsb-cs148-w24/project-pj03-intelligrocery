@@ -11,7 +11,7 @@ export default function PantryItem({item, handleDelete}) {
             <Button
                 buttonStyle={styles.pantryXButton}
                 titleStyle={styles.pantryDeleteTitle}
-                onPress={handleDelete}
+                onPress={() => handleDelete(item.id)}
                 title="x"/>
         </View>
     );

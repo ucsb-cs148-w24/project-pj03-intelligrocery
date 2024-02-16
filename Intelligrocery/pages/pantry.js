@@ -1,11 +1,11 @@
-// // GroceryList.js
+// // Pantry.js
 import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import styles from '../styles/styles';
 import AddIngredient from './addIngredient';
 import PantryItem from './pantryItem';
 
-import { addDocFB } from '../firebase'
+import { addDocFB, deleteDocFB } from '../firebase'
 
 const Pantry = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -20,23 +20,30 @@ const Pantry = ({ navigation }) => {
         setOverlayVisible(false);
     };
 
-    const handleOverlayAdd = (ingredient, quantity, units) => {
+    const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        setPantry([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...pantry]);
+        const id = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0;
+        setPantry([{ingredient, quantity, units, id}, ...pantry]);
+        console.log("Next id in pantry: ", id);
         try {
-          addDocFB(
-            data = {
-              groceryName : ingredient,
-              quantity : quantity,
-              unit : units,
-              isChecked : false,
-            }, 
-           collectionName = "pantry");
-          console.log("Added ", ingredient);
+          const dbID = await addDocFB(
+              data = {ingredient, quantity : quantity,unit : units},
+            collectionName = "pantry");
+            console.log("Added to pantry: ", ingredient);
+            setPantry(prevList => { //calling setPantry seems to let the past set finish first
+              const updatedList = prevList.map(item => {
+                  if (item.id === id) {
+                      return { ...item, dbID };
+                  }
+                  return item;
+              });
+            return updatedList;
+        });
         } catch(error) {
+          Alert.alert("There seems to have been an issue adding your pantry item to the database.")
           console.log(error.message);
         } 
-    };
+      };
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -49,10 +56,16 @@ const Pantry = ({ navigation }) => {
     }, [navigation]);
 
     const handleDelete = (id) => {
+      console.log("Id to try and delete from pantry: ", id)
+      const index = pantry.findIndex((item) => item.id === id);
+      if (index != -1) {
         const newPantry = [...pantry];
-        const index = newPantry.findIndex((item) => item.id === id);
+        const item = newPantry[index]
         newPantry.splice(index, 1);
         setPantry(newPantry);
+        deleteDocFB(collectionName = "pantry", documentID = item.dbID);
+        console.log("Deleted pantry item: ", item.ingredient);
+      }
     }
     
     return pantry.length === 0 ? (
