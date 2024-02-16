@@ -50,7 +50,11 @@ const LoginScreen = ({navigation}) => {
         } catch (error) {
             console.log(error.message);
             user = auth.currentUser;
-            handleSignOut({navigation});
+            try {
+                handleSignOut({navigation});
+            } catch (error) {
+                console.log(error.message)
+            }
             Alert.alert("It seems we had a problem adding you to our Intelligrocery database! Please try registering again!");
             try {
                 await user.delete();

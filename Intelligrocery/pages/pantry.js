@@ -63,8 +63,13 @@ const Pantry = ({ navigation }) => {
         const item = newPantry[index]
         newPantry.splice(index, 1);
         setPantry(newPantry);
-        deleteDocFB(collectionName = "pantry", documentID = item.dbID);
-        console.log("Deleted pantry item: ", item.ingredient);
+        try {
+          deleteDocFB(collectionName = "pantry", documentID = item.dbID);
+          console.log("Deleted pantry item: ", item.ingredient);
+        } catch (error) {
+          Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
+          console.log(error.message);
+        }
       }
     }
     

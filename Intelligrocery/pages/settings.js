@@ -14,7 +14,14 @@ const SettingsScreen = ({navigation}) => {
         <View style={styles.container}>
             <Text>Email: { auth.currentUser?.email }</Text>
         <TouchableOpacity
-            onPress={ () => handleSignOut({navigation}) }
+            onPress={() => {
+                try {
+                    handleSignOut({ navigation });
+                } catch (error) {
+                    Alert.alert("It seems we had a problem signing you out.");
+                    console.log(error.message);
+                }
+            }}
             style={ styles.buttonLogOut }
         >
             <Text style={styles.buttonLogOutText}>Sign out</Text>

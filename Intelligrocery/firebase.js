@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { signOut, getAuth } from "firebase/auth";
-import { getFirestore, collection, doc, addDoc, setDoc, deleteDoc, increment, serverTimestamp } from "firebase/firestore";
+import { getFirestore, collection, doc, addDoc, updateDoc, setDoc, deleteDoc, increment, serverTimestamp } from "firebase/firestore";
 import Alert from 'react-native';
 
 // // Import the functions you need from the SDKs you need
@@ -29,41 +29,32 @@ export const auth = getAuth();
 
 const handleSignOut = async ({navigation}) => {
   //Note: for some reason needed to pass in as {}
-  try {
-      const email = auth.currentUser?.email
-      userCredentials = await signOut(auth)
-      console.log('Logged out with: ', email);
-      navigation.replace("Login")
-  }
-  catch (error) {
-      alert(error.message)
-  }
+  const email = auth.currentUser?.email
+  userCredentials = await signOut(auth)
+  console.log('Logged out with: ', email);
+  navigation.replace("Login")
 }
 
 const addDocFB = async (docData, collectionName) => {
   //Takes a reference to an ingredient doc and adds it to the database
   docData.userID = auth.currentUser.uid;
   docData.timeAdded = serverTimestamp();
-  try {
-    const docRef = await addDoc(collection(db, collectionName), docData);
-    return docRef.id;
-  } catch (error) {
-      Alert.alert("There seems to have been an issue adding your grocery list item to the database.")
-      alert(error.message);
-  }
+  const docRef = await addDoc(collection(db, collectionName), docData);
+  return docRef.id;
 }
+
+const updateDocFB = async (collectionName, documentID, docData) => {
+  await updateDoc(doc(db, collectionName, documentID), {...docData, timestamp: serverTimestamp()});
+  console.log("Updated document");
+ }
+
 
 const deleteDocFB = async (collectionName, documentID) => {
-  try {
-    await deleteDoc(doc(db, collectionName, documentID));
-  } catch (error) {
-    Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
-    alert(error.message);
-  }
+  await deleteDoc(doc(db, collectionName, documentID));
 }
 
 
-export {handleSignOut, addDocFB, deleteDocFB};
+export {handleSignOut, addDocFB, updateDocFB, deleteDocFB};
 
 
 
