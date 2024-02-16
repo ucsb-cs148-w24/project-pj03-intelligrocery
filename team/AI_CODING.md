@@ -33,3 +33,9 @@ List the AI tool you utilized, the outcomes you produced, and, importantly, refl
 #### Danny
 * I used DALLE-2 and pixlr.com for possible app art. For example, I created a wooden login page to simulate a cutting board which renders at login time. In addition, I made art for the app art.
 * I also asked Chat-GPT for how to code icons for app tabs, database functions, component interactions.
+
+#### Josh
+*Used GitHub Copilot to help write testing for our recipes page. GitHub Copilot also helped me generate code to make sure that the quantity input field worked with the testing code written.
+*Github Copilot was very useful in creating test cases, however, my strategy actually was writing the test code with assistance using GitHub Copilot then seeing if GPT-4 could see any errors.
+*To insure the output was correct, I ran the test code multiple times and realized syntatically errors throughout the terminal. I started with simple rendering tests and seeing if Copilot could do that. I discovered that Copilot performed okay, but with GPT-4, it was able to write competent.
+
