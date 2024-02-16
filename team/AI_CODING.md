@@ -18,4 +18,10 @@ List the AI tool you utilized, the outcomes you produced, and, importantly, refl
 #### Audrey
 * Used Codeium to help generate code for making pantry items editable
 * I thought that Codeium was useful and convenient to use, especially since it's free and automatically looks at the rest of the codebase for context. 
-* Most of the time, the AI output was not immediately correct and useable, and I had to make alterations to it in order to make everything work. However, it was a useful starting point, and I thought it was helpful. 
+* Most of the time, the AI output was not immediately correct and useable, and I had to make alterations to it in order to make everything work. However, it was a useful starting point, and I thought it was helpful.
+
+#### Michael
+* Used GBT4 to research/learn about parent child components, and how to transfer props defined in the parent component to child components.
+* Used github copilot to write unit tests
+* Learning about parent child components through GBT4 was nice and saved me time. GBT4 does have its limitations, so I use it as a supplement. When I under-feed info, GBT's answers arent detailed enough, so I have to provide more info to it.
+* I really enjoyed using github copilot, and it has the same limitations as mentioned above.
