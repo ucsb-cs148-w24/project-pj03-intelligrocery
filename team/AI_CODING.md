@@ -25,3 +25,7 @@ List the AI tool you utilized, the outcomes you produced, and, importantly, refl
 * Used github copilot to write unit tests
 * Learning about parent child components through GBT4 was nice and saved me time. GBT4 does have its limitations, so I use it as a supplement. When I under-feed info, GBT's answers arent detailed enough, so I have to provide more info to it.
 * I really enjoyed using github copilot, and it has the same limitations as mentioned above.
+#### Anderson
+* Used chatGPT to learn how to save user inputted values in states on click of a button.
+* I found that using AI to learn new applications of code is much more efficient than parsing through heavy documentation. However, AI provides a very surface level understanding. To be able to understand concepts clearly, I still needed to do some learning on my own.
+* To make sure the code was correct, I had to make some changes to the AI output to make it fit the context of my code.
