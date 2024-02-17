@@ -16,7 +16,7 @@ List the AI tool you utilized, the outcomes you produced, and, importantly, refl
 * Used Bing AI image generator to generate ideas for logo within app.
 
 #### Audrey
-* Used Codeium to help generate code for making pantry items editable
+* Used Codeium to help debug and generate code for making pantry items editable
 * I thought that Codeium was useful and convenient to use, especially since it's free and automatically looks at the rest of the codebase for context. 
 * Most of the time, the AI output was not immediately correct and useable, and I had to make alterations to it in order to make everything work. However, it was a useful starting point, and I think it would potentially be a helpful tool going forward.
 
