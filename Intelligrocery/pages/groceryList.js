@@ -1,7 +1,7 @@
 // // GroceryList.js
 
 //React
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import styles from '../styles/styles';
 
@@ -10,7 +10,8 @@ import AddIngredient from './addIngredient';
 import GroceryItem from './groceryItem';
 
 //Firebase
-import { addDocFB, updateDocFB, deleteDocFB } from '../firebase'
+import { auth, addDocFB, updateDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
+import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
@@ -18,7 +19,34 @@ const GroceryList = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [groceryList, setGroceryList] = useState([]); //will be a list of DB references instead
 
-    //db queries and initialize groceryList, after we write to database
+    useEffect(() => {
+      const loadGroceryList = async () => {
+        try {
+          console.log("User: ", auth.currentUser.uid)
+          const queryDocs = await queryCollectionFB(
+            "groceryList",
+            where("userID", "==", auth.currentUser.uid),
+            orderBy("timestamp", "desc")
+          );
+          console.log("Done querying docs");
+          const list = [];
+          let id = 0;
+          queryDocs.forEach(doc => {
+            // Assuming doc.data() returns the item object
+            list.push({...doc.data(), dbID: doc.id, id});
+            id++;
+          });
+          const checkedList = list.filter((item) => item.checked);
+          const uncheckedList = list.filter((item) => !item.checked);
+          setGroceryList([...uncheckedList, ...checkedList]);
+          // console.log("Done toggling docs");
+        } catch (error) {
+          Alert.alert("We seemed to have a problem loading your grocery list");
+          console.error("Error loading grocery list: ", error);
+        }
+      };
+      loadGroceryList(); // Trigger the async operation
+    }, []);
 
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {
@@ -41,7 +69,7 @@ const GroceryList = ({ navigation }) => {
                   ingredient,
                   quantity,
                   units,
-                  isChecked : false,
+                  checked : false,
                   // appListKey: id,
                 },
               collectionName = "groceryList");
@@ -72,21 +100,22 @@ const GroceryList = ({ navigation }) => {
         });
     }, [navigation]);
 
-    const toggleCheck = (id) => {
+
+    const toggleCheck = async (id) => {
+        const index = groceryList.findIndex((item) => item.id === id);
         const newGroceryList = [...groceryList];
-        const index = newGroceryList.findIndex((item) => item.id === id);
         newGroceryList[index].checked = !newGroceryList[index].checked;
+        checkedList = newGroceryList.filter(item => item.checked);
+        uncheckedList = newGroceryList.filter(item => !item.checked);
+        setGroceryList([...uncheckedList, ...checkedList]);  
         const item = newGroceryList[index];
-        const checkedList = newGroceryList.filter((item) => item.checked);
-        const uncheckedList = newGroceryList.filter((item) => !item.checked);
-        setGroceryList([...uncheckedList, ...checkedList]);
         try {
-          updateDocFB(collectionName = "groceryList", documentID = item.dbID, docData = { isChecked : item.checked})
+          await updateDocFB("groceryList", item.dbID, { checked: item.checked });
         } catch (error) {
-          Alert.alert("There seems to have been an issue updating your item in the database.")
+          Alert.alert("There seems to have been an issue updating your item in the database.");
           console.log(error.message);
         }
-    }
+    };
 
     const handleDelete = (id) => {
       console.log("Id to try and delete from grocery list: ", id)
@@ -106,6 +135,7 @@ const GroceryList = ({ navigation }) => {
       }
     }
     
+    console.log("List length: ", groceryList.length)
     return groceryList.length === 0 ? (
         <View style={styles.container}>
           <TouchableOpacity onPress={handleButtonPress}>
@@ -127,5 +157,4 @@ const GroceryList = ({ navigation }) => {
         </ScrollView>
       );
     };
-
     export default GroceryList;

@@ -1,15 +1,41 @@
 // // Pantry.js
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import styles from '../styles/styles';
 import AddIngredient from './addIngredient';
 import PantryItem from './pantryItem';
 
-import { addDocFB, deleteDocFB } from '../firebase'
+import { auth, addDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
+import { where, orderBy } from "firebase/firestore";
 
 const Pantry = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [pantry, setPantry] = useState([]);
+
+    useEffect(() => {
+      const loadPantry = async () => {
+          try {
+              const queryDocs = await queryCollectionFB(
+                  collectionName = "pantry",
+                  whereRef = where("userID", "==", auth.currentUser.uid),
+                  orderByRef = orderBy("timestamp", "desc")
+              );
+              const list = [];
+              let id = 0;
+              queryDocs.forEach(doc => {
+                  // Assuming doc.data() returns the item object
+                  list.push({...doc.data(), dbID: doc.id, id});
+                  id++;
+              });
+              setPantry(list);
+          } catch (error) {
+              Alert.alert("We seemed to have a problem loading your pantry");
+              console.error("Error loading pantry: ", error);
+              // Handle error if needed
+          }
+      };
+      loadPantry(); // Trigger the async operation
+    }, []);
 
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {

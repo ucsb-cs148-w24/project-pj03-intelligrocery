@@ -15,7 +15,7 @@
     "@react-navigation/native-stack": "^6.9.18",
     "@react-navigation/stack": "^6.3.20",
     "axios": "^1.6.7",
-    "expo": "^50.0.4",
+    "expo": "^50.0.7",
     "expo-status-bar": "~1.11.1",
     "firebase": "^10.8.0",
     "node-fetch": "^3.3.2",
@@ -32,7 +32,8 @@
     "react-native-modal": "^13.0.1",
     "react-native-vector-icons": "^10.0.3",
     "react-navigation": "^5.0.0",
-    "react-swipe-to-delete-ios": "^2.1.0"
+    "react-swipe-to-delete-ios": "^2.1.0",
+    "@react-native-async-storage/async-storage": "1.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/core'
 //Firebase
 import { db, auth, handleSignOut } from '../firebase'
 import { createUserWithEmailAndPassword,  signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc} from "firebase/firestore";
 
 
 const LoginScreen = ({navigation}) => {
@@ -45,7 +45,7 @@ const LoginScreen = ({navigation}) => {
     const addUserFB = async () => {
         try {
             console.log("User id: ", auth.currentUser.uid, "\n");
-            const docRef = await setDoc(doc(db, "users", auth.currentUser.uid), {email: auth.currentUser.email});
+            await setDoc(doc(db, "users", auth.currentUser.uid), {email: auth.currentUser.email});
             console.log("Added user with global userID: ", userId);
         } catch (error) {
             console.log(error.message);
