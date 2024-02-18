@@ -43,10 +43,13 @@ const GroceryList = ({ navigation }) => {
     }
 
     const handleDelete = (id) => {
+      const index = groceryList.findIndex((item) => item.id === id);
+      if (index != -1) {
         const newGroceryList = [...groceryList];
-        const index = newGroceryList.findIndex((item) => item.id === id);
+        const item = newGroceryList[index]
         newGroceryList.splice(index, 1);
         setGroceryList(newGroceryList);
+      }
     }
     
     return groceryList.length === 0 ? (
