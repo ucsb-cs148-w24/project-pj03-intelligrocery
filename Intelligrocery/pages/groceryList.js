@@ -18,10 +18,15 @@ import { where, orderBy } from "firebase/firestore";
 const GroceryList = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [groceryList, setGroceryList] = useState([]); //will be a list of DB references instead
+    // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
 
     useEffect(() => {
+      // if (!isMounted.current) {
+      //   isMounted.current = true; // Set isMounted to true after the initial render
+      // }
       const loadGroceryList = async () => {
         try {
+          if (auth.currentUser) {
           console.log("User: ", auth.currentUser.uid)
           const queryDocs = await queryCollectionFB(
             "groceryList",
@@ -40,6 +45,7 @@ const GroceryList = ({ navigation }) => {
           const uncheckedList = list.filter((item) => !item.checked);
           setGroceryList([...uncheckedList, ...checkedList]);
           // console.log("Done toggling docs");
+        }
         } catch (error) {
           Alert.alert("We seemed to have a problem loading your grocery list");
           console.error("Error loading grocery list: ", error);

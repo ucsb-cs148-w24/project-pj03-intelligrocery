@@ -79,6 +79,7 @@ const LoginScreen = ({navigation}) => {
                     value={email}
                     onChangeText={text => setEmail(text)}
                     style={styles.input}
+                    textContentType='oneTimeCode'
                 />
                 <TextInput
                     placeholder="Password"
@@ -86,6 +87,7 @@ const LoginScreen = ({navigation}) => {
                     onChangeText={text => setPassword(text)}
                     style={styles.input}
                     secureTextEntry
+                    textContentType='oneTimeCode'
                 /> 
             </View>
             <View style={styles.buttonContainer}>

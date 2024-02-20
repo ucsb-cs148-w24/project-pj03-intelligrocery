@@ -23,11 +23,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig); //this line should be before others to make a default app
-export const db = getFirestore(app);
-export const auth = initializeAuth(app, {
+// export const app = initializeApp(firebaseConfig); //this line should be before others to make a default app
+// export const db = getFirestore(app);
+// export const auth = initializeAuth(app, {
+//   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+// });
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase services
+const db = getFirestore(app);
+const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 });
+
+export { app, db, auth };
 // export const auth = getAuth();
 
 const handleSignOut = async ({navigation}) => {
