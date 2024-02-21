@@ -132,57 +132,6 @@ const LoginStack = () => {
   );
 };
 
-// const LoginStack = () => {
-//   const [initialRoute, setInitialRoute] = useState('Tabs');
-//   const [isLoading, setIsLoading] = useState(true); // Add loading state
-
-//   useEffect(() => {
-//     const initializeFirebase = async () => {
-//       try {
-//         if (!auth) {
-//           throw new Error('Firebase auth is not initialized.');
-//         }
-
-//         // Continue with authentication logic
-//         // For example, wait for user authentication state changes
-//         await new Promise((resolve, reject) => {
-//           const unsubscribe = auth.onAuthStateChanged(user => {
-//             // Handle authentication state changes here
-//             resolve();
-//             unsubscribe();
-//           }, reject);
-//         });
-
-//         setIsLoading(false); // Update isLoading when auth state is determined
-//       } catch (error) {
-//         console.log('Error initializing Firebase:', error);
-//         // Retry initialization after a short delay
-//         setTimeout(initializeFirebase, 1000); // Retry after 1 second
-//       }
-//     };
-
-//     // Start Firebase initialization
-//     initializeFirebase();
-//   }, []); // Only run the effect once after the initial render
-
-//   if (isLoading) {
-//     // Render loading indicator or placeholder while waiting for authentication status
-//     return <LoadingIndicator />;
-//   }
-
-//   return (
-//     <Stack.Navigator initialRouteName={initialRoute}>
-//       <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
-//       <Stack.Screen name="Tabs" component={TabNavigator} />
-//     </Stack.Navigator>
-//   );
-// }
-
-
-
-
-
-
 export default function App() {
   return (
       <NavigationContainer>
