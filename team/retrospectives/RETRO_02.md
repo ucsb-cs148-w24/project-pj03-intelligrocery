@@ -32,4 +32,4 @@
 
 - Description: As part of last week's emphasis on not letting branches sit and creating more pull requests, we decided to set a time limit for a pr to be merged (we decided on 2-day limit after a pr has been created). This will reduce merge conflicts by keeping main up-to date instead of letting prs sit. 
 - Outcome:
-- Change:
+- Decision:
