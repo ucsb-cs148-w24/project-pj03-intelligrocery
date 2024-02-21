@@ -30,6 +30,6 @@
 
 ## Experiment/Change
 
-- Experiment description: As part of last week's emphasis on not letting branches sit and creating more pull requests, we decided to set a time limit for a pr to be merged (we decided on 2-day limit after a pr has been created). This will reduce merge conflicts by keeping main up-to date instead of letting prs sit. 
-- Each of us made our own branches for the things we were working on, which really helped prevent merge conflicts. This was especially true for people's tasks with many installed dependencies, like Danny/Jos with AWS that we ultimately didn't use. This helped us integrate multiple people's work yet work fast and continuously. 
-- We think we'll continue but with the addendum: when checking out to a new branch, pull from main if you don't checkout from main so your branches don't become to behind. But branching really helps. 
+- Description: As part of last week's emphasis on not letting branches sit and creating more pull requests, we decided to set a time limit for a pr to be merged (we decided on 2-day limit after a pr has been created). This will reduce merge conflicts by keeping main up-to date instead of letting prs sit. 
+- Outcome:
+- Change:
