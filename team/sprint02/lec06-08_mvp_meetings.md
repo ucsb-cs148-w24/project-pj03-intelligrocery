@@ -1,4 +1,4 @@
-# MVP Meetings (Lectures 4-8)
+# MVP Meetings (Lectures 6-8)
 
 #Attendence
 - All present (besides one or two absences for lectures)
