@@ -1,9 +1,9 @@
 {
-    "plugins": 
+  "plugins": 
+  [
     [
-      [
-        "module:react-native-dotenv",
-        {"moduleName": "react-native-dotenv", "path": ".env"}
-      ]
+      "module:react-native-dotenv",
+      {"moduleName": "react-native-dotenv", "path": ".env"}
     ]
+  ]
 }
