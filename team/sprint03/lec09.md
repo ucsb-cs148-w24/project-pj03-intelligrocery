@@ -1,13 +1,13 @@
-# MVP Meetings (Lectures)
+# Sprint03 planning (Lectures)
 
 #Attendence
 - All present
 
 #Scribe
-- Eric Marzouk
+- Eric Marzouk/Danny Rose (edits)
 
 #Scribed Discussion
-- The following refers to our standup
+- The following refers to our sprint planning issues, where we decided what each person would work on and reflected this in the kanban board
 -  Eric and Nadav: Work on the recipe page
 - Audrey: making the items in the pantry editable 
 - Anderson & Michael: Figure out how to add to pantry directly
