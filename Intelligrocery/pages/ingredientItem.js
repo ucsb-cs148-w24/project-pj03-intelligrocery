@@ -23,7 +23,7 @@ export default function IngredientItem({item, toggleCheck, handleDelete}) {
                 <Button
                     buttonStyle={styles.deleteButton}
                     titleStyle={styles.deleteTitle}
-                    onPress={handleDelete}
+                    onPress={() => handleDelete(item.id)}
                     title="Delete"
                 />
             </Animated.View>
