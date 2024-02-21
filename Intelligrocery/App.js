@@ -1,5 +1,6 @@
 //ReactNative Libraries
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,9 +12,24 @@ import GroceryList from './pages/groceryList';
 import Login from './pages/login';
 import Settings from './pages/settings';
 
+import { auth } from './firebase'; // Assuming your firebase initialization file is named firebase.js and is in the same directory
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+const LoadingIndicator = () => (
+  <View style={styles.container}>
+    <ActivityIndicator size="large" color="#0000ff" />
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 function TabNavigator() {
   return (
@@ -61,10 +77,57 @@ function TabNavigator() {
 }
 
 const LoginStack = () => {
+  const [initialRoute, setInitialRoute] = useState('Tabs');
+  const [isLoading, setIsLoading] = useState(true);
+  const isEffectMounted = useRef(false);
+
+  useEffect(() => {
+    const checkUserLoggedIn = async () => {
+      try {
+        if (!auth) {
+          console.log('Firebase auth is not yet initialized. Waiting...');
+          setTimeout(checkUserLoggedIn, 1000); // Retry after 1 second
+          return;
+        }
+
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          if (isEffectMounted.current) {
+            // Only update state if the component is still mounted
+            if (user) {
+              setInitialRoute('Login');
+            } else {
+              setInitialRoute('Tabs');
+            }
+            setIsLoading(false);
+            unsubscribe(); // Unsubscribe from auth state changes
+          }
+        });
+      } catch (error) {
+        console.error('Error checking user authentication:', error);
+        setIsLoading(false);
+      }
+    };
+
+    // Execute the effect only once after the initial render
+    if (!isEffectMounted.current) {
+      checkUserLoggedIn();
+      isEffectMounted.current = true; // Set to true after the first execution
+    }
+
+    // Cleanup function to unsubscribe from auth state changes when the component unmounts
+    return () => {
+      isEffectMounted.current = false; // Set to false when the component unmounts, (so that the next time you log on you haven't yet mounted)
+    };
+  }, []); // Empty dependency array to run the effect only once after the initial render
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
+
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName={initialRoute}>
       <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
-      <Stack.Screen name="Tabs" component={TabNavigator} />
+      <Stack.Screen options={{ headerShown: false }} name="Tabs" component={TabNavigator} />
     </Stack.Navigator>
   );
 };
