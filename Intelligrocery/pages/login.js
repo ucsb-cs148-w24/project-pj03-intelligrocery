@@ -1,16 +1,16 @@
 //React Native
 import React, { useState, useEffect } from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native'
-import { useNavigation } from '@react-navigation/core'
 
 //Firebase
-import { auth } from '../firebase'
+import { db, auth, handleSignOut } from '../firebase'
+import { createUserWithEmailAndPassword,  signInWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc} from "firebase/firestore";
 
-const LoginScreen = () => {
+
+const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-    const navigation = useNavigation()
 
     useEffect( () => {
         const unsubscribe = auth.onAuthStateChanged( user => {
@@ -23,8 +23,9 @@ const LoginScreen = () => {
 
     const handleSignUp = async () => {
         try {
-          userCredentials = await auth.createUserWithEmailAndPassword(email, password);
+          userCredentials = await createUserWithEmailAndPassword(auth, email, password);
           console.log('Registered with: ', userCredentials.user.email);
+          addUserFB();
         } catch (error) {
             alert(error.message)
         }
@@ -32,12 +33,36 @@ const LoginScreen = () => {
 
     const handleLogin = async () => {
         try {
-            userCredentials = await auth.signInWithEmailAndPassword(email, password);
+            userCredentials = await signInWithEmailAndPassword(auth, email, password);
             console.log('Signed in with: ', userCredentials.user.email);
           } catch (error) {
             Alert.alert("Hi there!", "\nIt appears that either your login information is incorrect or you don't have an account. \n\nIf you don't have an account, please input an email and password and then click \'Register\'!");
-          }
+            return;
+        }
     };
+
+    const addUserFB = async () => {
+        try {
+            console.log("User id: ", auth.currentUser.uid, "\n");
+            await setDoc(doc(db, "users", auth.currentUser.uid), {email: auth.currentUser.email});
+            console.log("Added user with global userID: ", userId);
+        } catch (error) {
+            console.log(error.message);
+            user = auth.currentUser;
+            try {
+                handleSignOut({navigation});
+            } catch (error) {
+                console.log(error.message)
+            }
+            Alert.alert("It seems we had a problem adding you to our Intelligrocery database! Please try registering again!");
+            try {
+                await user.delete();
+            } catch(error) {
+                console.log(error.message);
+            }
+        }
+    }
+
 
     return (
         <KeyboardAvoidingView
@@ -53,6 +78,7 @@ const LoginScreen = () => {
                     value={email}
                     onChangeText={text => setEmail(text)}
                     style={styles.input}
+                    textContentType='oneTimeCode'
                 />
                 <TextInput
                     placeholder="Password"
@@ -60,6 +86,7 @@ const LoginScreen = () => {
                     onChangeText={text => setPassword(text)}
                     style={styles.input}
                     secureTextEntry
+                    textContentType='oneTimeCode'
                 /> 
             </View>
             <View style={styles.buttonContainer}>
