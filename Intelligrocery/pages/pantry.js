@@ -20,7 +20,9 @@ const Pantry = ({ navigation }) => {
 
     const handleOverlayAdd = (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        setPantry([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...pantry]);
+        const id = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0;
+        setPantry([{ingredient, quantity, units, id}, ...pantry]);
+        console.log("Next id in pantry: ", id);
     };
 
     React.useLayoutEffect(() => {
@@ -34,10 +36,13 @@ const Pantry = ({ navigation }) => {
     }, [navigation]);
 
     const handleDelete = (id) => {
+      const index = pantry.findIndex((item) => item.id === id);
+      if (index != -1) {
         const newPantry = [...pantry];
-        const index = newPantry.findIndex((item) => item.id === id);
+        const item = newPantry[index]
         newPantry.splice(index, 1);
         setPantry(newPantry);
+      }
     }
     
     return pantry.length === 0 ? (
