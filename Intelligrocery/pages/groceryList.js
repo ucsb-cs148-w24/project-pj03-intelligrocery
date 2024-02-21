@@ -20,7 +20,9 @@ const GroceryList = ({ navigation }) => {
 
     const handleOverlayAdd = (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        setGroceryList([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...groceryList]);
+        const id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
+        setGroceryList([{ingredient, quantity, units, id}, ...groceryList]);
+        console.log("Next id in groceryList: ", id);
     };
 
     React.useLayoutEffect(() => {
@@ -43,10 +45,14 @@ const GroceryList = ({ navigation }) => {
     }
 
     const handleDelete = (id) => {
+      console.log("Id to try and delete from grocery list: ", id)
+      const index = groceryList.findIndex((item) => item.id === id);
+      if (index != -1) {
         const newGroceryList = [...groceryList];
-        const index = newGroceryList.findIndex((item) => item.id === id);
+        const item = newGroceryList[index]
         newGroceryList.splice(index, 1);
         setGroceryList(newGroceryList);
+      }
     }
     
     return groceryList.length === 0 ? (
