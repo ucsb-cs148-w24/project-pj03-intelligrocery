@@ -1,7 +1,7 @@
-# MVP Meetings (Lectures)
+# MVP Meetings (Lectures 4-8)
 
 #Attendence
-- All present
+- All present (besides one or two absences for lectures)
 
 #Scribe
 - Danny Rose
