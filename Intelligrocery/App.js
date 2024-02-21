@@ -127,7 +127,7 @@ const LoginStack = () => {
   return (
     <Stack.Navigator initialRouteName={initialRoute}>
       <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
-      <Stack.Screen name="Tabs" component={TabNavigator} />
+      <Stack.Screen options={{ headerShown: false }} name="Tabs" component={TabNavigator} />
     </Stack.Navigator>
   );
 };
