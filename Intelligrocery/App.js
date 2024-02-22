@@ -126,7 +126,6 @@ const LoginStack = () => {
   );
 };
 
-
 export default function App() {
   return (
       <NavigationContainer>

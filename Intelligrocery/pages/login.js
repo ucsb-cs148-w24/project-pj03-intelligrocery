@@ -1,7 +1,6 @@
 //React Native
 import React, { useState, useEffect } from 'react'
 import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native'
-import { useNavigation } from '@react-navigation/core'
 
 //Firebase
 import { db, auth, handleSignOut } from '../firebase'
