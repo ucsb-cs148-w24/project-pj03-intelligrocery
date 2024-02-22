@@ -9,6 +9,7 @@ const GroceryList = ({ navigation }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const [groceryList, setGroceryList] = useState([]);
 
+
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {
         setOverlayVisible(true);
@@ -22,6 +23,22 @@ const GroceryList = ({ navigation }) => {
         setOverlayVisible(false);
         setGroceryList([{ingredient, quantity, units, id: Math.random().toFixed(16).slice(2)}, ...groceryList]);
     };
+
+    const handleDeleteSelected = () => {
+      setGroceryList(groceryList.filter(item => !item.checked));
+    };
+
+    React.useLayoutEffect(() => {
+      navigation.setOptions({
+          headerLeft: () => (
+              <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
+                  <TouchableOpacity onPress={handleDeleteSelected} style={styles.plusButton}>
+                      <Text style={styles.buttonText}>-</Text>
+                  </TouchableOpacity>
+              </View>
+          ),
+      });
+  }, [navigation, groceryList]); // Add groceryList to the dependency array to re-render when items are checked/unchecked
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
