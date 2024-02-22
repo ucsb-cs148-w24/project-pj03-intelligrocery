@@ -1,5 +1,5 @@
 //ReactNative Libraries
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -79,7 +79,6 @@ function TabNavigator() {
 const LoginStack = () => {
   const [initialRoute, setInitialRoute] = useState('Tabs');
   const [isLoading, setIsLoading] = useState(true);
-  const isEffectMounted = useRef(false);
 
   useEffect(() => {
     const checkUserLoggedIn = async () => {
@@ -91,34 +90,29 @@ const LoginStack = () => {
         }
 
         const unsubscribe = auth.onAuthStateChanged(user => {
-          if (isEffectMounted.current) {
-            // Only update state if the component is still mounted
-            if (user) {
-              setInitialRoute('Login');
-            } else {
-              setInitialRoute('Tabs');
-            }
-            setIsLoading(false);
-            unsubscribe(); // Unsubscribe from auth state changes
+          if (user) {
+            setInitialRoute('Tabs'); // User is logged in, set initial route to 'Tabs'
+          } else {
+            setInitialRoute('Login'); // User is not logged in, set initial route to 'Login'
           }
+          setIsLoading(false);
+          unsubscribe(); // Unsubscribe from auth state changes
         });
+
       } catch (error) {
         console.error('Error checking user authentication:', error);
         setIsLoading(false);
       }
     };
 
-    // Execute the effect only once after the initial render
-    if (!isEffectMounted.current) {
+    // Check if auth is already initialized
+    if (auth) {
       checkUserLoggedIn();
-      isEffectMounted.current = true; // Set to true after the first execution
+    } else {
+      console.log('Firebase auth is not yet initialized. Waiting...');
+      setTimeout(checkUserLoggedIn, 1000); // Retry after 1 second
     }
-
-    // Cleanup function to unsubscribe from auth state changes when the component unmounts
-    return () => {
-      isEffectMounted.current = false; // Set to false when the component unmounts, (so that the next time you log on you haven't yet mounted)
-    };
-  }, []); // Empty dependency array to run the effect only once after the initial render
+  }, []);
 
   if (isLoading) {
     return <LoadingIndicator />;
@@ -131,56 +125,6 @@ const LoginStack = () => {
     </Stack.Navigator>
   );
 };
-
-// const LoginStack = () => {
-//   const [initialRoute, setInitialRoute] = useState('Tabs');
-//   const [isLoading, setIsLoading] = useState(true); // Add loading state
-
-//   useEffect(() => {
-//     const initializeFirebase = async () => {
-//       try {
-//         if (!auth) {
-//           throw new Error('Firebase auth is not initialized.');
-//         }
-
-//         // Continue with authentication logic
-//         // For example, wait for user authentication state changes
-//         await new Promise((resolve, reject) => {
-//           const unsubscribe = auth.onAuthStateChanged(user => {
-//             // Handle authentication state changes here
-//             resolve();
-//             unsubscribe();
-//           }, reject);
-//         });
-
-//         setIsLoading(false); // Update isLoading when auth state is determined
-//       } catch (error) {
-//         console.log('Error initializing Firebase:', error);
-//         // Retry initialization after a short delay
-//         setTimeout(initializeFirebase, 1000); // Retry after 1 second
-//       }
-//     };
-
-//     // Start Firebase initialization
-//     initializeFirebase();
-//   }, []); // Only run the effect once after the initial render
-
-//   if (isLoading) {
-//     // Render loading indicator or placeholder while waiting for authentication status
-//     return <LoadingIndicator />;
-//   }
-
-//   return (
-//     <Stack.Navigator initialRouteName={initialRoute}>
-//       <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
-//       <Stack.Screen name="Tabs" component={TabNavigator} />
-//     </Stack.Navigator>
-//   );
-// }
-
-
-
-
 
 
 export default function App() {
