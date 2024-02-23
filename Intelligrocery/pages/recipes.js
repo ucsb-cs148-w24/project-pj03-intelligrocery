@@ -42,7 +42,8 @@ export default function Recipes() {
               title={recipe.name}
               recipeLink={recipe.url}
               imageSource={recipe.images.SMALL.url}
-              numIngredients={recipe.ingredients.length}
+              ingredients={recipe.ingredients}
+              largeImage={recipe.images.REGULAR.url}
             />
           ))
         )}
