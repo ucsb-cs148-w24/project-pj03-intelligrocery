@@ -44,7 +44,7 @@ export default function PantryItem({item, handleDelete}) {
                 </TouchableOpacity>
             </View>
             <View>
-                <TouchableOpacity onPress={handleDelete}>
+                <TouchableOpacity onPress={handleDelete(item.id)}>
                     <Icon name="trash" size={20} color="gray" />
                 </TouchableOpacity>
             </View>

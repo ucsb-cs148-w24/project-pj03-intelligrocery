@@ -29,6 +29,6 @@
 
 ## Experiment/Change
 
-- Experiment description: As part of last week's emphasis on continuous but organized code development, we decided to each develop on our own branches for each user storey/issue. This was going to mitigate the merge conflicts we had been experiencing, as well as help each person work individually on their tasks while everyone is working concurrently. 
-- Each of us made our own branches for the things we were working on, which really helped prevent merge conflicts. This was especially true for people's tasks with many installed dependencies, like Danny/Jos with AWS that we ultimately didn't use. This helped us integrate multiple people's work yet work fast and continuously. 
-- We think we'll continue but with the addendum: when checking out to a new branch, pull from main if you don't checkout from main so your branches don't become to behind. But branching really helps. 
+- Description: As part of last week's emphasis on continuous but organized code development, we decided to each develop on our own branches for each user storey/issue. This was going to mitigate the merge conflicts we had been experiencing, as well as help each person work individually on their tasks while everyone is working concurrently. 
+- Outcome: Each of us made our own branches for the things we were working on, which really helped prevent merge conflicts. This was especially true for people's tasks with many installed dependencies, like Danny/Jos with AWS that we ultimately didn't use. This helped us integrate multiple people's work yet work fast and continuously. 
+- Decision: We think we'll continue but with the addendum: when checking out to a new branch, pull from main if you don't checkout from main so your branches don't become to behind. But branching really helps. 

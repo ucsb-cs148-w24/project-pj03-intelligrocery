@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { View, Text, Animated } from 'react-native';
 import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
@@ -6,10 +6,18 @@ import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Spacer } from 'react-native-flex-layout';
 
-export default function IngredientItem({item, toggleCheck, handleDelete}) {
-    
-    const swipeableRef = React.useRef(null);
+export default function GroceryItem({item, toggleCheck, handleDelete}) {
+    const [isChecked, setIsChecked] = useState(item.checked);
+    const swipeableRef = useRef(null);
 
+    useEffect(() => {
+        setIsChecked(item.checked);
+    }, [item.checked]);
+
+    const handleToggleCheck = () => {
+        toggleCheck(item.id, !isChecked);
+        setIsChecked(!isChecked);
+    };
 
     const renderRightAction = (progress, dragX) => {
         const threshold = 100;
@@ -23,20 +31,20 @@ export default function IngredientItem({item, toggleCheck, handleDelete}) {
                 <Button
                     buttonStyle={styles.deleteButton}
                     titleStyle={styles.deleteTitle}
-                    onPress={handleDelete}
+                    onPress={() => handleDelete(item.id)}
                     title="Delete"
                 />
             </Animated.View>
         );
     };
-    
+
     return (
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
-            <View style={[styles.groceryItem, item.checked ? styles.checkedItem : {}]}>
-                <BouncyCheckbox onPress={() => toggleCheck(item.id)} fillColor='tomato'/>
-                <Text style={item.checked ? styles.checkedText : {}}> {item.ingredient} - {item.quantity} {item.units} </Text>
+            <View style={[styles.groceryItem, isChecked ? styles.checkedItem : {}]}>
+                <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
+                <Text style={isChecked ? styles.checkedText : {}}> {item.ingredient} - {item.quantity} {item.units} </Text>
                 <Spacer />
             </View>
         </Swipeable>
     );
-    }
+};

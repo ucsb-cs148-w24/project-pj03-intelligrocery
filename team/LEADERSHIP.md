@@ -16,6 +16,6 @@
 | Audrey Zhou | Nadav Avital | Danny Rose
 
 # Week four
-| Product Owner      | Scrum Master              | Scribe                                |
-|-----------|-------------------|--------------------------------------------------------|
-| Anderson Lee | Josh Son | Eric Marzouk
+| Product Owner      | Scrum Master        | Retro Leader       | Scribe                                |
+|-----------|-------------------|-------------------|-------------------------------------|
+| Anderson Lee | Josh Son | Michael Hu | Eric Marzouk

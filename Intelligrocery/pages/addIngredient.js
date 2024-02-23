@@ -21,9 +21,16 @@ const AddIngredient = ({ isVisible, onClose, onAdd }) => {
         <View style={styles.quantityUnits}>
             <TextInput
             style={styles.inputQuantity}
-            onChangeText={text=>setQuantity(text)}
+            onChangeText={(text) => {
+              const decimalRegex = /^\d*(\.\d{0,2})?$/;
+              if (decimalRegex.test(text) || text === '') {
+                setQuantity(text);
+              }
+            }}
+            value={quantity}
             placeholder="Quantity"
             placeholderTextColor="#A9A9A9"
+            keyboardType="numeric"
             />
             <TextInput
             style={styles.inputUnits}
