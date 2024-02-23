@@ -10,6 +10,7 @@ import Pantry from './pages/pantry';
 import Recipes from './pages/recipes';
 import GroceryList from './pages/groceryList';
 import Login from './pages/login';
+import RecipePage from './pages/recipePage';
 import Settings from './pages/settings';
 
 import { auth } from './firebase'; // Assuming your firebase initialization file is named firebase.js and is in the same directory
