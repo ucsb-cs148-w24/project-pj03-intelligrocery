@@ -4,28 +4,24 @@ import { Text, StyleSheet, View, TouchableOpacity} from 'react-native'
 import { useNavigation } from '@react-navigation/core'
 
 //Firebase
-import { auth } from '../firebase'
+import { auth, handleSignOut } from '../firebase'
 
-const SettingsScreen = () => {
-    const navigation = useNavigation();
-    
-    const handleSignOut = async () => {
-        try {
-            const email = auth.currentUser?.email
-            userCredentials = await auth.signOut()
-            console.log('Logged out with: ', email);
-            navigation.replace("Login")
-        }
-        catch (error) {
-            alert(error.message)
-        }
-    }
+
+const SettingsScreen = ({navigation}) => {
+    // const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
             <Text>Email: { auth.currentUser?.email }</Text>
         <TouchableOpacity
-            onPress={ handleSignOut }
+            onPress={() => {
+                try {
+                    handleSignOut({ navigation });
+                } catch (error) {
+                    Alert.alert("It seems we had a problem signing you out.");
+                    console.log(error.message);
+                }
+            }}
             style={ styles.buttonLogOut }
         >
             <Text style={styles.buttonLogOutText}>Sign out</Text>

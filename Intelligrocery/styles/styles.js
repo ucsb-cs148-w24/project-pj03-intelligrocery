@@ -96,6 +96,16 @@ export default StyleSheet.create({
     checkedText: {
         textDecorationLine: 'line-through',
     },
+    editableItem: {
+        backgroundColor: '#eee',
+
+    },
+    editableText: {
+        backgroundColor: '#eee',
+        borderBottomWidth: 1,
+        borderColor: "gray",
+        color: "gray",
+    },
     checkButton: {
         backgroundColor: 'black',
         borderRadius: 10,
@@ -178,5 +188,49 @@ export default StyleSheet.create({
     },
     recipeCardNumIngredients: {
         
+    },
+    recipePage:{
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        gap: 10,
+    },
+    recipePageImage: {
+        margin: 20,
+        width: 300,
+        height: 300,
+        borderRadius: 10,
+    },
+    recipePageTitle: {
+        fontSize: 30,
+        fontWeight: '600',
+    },
+    recipePageIngredients: {
+        fontSize: 20,
+        textAlign: 'left',
+        color: 'gray',
+        marginLeft: 20,
+    },
+    recipePageLink: {
+        fontSize: 15,
+        color: 'blue',
+    },
+    goToRecipe: {
+        backgroundColor: 'tomato',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 'auto',
+        marginTop: 20,
+        marginBottom: 20,
+    },
+    titleAndIngredients: {
+        gap: 10,
+    },
+    recipePageNumIngredients: {
+        fontSize: 20,
+        fontWeight: '600',
+        color: 'tomato',
+        marginLeft: 10,
     },
 });
