@@ -16,6 +16,18 @@ import { auth } from './firebase'; // Assuming your firebase initialization file
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const Stack2 = createNativeStackNavigator();
+
+
+const RecipeStack = () => {
+   
+  return (
+    <Stack2.Navigator >
+       <Stack2.Screen name="RecipesList" component={Recipes} options={{ title: 'Recipes' }}/>
+       <Stack2.Screen name="RecipePage" component={RecipePage} options={{ title: 'Recipe Page' }} />
+    </Stack2.Navigator>
+  )
+}
 
 const LoadingIndicator = () => (
   <View style={styles.container}>
@@ -69,7 +81,7 @@ function TabNavigator() {
         >
           <Tab.Screen name="Grocery List" component={GroceryList} />
           <Tab.Screen name="Pantry" component={Pantry} />
-          <Tab.Screen name="Recipes" component={Recipes} />
+          <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
           <Tab.Screen name='Settings' component={Settings} />
         </Tab.Navigator>
     </GestureHandlerRootView>
