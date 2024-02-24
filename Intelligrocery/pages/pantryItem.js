@@ -23,23 +23,26 @@ export default function PantryItem({item, handleDelete}) {
             <TextInput 
                 style={inputStyling}
                 editable={editing}
-                onChangeText={(text) => setCurrName(text)}>
-                    {currName}
+                onChangeText={(text) => setCurrName(text)}
+                value= {currName}
+                >
             </TextInput>
             <TextInput 
                 style={inputStyling}
                 editable={editing}
-                onChangeText={(text) => setCurrQuantity(text)}>
-                    {currQuantity}
+                onChangeText={(text) => setCurrQuantity(text)}
+                value= {currQuantity}
+                >
             </TextInput>
             <TextInput 
                 style={inputStyling}
                 editable={editing}
-                onChangeText={(text) => setCurrUnit(text)}>
-                    {currUnit}
+                onChangeText={(text) => setCurrUnit(text)}
+                value= {currUnit}
+                >
             </TextInput>
             <View>
-                <TouchableOpacity style={{ marginRight: 0 }} onPress={onEdit}>
+                <TouchableOpacity style={{ marginRight: 0 }} onPress={onEdit} testID="edit-button">
                     <Icon name={editIcon} size={20} color="gray" />
                 </TouchableOpacity>
             </View>
