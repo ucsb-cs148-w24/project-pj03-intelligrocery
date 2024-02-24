@@ -58,7 +58,7 @@ const addDocFB = async (docData, collectionName) => {
 
 const updateDocFB = async (collectionName, documentID, docData) => {
   await updateDoc(doc(db, collectionName, documentID), {...docData, timestamp: serverTimestamp()});
-  console.log("Updated document");
+  // console.log("Updated document");
  }
 
 
