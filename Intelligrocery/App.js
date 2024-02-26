@@ -83,7 +83,7 @@ function TabNavigator() {
           })}
         >
           <Tab.Screen name="Grocery List">
-            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} />}
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} setPantry={setPantry} />}
           </Tab.Screen>
           <Tab.Screen name="Pantry">
             {() => <Pantry pantry={pantry} setPantry={setPantry} />}

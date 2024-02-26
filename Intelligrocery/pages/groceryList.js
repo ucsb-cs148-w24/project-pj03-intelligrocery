@@ -16,7 +16,7 @@ import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
-const GroceryList = ({ groceryList, setGroceryList }) => {
+const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const navigation = useNavigation();
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
@@ -160,10 +160,17 @@ const GroceryList = ({ groceryList, setGroceryList }) => {
     };
 
     const handleAddToPantry = (id) => {
-        //console.log("clicked add to pantry button");
-        const index = groceryList.findIndex((item) => item.id === id);
-        //ingredient = groceryList[index].
-        setPantry([{ingredient, quantity, units, id}, ...pantry]);
+      // Find the item in the grocery list
+      const index = groceryList.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        const item = groceryList[index];
+        // Add the item to the pantry
+        setPantry((currentPantry) => [...currentPantry, item]);
+        // Optionally, remove the item from the grocery list or mark it as added to pantry
+        // For example, to remove:
+        //const newGroceryList = [...groceryList.slice(0, index), ...groceryList.slice(index + 1)];
+        //setGroceryList(newGroceryList);
+      }
     };
     
     return groceryList.length === 0 ? (
