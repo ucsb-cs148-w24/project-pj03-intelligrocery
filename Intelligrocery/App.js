@@ -19,7 +19,6 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const Stack2 = createNativeStackNavigator();
 
-
 const RecipeStack = () => {
    
   return (
@@ -45,6 +44,9 @@ const styles = StyleSheet.create({
 });
 
 function TabNavigator() {
+  const [groceryList, setGroceryList] = useState([]); 
+  const [pantry, setPantry] = useState([]);
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
         <Tab.Navigator 
@@ -80,8 +82,12 @@ function TabNavigator() {
             },
           })}
         >
-          <Tab.Screen name="Grocery List" component={GroceryList} />
-          <Tab.Screen name="Pantry" component={Pantry} />
+          <Tab.Screen name="Grocery List">
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} />}
+          </Tab.Screen>
+          <Tab.Screen name="Pantry">
+            {() => <Pantry pantry={pantry} setPantry={setPantry} />}
+          </Tab.Screen>
           <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
           <Tab.Screen name='Settings' component={Settings} />
         </Tab.Navigator>

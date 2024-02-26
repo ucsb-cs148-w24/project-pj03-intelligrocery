@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import styles from '../styles/styles';
+import { useNavigation } from '@react-navigation/core'
 
 //Pages
 import AddIngredient from './addIngredient';
@@ -15,9 +16,9 @@ import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
-const GroceryList = ({ navigation }) => {
+const GroceryList = ({ groceryList, setGroceryList }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-    const [groceryList, setGroceryList] = useState([]); //will be a list of DB references instead
+    const navigation = useNavigation();
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
 
     useEffect(() => {
@@ -165,7 +166,6 @@ const GroceryList = ({ navigation }) => {
         setPantry([{ingredient, quantity, units, id}, ...pantry]);
     };
     
-    console.log("List length: ", groceryList.length)
     return groceryList.length === 0 ? (
         <View style={styles.container}>
           <TouchableOpacity onPress={handleButtonPress}>
