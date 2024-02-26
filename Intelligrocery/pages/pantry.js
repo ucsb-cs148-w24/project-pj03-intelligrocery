@@ -54,7 +54,7 @@ const Pantry = ({ pantry, setPantry }) => {
         console.log("Next id in pantry: ", id);
         try {
           const dbID = await addDocFB(
-              data = {ingredient, quantity : quantity,unit : units},
+              data = {ingredient, quantity : quantity, units : units},
             collectionName = "pantry");
             console.log("Added to pantry: ", ingredient);
             setPantry(prevList => { //calling setPantry seems to let the past set finish first
@@ -100,6 +100,7 @@ const Pantry = ({ pantry, setPantry }) => {
       }
     }
     
+    // console.log("Pantry list length: ", pantry.length)
     return pantry.length === 0 ? (
         <View style={styles.container}>
           <TouchableOpacity onPress={handleButtonPress}>

@@ -98,8 +98,18 @@ const GroceryList = ({ groceryList, setGroceryList }) => {
       }
       };
 
-    const handleDeleteSelected = () => {
+    const handleDeleteSelected = async () => {
+      deletedList = groceryList.filter(item => item.checked);
       setGroceryList(groceryList.filter(item => !item.checked));
+      try {
+        deletedList.forEach(item => {
+          deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+          console.log("Deleted grocery list item: ", item.ingredient);
+        });
+      } catch (error) {
+        Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
+        console.log(error.message);
+      }
     };
 
     React.useLayoutEffect(() => {
