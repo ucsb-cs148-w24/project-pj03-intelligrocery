@@ -6,7 +6,7 @@ import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Spacer } from 'react-native-flex-layout';
 
-export default function GroceryItem({item, toggleCheck, handleDelete}) {
+export default function GroceryItem({item, toggleCheck, handleDelete, handleAddToPantry}) {
     const [isChecked, setIsChecked] = useState(item.checked);
     const swipeableRef = useRef(null);
 
@@ -27,7 +27,14 @@ export default function GroceryItem({item, toggleCheck, handleDelete}) {
             extrapolate: 'clamp',
         });
         return (
-            <Animated.View style={{ transform: [{ scale }] }}>
+            <Animated.View style={{ transform: [{ scale }], flexDirection: 'row' }}>
+                <Button
+                    buttonStyle={styles.addToPantryButton}
+                    titleStyle={styles.deleteTitle} //same font as delete button
+                    onPress={handleAddToPantry} //handleAddToPantryFromGroceryList
+                    title="Add to pantry"
+                />
+
                 <Button
                     buttonStyle={styles.deleteButton}
                     titleStyle={styles.deleteTitle}

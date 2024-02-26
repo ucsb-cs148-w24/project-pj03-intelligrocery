@@ -156,7 +156,11 @@ const GroceryList = ({ navigation }) => {
           console.log(error.message);
         }
       }
-    }
+    };
+
+    const handleAddToPantry = () => {
+        //console.log("clicked add to pantry button");
+    };
     
     console.log("List length: ", groceryList.length)
     return groceryList.length === 0 ? (
@@ -175,6 +179,7 @@ const GroceryList = ({ navigation }) => {
               toggleCheck={toggleCheck}
               handleDelete={handleDelete}
               item={item}
+              handleAddToPantry={handleAddToPantry}
             />
           ))}
         </ScrollView>
