@@ -53,7 +53,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         padding: 5,
         borderRadius: 5,
-        width: '40%',
+        width: '100%',
     },
     quantityUnits: {
         flexDirection: 'row',
