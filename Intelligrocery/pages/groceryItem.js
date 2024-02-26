@@ -31,7 +31,7 @@ export default function GroceryItem({item, toggleCheck, handleDelete, handleAddT
                 <Button
                     buttonStyle={styles.addToPantryButton}
                     titleStyle={styles.deleteTitle} //same font as delete button
-                    onPress={handleAddToPantry} //handleAddToPantryFromGroceryList
+                    onPress={() => handleAddToPantry(item.id)} //handleAddToPantryFromGroceryList
                     title="Add to pantry"
                 />
 
