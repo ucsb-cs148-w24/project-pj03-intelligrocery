@@ -54,6 +54,7 @@ const GroceryList = ({ navigation }) => {
       loadGroceryList(); // Trigger the async operation
     }, []);
 
+
     // Function to be triggered when the button is pressed
     const handleButtonPress = () => {
         setOverlayVisible(true);
@@ -95,6 +96,32 @@ const GroceryList = ({ navigation }) => {
           console.log(error.message);
       }
       };
+
+    const handleDeleteSelected = async () => {
+      deletedList = groceryList.filter(item => item.checked);
+      setGroceryList(groceryList.filter(item => !item.checked));
+      try {
+        deletedList.forEach(item => {
+          deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+          console.log("Deleted grocery list item: ", item.ingredient);
+        });
+      } catch (error) {
+        Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
+        console.log(error.message);
+      }
+    };
+
+    React.useLayoutEffect(() => {
+      navigation.setOptions({
+          headerLeft: () => (
+              <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
+                  <TouchableOpacity onPress={handleDeleteSelected} style={styles.plusButton}>
+                      <Text style={styles.buttonText}>-</Text>
+                  </TouchableOpacity>
+              </View>
+          ),
+      });
+  }, [navigation, groceryList]); // Add groceryList to the dependency array to re-render when items are checked/unchecked
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -141,7 +168,7 @@ const GroceryList = ({ navigation }) => {
       }
     }
     
-    console.log("List length: ", groceryList.length)
+    // console.log("Grocery list length: ", groceryList.length)
     return groceryList.length === 0 ? (
         <View style={styles.container}>
           <TouchableOpacity onPress={handleButtonPress}>
