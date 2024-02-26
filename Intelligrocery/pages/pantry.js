@@ -4,13 +4,14 @@ import { View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import styles from '../styles/styles';
 import AddIngredient from './addIngredient';
 import PantryItem from './pantryItem';
+import { useNavigation } from '@react-navigation/core'
 
 import { auth, addDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
 import { where, orderBy } from "firebase/firestore";
 
-const Pantry = ({ navigation }) => {
+const Pantry = ({ pantry, setPantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
-    const [pantry, setPantry] = useState([]);
+    const navigation = useNavigation();
 
     useEffect(() => {
       const loadPantry = async () => {
