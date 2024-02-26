@@ -162,6 +162,7 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
     const handleAddToPantry = (id) => {
       // Find the item in the grocery list
       const index = groceryList.findIndex((item) => item.id === id);
+      console.log("added to pantry")
       if (index !== -1) {
         const item = groceryList[index];
         // Add the item to the pantry
