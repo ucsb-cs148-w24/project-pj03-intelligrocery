@@ -158,8 +158,11 @@ const GroceryList = ({ navigation }) => {
       }
     };
 
-    const handleAddToPantry = () => {
+    const handleAddToPantry = (id) => {
         //console.log("clicked add to pantry button");
+        const index = groceryList.findIndex((item) => item.id === id);
+        //ingredient = groceryList[index].
+        setPantry([{ingredient, quantity, units, id}, ...pantry]);
     };
     
     console.log("List length: ", groceryList.length)
