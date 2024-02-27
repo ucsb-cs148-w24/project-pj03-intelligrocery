@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/core'
 //Pages
 import AddIngredient from './addIngredient';
 import GroceryItem from './groceryItem';
+import pantryItem from './pantryItem'
 
 //Firebase
 import { auth, addDocFB, updateDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
@@ -16,7 +17,7 @@ import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
-const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
+const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const navigation = useNavigation();
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
@@ -172,11 +173,33 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
     const handleAddToPantry = (id) => {
       // Find the item in the grocery list
       const index = groceryList.findIndex((item) => item.id === id);
-      console.log("added to pantry")
       if (index !== -1) {
-        const item = groceryList[index];
-        // Add the item to the pantry
-        setPantry((currentPantry) => [...currentPantry, item]);
+        const groceryItem = groceryList[index];
+
+        // Check if the item exists in the pantry
+        const pantryIndex = pantry.findIndex((pantryItem) => pantryItem.ingredient === groceryItem.ingredient);
+        if (pantryIndex !== -1) {
+          // Item exists in pantry, check units
+          const pantryItem = pantry[pantryIndex];
+          if (pantryItem.units === groceryItem.units) {
+            // Units are compatible, update quantity
+            const updatedQuantity = (Number(pantryItem.quantity) || 0) + (Number(groceryItem.quantity) || 0);
+            // Update item in pantry
+            setPantry((currentPantry) => {
+              console.log(currentPantry)
+              const newPantry = [...currentPantry];
+              newPantry[pantryIndex] = { ...pantryItem, quantity: updatedQuantity };
+              console.log(updatedQuantity)
+              return newPantry;
+            });
+          } else {
+            // Units are not compatible, show an error
+            Alert.alert("Error", "The units of the item in the pantry and grocery list do not match.");
+          }
+        } else {
+          // Item does not exist in pantry, add it as new
+          setPantry((currentPantry) => [...currentPantry, groceryItem]);
+        }
         // Optionally, remove the item from the grocery list or mark it as added to pantry
         // For example, to remove:
         //const newGroceryList = [...groceryList.slice(0, index), ...groceryList.slice(index + 1)];
