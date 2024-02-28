@@ -185,12 +185,16 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
             // Units are compatible, update quantity
             const updatedQuantity = (Number(pantryItem.quantity) || 0) + (Number(groceryItem.quantity) || 0);
             // Update item in pantry
-            setPantry((currentPantry) => {
-              console.log(currentPantry)
-              const newPantry = [...currentPantry];
-              newPantry[pantryIndex] = { ...pantryItem, quantity: updatedQuantity };
-              console.log(updatedQuantity)
-              return newPantry;
+            setPantry(prevList => {
+              console.log(prevList)
+              const updatedList = prevList.map((item, index) => {
+                if (index === pantryIndex) { // Check if the current index matches `pantryIndex`
+                  return { ...item, quantity: String(updatedQuantity) };
+                }
+                return item;
+              });
+              console.log(updatedList)
+              return updatedList;
             });
           } else {
             // Units are not compatible, show an error
@@ -200,10 +204,6 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
           // Item does not exist in pantry, add it as new
           setPantry((currentPantry) => [...currentPantry, groceryItem]);
         }
-        // Optionally, remove the item from the grocery list or mark it as added to pantry
-        // For example, to remove:
-        //const newGroceryList = [...groceryList.slice(0, index), ...groceryList.slice(index + 1)];
-        //setGroceryList(newGroceryList);
       }
     };
     

@@ -84,11 +84,10 @@ function TabNavigator() {
           })}
         >
           <Tab.Screen name="Grocery List">
-            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} setPantry={setPantry} pantry = {pantry} 
-            setCurr />}
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} setPantry={setPantry} pantry = {pantry} />}
           </Tab.Screen>
           <Tab.Screen name="Pantry">
-            {() => <Pantry pantry={pantry} setPantry={setPantry} />}
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} Pantry pantry={pantry} setPantry={setPantry} />}
           </Tab.Screen>
           <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
           <Tab.Screen name='Settings' component={Settings} />
