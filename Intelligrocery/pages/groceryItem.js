@@ -87,7 +87,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem, isChecked ? styles.checkedItem : {}]}>
                 <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
-                <View style={[styles.groceryItem, editing ? styles.editableItem : {}]}>
+                <View style={[styles.groceryItem2, editing ? styles.editableItem : {}]}>
                     <TextInput 
                         style={inputStyling}
                         editable={editing}

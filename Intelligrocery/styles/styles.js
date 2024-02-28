@@ -88,7 +88,14 @@ export default StyleSheet.create({
         padding: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'lightgray',
-        // backgroundColor: 'red',
+    },
+    groceryItem2: {
+        width: '100%',
+        marginRight: 'auto',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+
     },
     checkedItem: {
         backgroundColor: '#eee',
