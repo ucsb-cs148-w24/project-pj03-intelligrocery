@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
+import RNPickerSelect from 'react-native-picker-select';
 import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { updateDocFB } from '../firebase';
@@ -89,22 +90,52 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                 <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
                 <View style={[styles.groceryItem2, editing ? styles.editableItem : {}]}>
                     <TextInput 
+                        placeholder={editing ? "ingredient" : ""}
                         style={inputStyling}
                         editable={editing}
                         onChangeText={text => setCurrName(text)}
                         value={currName}
                     />
                     <TextInput 
+                        placeholder={editing ? "quantity" : ""}
                         style={inputStyling}
                         editable={editing}
-                        onChangeText={text => setCurrQuantity(parseFloat(text))}
+                        onChangeText={(text) => {
+                            const decimalRegex = /^\d*(\.\d{0,2})?$/;
+                            if (decimalRegex.test(text) || text === '') {
+                                setCurrQuantity(parseFloat(text));
+                            }
+                        }}
                         value={isNaN(currQuantity) ? '' : String(currQuantity)}
+                        keyboardType="numeric"
                     />
-                    <TextInput 
-                        style={inputStyling}
-                        editable={editing}
-                        onChangeText={text => setCurrUnits(text)}
-                        value={currUnits}
+                    <RNPickerSelect
+                        value={currUnits ? currUnits.toString() : ''}
+                        placeholder={{
+                            label: editing? "unit" : "",
+                            value: null,
+                            color: '#A9A9A9' 
+                        }}
+                        onValueChange={(value) => setCurrUnits(value)}
+                        items={[
+                            { label: 'tbsp', value: 'tablespoon' },
+                            { label: 'tsp', value: 'teaspoon' },
+                            { label: 'oz', value: 'ounce' },
+                            { label: 'lb', value: 'pound' },
+                            { label: 'g', value: 'gram' },
+                            { label: 'kg', value: 'kilogram' },
+                            { label: 'c', value: 'cup' },
+                            { label: 'pt', value: 'pint' },
+                            { label: 'gal', value: 'gallon' },
+                            { label: 'doz', value: 'dozen' },
+                            { label: 'pkg', value: 'package' },
+                        ]}
+                        useNativeAndroidPickerStyle={false}
+                        style={{
+                            inputIOS: styles.inputStyling,
+                            inputAndroid: styles.inputStyling, 
+                            placeholder: { color: '#A9A9A9' },
+                        }}
                     />
                     <View>
                         <TouchableOpacity style={{ marginRight: 50
