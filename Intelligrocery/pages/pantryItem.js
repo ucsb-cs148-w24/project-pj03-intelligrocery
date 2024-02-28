@@ -6,7 +6,7 @@ import { Button } from 'react-native-elements';
 import { Swipeable } from 'react-native-gesture-handler';
 import { updateDocFB } from '../firebase';
 
-export default function PantryItem({item, handleDelete}) {
+export default function PantryItem({item, handleDelete, setPantry}) {
 
     const [editing, setEditing] = useState(false);
     const swipeableRef = useRef(null);
@@ -24,6 +24,20 @@ export default function PantryItem({item, handleDelete}) {
     const handleEdit = async () => {
         setEditing(false);
         setInputStyling(null);
+
+        setPantry(prevPantry => {
+            return prevPantry.map(pantryItem => {
+                if (pantryItem.id === item.id) {
+                    return {
+                        ...pantryItem,
+                        ingredient: currName,
+                        quantity: parseFloat(currQuantity),
+                        units: currUnits
+                    };
+                }
+                return pantryItem;
+            });
+        });
 
         await updateDocFB(collectionName = "pantry", documentID = item.dbID, docData = {
             ingredient: currName,
