@@ -25,17 +25,17 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
         setEditing(false);
         setInputStyling(null);
 
-        setPantry(prevPantry => {
-            return prevPantry.map(pantryItem => {
-                if (pantryItem.id === item.id) {
+        setGroceryList(prevGroceryList => {
+            return prevGroceryList.map(groceryItem => {
+                if (groceryItem.id === item.id) {
                     return {
-                        ...pantryItem,
+                        ...groceryItem,
                         ingredient: currName,
                         quantity: parseFloat(currQuantity),
                         units: currUnits
                     };
                 }
-                return pantryItem;
+                return groceryItem;
             });
         });
 
