@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import { View, Text, TextInput } from 'react-native';
 import { Overlay, Button } from 'react-native-elements';
 import styles from '../styles/styles';
+import RNPickerSelect from 'react-native-picker-select';
 
 const AddIngredient = ({ isVisible, onClose, onAdd }) => {
     const [ingredient, setIngredient] = useState('');
@@ -32,12 +33,29 @@ const AddIngredient = ({ isVisible, onClose, onAdd }) => {
             placeholderTextColor="#A9A9A9"
             keyboardType="numeric"
             />
-            <TextInput
-            style={styles.inputUnits}
-            onChangeText={text=>setUnits(text)}
-            placeholder="Units"
-            placeholderTextColor="#A9A9A9"
-        />
+          <RNPickerSelect
+              placeholder={{ label: "Unit", value: null, color: '#A9A9A9' }}
+              onValueChange={(value) => setUnits(value)}
+              items={[
+                  { label: 'tbsp', value: 'tablespoon' },
+                  { label: 'tsp', value: 'teaspoon' },
+                  { label: 'oz', value: 'ounce' },
+                  { label: 'lb', value: 'pound' },
+                  { label: 'g', value: 'gram' },
+                  { label: 'kg', value: 'kilogram' },
+                  { label: 'c', value: 'cup' },
+                  { label: 'pt', value: 'pint' },
+                  { label: 'gal', value: 'gallon' },
+                  { label: 'doz', value: 'dozen' },
+                  { label: 'pkg', value: 'package' },
+              ]}
+              useNativeAndroidPickerStyle={false}
+              style={{
+                inputIOS: styles.inputUnits,
+                inputAndroid: styles.inputUnits, 
+                placeholder: { color: '#A9A9A9' },
+            }}
+          />
         </View>
         <View style={styles.overlayButtons}>
             <Button title="Cancel" onPress={onClose} buttonStyle = {styles.cancelButton} titleStyle = {styles.cancelButtonTitle} />
