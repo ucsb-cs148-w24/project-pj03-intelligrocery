@@ -4,7 +4,6 @@ import styles from '../styles/styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 import { Swipeable } from 'react-native-gesture-handler';
-import { Spacer } from 'react-native-flex-layout';
 import { updateDocFB } from '../firebase';
 
 export default function PantryItem({item, handleDelete}) {
@@ -82,7 +81,6 @@ export default function PantryItem({item, handleDelete}) {
                     </TouchableOpacity>
                 </View>
             </View>
-            <Spacer />
         </Swipeable>
     );
 }

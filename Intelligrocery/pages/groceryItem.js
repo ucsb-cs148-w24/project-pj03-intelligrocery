@@ -5,7 +5,6 @@ import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
 import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { Spacer } from 'react-native-flex-layout';
 import { updateDocFB } from '../firebase';
 
 export default function GroceryItem({item, toggleCheck, handleDelete, handleAddToPantry}) {
@@ -100,7 +99,6 @@ export default function GroceryItem({item, toggleCheck, handleDelete, handleAddT
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Spacer />
             </View>
         </Swipeable>
     );
