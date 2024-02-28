@@ -102,6 +102,7 @@ const Pantry = ({ pantry, setPantry }) => {
               key={item.id} 
               handleDelete={handleDelete}
               item={item}
+              setPantry={setPantry}
             />
           ))}
         </ScrollView>

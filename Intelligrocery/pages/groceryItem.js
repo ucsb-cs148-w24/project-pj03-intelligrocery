@@ -7,7 +7,7 @@ import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { updateDocFB } from '../firebase';
 
-export default function GroceryItem({item, toggleCheck, handleDelete, handleAddToPantry}) {
+export default function GroceryItem({item, toggleCheck, setGroceryList, handleDelete, handleAddToPantry}) {
     const [isChecked, setIsChecked] = useState(item.checked);
     const swipeableRef = useRef(null);
     const [editing, setEditing] = useState(false);
@@ -24,6 +24,20 @@ export default function GroceryItem({item, toggleCheck, handleDelete, handleAddT
     const handleEdit = async () => {
         setEditing(false);
         setInputStyling(null);
+
+        setPantry(prevPantry => {
+            return prevPantry.map(pantryItem => {
+                if (pantryItem.id === item.id) {
+                    return {
+                        ...pantryItem,
+                        ingredient: currName,
+                        quantity: parseFloat(currQuantity),
+                        units: currUnits
+                    };
+                }
+                return pantryItem;
+            });
+        });
 
         await updateDocFB(collectionName = "grocery", documentID = item.dbID, docData = {
             ingredient: currName,

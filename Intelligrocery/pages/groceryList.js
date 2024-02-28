@@ -158,6 +158,8 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
           // Item exists in pantry, check units
           const pantryItem = pantry[pantryIndex];
           if (pantryItem.units === groceryItem.units) {
+            console.log("Pantry item units: ", pantryItem.units)
+            console.log("Grocery item units: ", groceryItem.units)
             // Units are compatible, update quantity
             const updatedQuantity = pantryItem.quantity + groceryItem.quantity;
             // Update item in pantry
@@ -219,6 +221,7 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
               handleDelete={handleDelete}
               item={item}
               handleAddToPantry={handleAddToPantry}
+              setGroceryList={setGroceryList}
             />
           ))}
         </ScrollView>
