@@ -45,7 +45,6 @@ const LoginScreen = ({navigation}) => {
         try {
             console.log("User id: ", auth.currentUser.uid, "\n");
             await setDoc(doc(db, "users", auth.currentUser.uid), {email: auth.currentUser.email});
-            console.log("Added user with global userID: ", userId);
         } catch (error) {
             console.log(error.message);
             user = auth.currentUser;
