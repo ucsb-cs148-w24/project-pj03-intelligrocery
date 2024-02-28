@@ -153,34 +153,27 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
         const groceryItem = groceryList[groceryIndex];
 
         // Check if the item exists in the pantry
-        const pantryIndex = pantry.findIndex((pantryItem) => pantryItem.ingredient === groceryItem.ingredient);
+        const pantryIndex = pantry.findIndex((pantryItem) => (pantryItem.ingredient === groceryItem.ingredient) && (pantryItem.units === groceryItem.units));
         if (pantryIndex !== -1) {
           // Item exists in pantry, check units
           const pantryItem = pantry[pantryIndex];
-          if (pantryItem.units === groceryItem.units) {
-            console.log("Pantry item units: ", pantryItem.units)
-            console.log("Grocery item units: ", groceryItem.units)
-            // Units are compatible, update quantity
-            const updatedQuantity = pantryItem.quantity + groceryItem.quantity;
-            // Update item in pantry
-            setPantry((prevPantry) => {
-              const updatedPantry = prevPantry.map((item, index) => {
-                  if (index === pantryIndex) {
-                      return { ...item, quantity: updatedQuantity };
-                  }
-                  return item;
-              });
-              // console.log(updatedPantry); // Log the updated state here
-              return updatedPantry;
+          // Units are compatible, update quantity
+          const updatedQuantity = pantryItem.quantity + groceryItem.quantity;
+          // Update item in pantry
+          setPantry((prevPantry) => {
+            const updatedPantry = prevPantry.map((item, index) => {
+                if (index === pantryIndex) {
+                    return { ...item, quantity: updatedQuantity };
+                }
+                return item;
+            });
+            // console.log(updatedPantry); // Log the updated state here
+            return updatedPantry;
           });
           //We don't want to add the list id in the database
           const { id, ...updatedPantryItem } = pantryItem;
           updatedPantryItem.quantity = updatedQuantity;
           await updateDocFB(collectionName = "pantry", documentID = updatedPantryItem.dbID, data = updatedPantryItem);
-          } else {
-            // Units are not compatible, show an error
-            Alert.alert("Error", "The units of the item in the pantry and grocery list do not match.");
-          }
         } else {
           // Item does not exist in pantry, add it as new
           groceryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
