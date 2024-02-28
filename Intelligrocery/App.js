@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Entypo, MaterialIcons } from 'react-native-vector-icons'; // Import Entypo from react-native-vector-icons
 import Pantry from './pages/pantry';
+import PantryItem from './pages/pantryItem';
 import Recipes from './pages/recipes';
 import GroceryList from './pages/groceryList';
 import Login from './pages/login';
@@ -18,7 +19,6 @@ import { auth } from './firebase'; // Assuming your firebase initialization file
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const Stack2 = createNativeStackNavigator();
-
 
 const RecipeStack = () => {
    
@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
 });
 
 function TabNavigator() {
+  const [groceryList, setGroceryList] = useState([]); 
+  const [pantry, setPantry] = useState([]);
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
         <Tab.Navigator 
@@ -80,8 +83,12 @@ function TabNavigator() {
             },
           })}
         >
-          <Tab.Screen name="Grocery List" component={GroceryList} />
-          <Tab.Screen name="Pantry" component={Pantry} />
+          <Tab.Screen name="Grocery List">
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} pantry = {pantry} setPantry={setPantry} />}
+          </Tab.Screen>
+          <Tab.Screen name="Pantry">
+            {() => <Pantry pantry={pantry} setPantry={setPantry} groceryList={groceryList} setGroceryList={setGroceryList} />}
+          </Tab.Screen>
           <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
           <Tab.Screen name='Settings' component={Settings} />
         </Tab.Navigator>
