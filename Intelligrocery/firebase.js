@@ -42,41 +42,65 @@ export { app, db, auth };
 
 const handleSignOut = async ({navigation}) => {
   //Note: for some reason needed to pass in as {}
-  const email = auth.currentUser?.email
-  userCredentials = await signOut(auth)
-  console.log('Logged out with: ', email);
-  navigation.replace("Login")
+  try {
+    const email = auth.currentUser?.email
+    userCredentials = await signOut(auth)
+    console.log('Logged out with: ', email);
+    navigation.replace("Login")
+  } catch(error) {
+    Alert.alert("It seems we had a problem signing you out.");
+    console.log(error.message);
+  } 
 }
 
 const addDocFB = async (docData, collectionName) => {
   //Takes a reference to an ingredient doc and adds it to the database
-  docData.userID = auth.currentUser.uid;
-  docData.timestamp = serverTimestamp();
-  const docRef = await addDoc(collection(db, collectionName), docData);
-  return docRef.id;
+  try {
+    docData.userID = auth.currentUser.uid;
+    docData.timestamp = serverTimestamp();
+    const docRef = await addDoc(collection(db, collectionName), docData);
+    return docRef.id;
+  } catch(error) {
+    Alert.alert("There seems to have been an issue adding your item to the database.")
+    console.log(error.message);
+  } 
 }
 
 const updateDocFB = async (collectionName, documentID, docData) => {
-  await updateDoc(doc(db, collectionName, documentID), {...docData, timestamp: serverTimestamp()});
-  // console.log("Updated document");
+  try {
+    await updateDoc(doc(db, collectionName, documentID), {...docData, timestamp: serverTimestamp()});
+  } catch(error) {
+    Alert.alert("There seems to have been an issue updating your item in the database.");
+    console.log(error.message);
+  } 
  }
 
 
 const deleteDocFB = async (collectionName, documentID) => {
-  await deleteDoc(doc(db, collectionName, documentID));
+  try {
+    await deleteDoc(doc(db, collectionName, documentID));
+  } catch(error) {
+    Alert.alert("There seems to have been an issue deleting your item from the database.")
+    console.log(error.message);
+  } 
 }
 
 const queryCollectionFB = async (collectionName, whereRef = null, orderByRef = null) => {
   //Making it not async because 
-  let queryData; 
-  if (whereRef !== null && orderByRef !== null) {
-    queryData = await getDocs(query(collection(db, collectionName), whereRef, orderByRef)); 
-  } else if ( whereRef !== null) {
-    queryData = await getDocs(query(collection(db, collectionName), orderByRef)); 
-  } else {
-    queryData = await getDocs(query(collection(db, collectionName), whereRef)); 
-  }
-  return queryData;
+  try {
+    let queryData; 
+    if (whereRef !== null && orderByRef !== null) {
+      queryData = await getDocs(query(collection(db, collectionName), whereRef, orderByRef)); 
+    } else if ( whereRef !== null) {
+      queryData = await getDocs(query(collection(db, collectionName), orderByRef)); 
+    } else {
+      queryData = await getDocs(query(collection(db, collectionName), whereRef)); 
+    }
+    return queryData;
+  } catch(error) {
+    Alert.alert("We seemed to have a problem loading your data");
+    console.error("Error loading pantry: ", error);
+  } 
 }
 
 export {handleSignOut, addDocFB, updateDocFB, deleteDocFB, queryCollectionFB};
