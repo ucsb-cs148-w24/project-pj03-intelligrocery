@@ -39,7 +39,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             });
         });
 
-        await updateDocFB(collectionName = "grocery", documentID = item.dbID, docData = {
+        await updateDocFB(collectionName = "groceryList", documentID = item.dbID, docData = {
             ingredient: currName,
             quantity: parseFloat(currQuantity),
             units: currUnits
