@@ -43,6 +43,7 @@ const Pantry = ({ pantry, setPantry }) => {
 
     const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
+        quantity = parseFloat(quantity)
         id = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0;
         setPantry((prevPantry) => [...prevPantry, {ingredient, quantity, units, id}]);
         console.log("Next id in pantry: ", id);
