@@ -16,7 +16,7 @@ import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
-const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
+const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const navigation = useNavigation();
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
@@ -26,30 +26,25 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
       //   isMounted.current = true; // Set isMounted to true after the initial render
       // }
       const loadGroceryList = async () => {
-        try {
-          if (auth.currentUser) {
-          console.log("User: ", auth.currentUser.uid)
-          const queryDocs = await queryCollectionFB(
-            "groceryList",
-            where("userID", "==", auth.currentUser.uid),
-            orderBy("timestamp", "desc")
-          );
-          console.log("Done querying docs");
-          const list = [];
-          let id = 0;
-          queryDocs.forEach(doc => {
-            // Assuming doc.data() returns the item object
-            list.push({...doc.data(), dbID: doc.id, id});
-            id++;
-          });
-          const checkedList = list.filter((item) => item.checked);
-          const uncheckedList = list.filter((item) => !item.checked);
-          setGroceryList([...uncheckedList, ...checkedList]);
-          // console.log("Done toggling docs");
-        }
-        } catch (error) {
-          Alert.alert("We seemed to have a problem loading your grocery list");
-          console.error("Error loading grocery list: ", error);
+        if (auth.currentUser) {
+        console.log("User: ", auth.currentUser.uid)
+        const queryDocs = await queryCollectionFB(
+          "groceryList",
+          where("userID", "==", auth.currentUser.uid),
+          orderBy("timestamp", "desc")
+        );
+        console.log("Done querying docs");
+        const list = [];
+        let id = 0;
+        queryDocs.forEach(doc => {
+          // Assuming doc.data() returns the item object
+          list.push({...doc.data(), dbID: doc.id, id});
+          id++;
+        });
+        const checkedList = list.filter((item) => item.checked);
+        const uncheckedList = list.filter((item) => !item.checked);
+        setGroceryList([...uncheckedList, ...checkedList]);
+        // console.log("Done toggling docs");
         }
       };
       loadGroceryList(); // Trigger the async operation
@@ -67,49 +62,41 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
 
     const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
+        quantity = parseFloat(quantity)
         // const id = Math.random().toFixed(16).slice(2)
-        const id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
-        setGroceryList([{ingredient, quantity, units, id}, ...groceryList]);
+        id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
+        setGroceryList((prevGroceryList) => [...prevGroceryList, {ingredient, quantity, units, id}]);
+
         console.log("Next id in groceryList: ", id);
-        try {
-            const dbID = await addDocFB(
-                data = {
-                  ingredient,
-                  quantity,
-                  units,
-                  checked : false,
-                  // appListKey: id,
-                },
-              collectionName = "groceryList");
-              console.log("Added to grocery list: ", ingredient);
-              setGroceryList(prevList => { //calling setGroceryList seems to let the past set finish first
-                const updatedList = prevList.map(item => {
-                    if (item.id === id) {
-                        return { ...item, dbID };
-                    }
-                    return item;
-                });
-              console.log("Made this item have dbID: ", dbID)
-              return updatedList;
-          });
-        } catch (error) {
-          Alert.alert("There seems to have been an issue adding your grocery list item to the database.")
-          console.log(error.message);
-      }
+          const dbID = await addDocFB(
+            docData = {
+                ingredient,
+                quantity,
+                units,
+                checked : false,
+                // appListKey: id,
+              },
+            collectionName = "groceryList");
+            console.log("Added to grocery list: ", ingredient);
+            setGroceryList(prevList => { //calling setGroceryList seems to let the past set finish first
+              const updatedList = prevList.map(item => {
+                  if (item.id === id) {
+                      return { ...item, dbID };
+                  }
+                  return item;
+              });
+            console.log("Made this item have dbID: ", dbID)
+            return updatedList;
+        });
       };
 
     const handleDeleteSelected = async () => {
       deletedList = groceryList.filter(item => item.checked);
       setGroceryList(groceryList.filter(item => !item.checked));
-      try {
-        deletedList.forEach(item => {
-          deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
-          console.log("Deleted grocery list item: ", item.ingredient);
-        });
-      } catch (error) {
-        Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
-        console.log(error.message);
-      }
+      deletedList.forEach(item => {
+        deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+        console.log("Deleted grocery list item: ", item.ingredient);
+      });
     };
 
     React.useLayoutEffect(() => {
@@ -143,12 +130,7 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
         uncheckedList = newGroceryList.filter(item => !item.checked);
         setGroceryList([...uncheckedList, ...checkedList]);  
         const item = newGroceryList[index];
-        try {
-          await updateDocFB("groceryList", item.dbID, { checked: item.checked });
-        } catch (error) {
-          Alert.alert("There seems to have been an issue updating your item in the database.");
-          console.log(error.message);
-        }
+        await updateDocFB("groceryList", item.dbID, { checked: item.checked });
     };
 
     const handleDelete = (id) => {
@@ -159,28 +141,64 @@ const GroceryList = ({ groceryList, setGroceryList, setPantry }) => {
         const item = newGroceryList[index]
         newGroceryList.splice(index, 1);
         setGroceryList(newGroceryList);
-        try {
-          deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
-          console.log("Deleted grocery list item: ", item.ingredient);
-        } catch (error) {
-          Alert.alert("There seems to have been an issue deleting your grocery list item from the database.")
-          console.log(error.message);
-        }
+        deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+        console.log("Deleted grocery list item: ", item.ingredient);
       }
     };
 
-    const handleAddToPantry = (id) => {
+    const handleAddToPantry = async (id) => {
       // Find the item in the grocery list
-      const index = groceryList.findIndex((item) => item.id === id);
-      console.log("added to pantry")
-      if (index !== -1) {
-        const item = groceryList[index];
-        // Add the item to the pantry
-        setPantry((currentPantry) => [...currentPantry, item]);
-        // Optionally, remove the item from the grocery list or mark it as added to pantry
-        // For example, to remove:
-        //const newGroceryList = [...groceryList.slice(0, index), ...groceryList.slice(index + 1)];
-        //setGroceryList(newGroceryList);
+      let groceryIndex = groceryList.findIndex((item) => item.id === id);
+      if (groceryIndex !== -1) {
+        const groceryItem = groceryList[groceryIndex];
+
+        // Check if the item exists in the pantry
+        const pantryIndex = pantry.findIndex((pantryItem) => pantryItem.ingredient === groceryItem.ingredient);
+        if (pantryIndex !== -1) {
+          // Item exists in pantry, check units
+          const pantryItem = pantry[pantryIndex];
+          if (pantryItem.units === groceryItem.units) {
+            // Units are compatible, update quantity
+            const updatedQuantity = pantryItem.quantity + groceryItem.quantity;
+            // Update item in pantry
+            setPantry((prevPantry) => {
+              const updatedPantry = prevPantry.map((item, index) => {
+                  if (index === pantryIndex) {
+                      return { ...item, quantity: updatedQuantity };
+                  }
+                  return item;
+              });
+              // console.log(updatedPantry); // Log the updated state here
+              return updatedPantry;
+          });
+          //We don't want to add the list id in the database
+          const { id, ...updatedPantryItem } = pantryItem;
+          updatedPantryItem.quantity = updatedQuantity;
+          await updateDocFB(collectionName = "pantry", documentID = updatedPantryItem.dbID, data = updatedPantryItem);
+          } else {
+            // Units are not compatible, show an error
+            Alert.alert("Error", "The units of the item in the pantry and grocery list do not match.");
+          }
+        } else {
+          // Item does not exist in pantry, add it as new
+          groceryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
+          const newPantryItem = { ...groceryItem, id: groceryIndex};
+          setPantry((prevPantry) => [...prevPantry, newPantryItem]);
+
+          const dbID = await addDocFB(
+            docData = groceryItem,
+            collectionName = "pantry");
+            console.log("Added to pantry: ", groceryItem.ingredient);
+            setPantry(prevList => { //calling setPantry seems to let the past set finish first
+              const updatedList = prevList.map(item => {
+                  if (item.id === groceryIndex) {
+                      return { ...item, dbID };
+                  }
+                  return item;
+              });
+            return updatedList;
+        });
+        }
       }
     };
     

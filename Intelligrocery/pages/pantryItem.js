@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import styles from '../styles/styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,26 +9,28 @@ export default function PantryItem({item, handleDelete}) {
     const [editing, setEditing] = useState(false);
     // const [editIcon, setEditIcon] = useState("edit"); //Not used
     const [currName, setCurrName] = useState(item.ingredient);
-    const [currQuantity, setCurrQuantity] = useState(item.quantity);
+    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity));
     const [currUnits, setCurrUnits] = useState(item.units);
     const [inputStyling, setInputStyling] = useState(null);
+    // console.log("Current quantity: ", currQuantity)
+
+    useEffect(() => {
+        // console.log("Quantity it sees: ", item.quantity)
+        setCurrQuantity(item.quantity);
+    }, [item.quantity]);
 
     const handleEdit = async () => {
         setEditing(false);
         // setEditIcon("edit"); //Not used
         setInputStyling(null);
 
-        try {
-            await updateDocFB("pantry", item.dbID, {
-                ingredient: currName,
-                quantity: currQuantity,
-                units: currUnits
-            });
-            console.log(`Updated ${item.ingredient}`);
-        } catch (error) {
-            Alert.alert("There seems to have been an issue updating your item in the database.");
-            console.log(error.message);
-        }
+        await updateDocFB(collectionName = "pantry", documentID = item.dbID, docData = {
+            ingredient: currName,
+            quantity: parseFloat(currQuantity),
+            units: currUnits
+        });
+        console.log(`Updated ${item.ingredient}`);
+        // console.log("New Quantity:", parseFloat(currQuantity));
     };
     
     return (
@@ -42,8 +44,8 @@ export default function PantryItem({item, handleDelete}) {
             <TextInput 
                 style={inputStyling}
                 editable={editing}
-                onChangeText={text => setCurrQuantity(text)}
-                value={currQuantity}
+                onChangeText={text => setCurrQuantity(parseFloat(text))}
+                value={isNaN(currQuantity) ? '' : String(currQuantity)}
             />
             <TextInput 
                 style={inputStyling}

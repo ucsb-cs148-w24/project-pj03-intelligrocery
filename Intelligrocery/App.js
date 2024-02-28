@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Entypo, MaterialIcons } from 'react-native-vector-icons'; // Import Entypo from react-native-vector-icons
 import Pantry from './pages/pantry';
+import PantryItem from './pages/pantryItem';
 import Recipes from './pages/recipes';
 import GroceryList from './pages/groceryList';
 import Login from './pages/login';
@@ -83,10 +84,10 @@ function TabNavigator() {
           })}
         >
           <Tab.Screen name="Grocery List">
-            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} setPantry={setPantry} />}
+            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} pantry = {pantry} setPantry={setPantry} />}
           </Tab.Screen>
           <Tab.Screen name="Pantry">
-            {() => <Pantry pantry={pantry} setPantry={setPantry} />}
+            {() => <Pantry pantry={pantry} setPantry={setPantry} groceryList={groceryList} setGroceryList={setGroceryList} />}
           </Tab.Screen>
           <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
           <Tab.Screen name='Settings' component={Settings} />
