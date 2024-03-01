@@ -59,9 +59,14 @@ export default function PantryItem({item, handleDelete, setPantry}) {
             <Animated.View style={{ transform: [{ scale }], flexDirection: 'row' }}>
                 <Button
                     buttonStyle={styles.deleteButton}
-                    titleStyle={styles.deleteTitle}
                     onPress={() => handleDelete(item.id)}
-                    title="Delete"
+                    icon={
+                        <Icon
+                            name='trash'
+                            color='white'
+                            size={30}
+                        />
+                    }
                 />
             </Animated.View>
         );
@@ -69,7 +74,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
     
     return (
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
-            <View style={[styles.groceryItem, editing ? styles.editableItem : {}]}>
+            <View style={[styles.groceryItem]}>
                 <TextInput 
                     style={inputStyling}
                     editable={editing}

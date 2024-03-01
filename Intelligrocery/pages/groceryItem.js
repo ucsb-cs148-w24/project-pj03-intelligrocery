@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { View, TextInput, TouchableOpacity, Animated } from 'react-native';
+import { View, TextInput, TouchableOpacity, Animated, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
@@ -68,16 +68,24 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             <Animated.View style={{ transform: [{ scale }], flexDirection: 'row' }}>
                 <Button
                     buttonStyle={styles.addToPantryButton}
-                    titleStyle={styles.deleteTitle} //same font as delete button
-                    onPress={() => handleAddToPantry(item.id)} //handleAddToPantryFromGroceryList
-                    title="Add to pantry"
+                    onPress={() => handleAddToPantry(item.id)}
+                    icon={
+                        <Image
+                            source={require('../assets/addtopantry.png')}
+                            style={{ width: 30, height: 30 }}
+                        />
+                    }
                 />
-
                 <Button
                     buttonStyle={styles.deleteButton}
-                    titleStyle={styles.deleteTitle}
                     onPress={() => handleDelete(item.id)}
-                    title="Delete"
+                    icon={
+                        <Icon
+                            name='trash'
+                            color='white'
+                            size={30}
+                        />
+                    }
                 />
             </Animated.View>
         );
@@ -87,7 +95,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem, isChecked ? styles.checkedItem : {}]}>
                 <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
-                <View style={[styles.groceryItem2, editing ? styles.editableItem : {}]}>
+                <View style={[styles.groceryItem2]}>
                     <TextInput 
                         style={inputStyling}
                         editable={editing}
