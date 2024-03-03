@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/core'
 //Pages
 import AddIngredient from './addIngredient';
 import GroceryItem from './groceryItem';
+import { useGroceryList } from '../context/groceryListContext';
 
 //Firebase
 import { auth, addDocFB, updateDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
@@ -16,9 +17,10 @@ import { where, orderBy } from "firebase/firestore";
 
 
 //timestamp: serverTimestamp()
-const GroceryList = ({ groceryList, setGroceryList, setPantry, pantry }) => {
+const GroceryList = ({ setPantry, pantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const navigation = useNavigation();
+    const { groceryList, setGroceryList } = useGroceryList();
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
 
     useEffect(() => {
