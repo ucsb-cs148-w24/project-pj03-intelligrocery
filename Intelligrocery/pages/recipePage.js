@@ -3,7 +3,6 @@ import { ScrollView, View, Text, Image, TouchableOpacity, Linking } from 'react-
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 import RecipeItem from './recipeItem';
-import { addDocFB } from '../firebase'
 
 
 const RecipePage = ({ route }) => {
