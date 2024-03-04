@@ -104,7 +104,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                         style={inputStyling}
                         editable={editing}
                         onChangeText={text => setCurrUnits(text)}
-                        value={currUnits}
+                        value={currUnits ?? ''}
                     />
                     <View>
                         <TouchableOpacity style={{ marginRight: 50

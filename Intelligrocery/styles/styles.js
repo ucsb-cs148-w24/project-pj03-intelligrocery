@@ -238,6 +238,22 @@ export default StyleSheet.create({
         fontSize: 20,
         fontWeight: '600',
         color: 'tomato',
-        marginLeft: 10,
+    },
+    ingredientText: {
+        fontSize: 20,
+    },
+    addButton: {
+        backgroundColor: 'tomato',
+        borderRadius: 300,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10,
+    },
+    recipeItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 10,
+        width: '90%',
     },
 });

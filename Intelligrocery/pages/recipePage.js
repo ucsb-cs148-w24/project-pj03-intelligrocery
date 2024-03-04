@@ -1,7 +1,10 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity, Linking } from 'react-native';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
+import RecipeItem from './recipeItem';
+import { addDocFB } from '../firebase'
+
 
 const RecipePage = ({ route }) => {
     const { imageSource, title, ingredients, recipeLink } = route.params;
@@ -18,7 +21,12 @@ const RecipePage = ({ route }) => {
                 <Text style={styles.recipePageTitle}>{title}</Text>
                 <Text style={styles.recipePageNumIngredients}>{ingredients.length} ingredients:</Text>
                 {ingredients.map((ingredient, index) => (
-                    <Text key={index} style={styles.recipePageIngredients}>{ingredient.text}</Text>
+                    <RecipeItem
+                        key={index}
+                        ingredient={ingredient.food} 
+                        quantity={ingredient.quantity} 
+                        units={ingredient.measure} 
+                    />
                 ))}
             </View>
             <TouchableOpacity style={styles.goToRecipe} onPress={handlePress}>

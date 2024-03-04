@@ -15,17 +15,24 @@ import RecipePage from './pages/recipePage';
 import Settings from './pages/settings';
 
 import { auth } from './firebase'; // Assuming your firebase initialization file is named firebase.js and is in the same directory
+import { useGroceryList, GroceryListProvider } from './context/groceryListContext';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const Stack2 = createNativeStackNavigator();
-
-const RecipeStack = () => {
-   
+const RecipeStack = ({groceryList, setGroceryList}) => {
   return (
-    <Stack2.Navigator >
-       <Stack2.Screen name="RecipesList" component={Recipes} options={{ title: 'Recipes' }}/>
-       <Stack2.Screen name="RecipePage" component={RecipePage} options={{ title: 'Recipe Page' }} />
+    <Stack2.Navigator>
+       <Stack2.Screen 
+            name="RecipesList"
+            options={{ title: 'Recipes' }}
+            component={Recipes}
+        />
+       <Stack2.Screen 
+            name="RecipePage" 
+            component={RecipePage} 
+            options={{ title: 'Recipe Page' }}
+        />
     </Stack2.Navigator>
   )
 }
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
 });
 
 function TabNavigator() {
-  const [groceryList, setGroceryList] = useState([]); 
+  const { groceryList, setGroceryList } = useGroceryList();
   const [pantry, setPantry] = useState([]);
 
   return (
@@ -84,12 +91,14 @@ function TabNavigator() {
           })}
         >
           <Tab.Screen name="Grocery List">
-            {() => <GroceryList groceryList={groceryList} setGroceryList={setGroceryList} pantry = {pantry} setPantry={setPantry} />}
+            {() => <GroceryList pantry={pantry} setPantry={setPantry} />}
           </Tab.Screen>
           <Tab.Screen name="Pantry">
-            {() => <Pantry pantry={pantry} setPantry={setPantry} groceryList={groceryList} setGroceryList={setGroceryList} />}
+            {() => <Pantry pantry={pantry} setPantry={setPantry} />}
           </Tab.Screen>
-          <Tab.Screen name="Recipes" component={RecipeStack} options={{ headerShown: false }}/>
+          <Tab.Screen name="Recipes" options={{ headerShown: false }}>
+            {() => <RecipeStack groceryList={groceryList} setGroceryList={setGroceryList}/>}
+          </Tab.Screen>
           <Tab.Screen name='Settings' component={Settings} />
         </Tab.Navigator>
     </GestureHandlerRootView>
@@ -148,8 +157,10 @@ const LoginStack = () => {
 
 export default function App() {
   return (
+    <GroceryListProvider>
       <NavigationContainer>
         <LoginStack />
       </NavigationContainer>
+    </GroceryListProvider>
   );
 }
