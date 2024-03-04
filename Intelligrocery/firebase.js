@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { signOut, getAuth } from "firebase/auth";
 import { getFirestore, collection, doc, addDoc, updateDoc, setDoc, deleteDoc, getDocs, query, increment, serverTimestamp } from "firebase/firestore";
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
@@ -30,13 +30,25 @@ const firebaseConfig = {
 //   persistence: getReactNativePersistence(ReactNativeAsyncStorage)
 // });
 // Initialize Firebase app
-const app = initializeApp(firebaseConfig);
+
+let app, auth;
+
+if (!getApps().length) {
+  try {
+    app = initializeApp(firebaseConfig);
+    auth = initializeAuth(app, {
+      persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+    });
+  } catch (error) {
+    console.log("Error initializing app: " + error);
+  }
+} else {
+  app = getApps()[0];
+  auth = getAuth(app);
+}
 
 // Initialize Firebase services
 const db = getFirestore(app);
-const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-});
 
 export { app, db, auth };
 // export const auth = getAuth();

@@ -13,7 +13,7 @@ const RecipeCard = ({ imageSource, title, recipeLink, regularImage, largeImage, 
             imageSource: largeImage,
             title: title,
             ingredients: ingredients,
-            recipeLink: recipeLink
+            recipeLink: recipeLink,
         });
     };
 
