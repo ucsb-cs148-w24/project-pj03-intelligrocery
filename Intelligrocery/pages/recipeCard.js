@@ -5,7 +5,7 @@ import { Spacer } from 'react-native-flex-layout';
 import { useNavigation } from '@react-navigation/native';
 import RecipePage from './recipePage';
 
-const RecipeCard = ({ imageSource, title, recipeLink, regularImage, largeImage, ingredients, handleAdd }) => {
+const RecipeCard = ({ imageSource, title, recipeLink, regularImage, largeImage, ingredients }) => {
     const navigation = useNavigation();
 
     const handlePress = () => {

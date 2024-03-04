@@ -149,7 +149,7 @@ const GroceryList = ({ setPantry, pantry }) => {
     };
 
     const handleAddToPantry = async (id) => {
-      let tempListId = id; //Keeping the variable here since it seemed to become undefined otherwise
+      let groceryListID = id; //Keeping the variable here since it seemed to become undefined otherwise, global variable issue
       // Find the item in the grocery list
       let groceryIndex = groceryList.findIndex((item) => item.id === id);
       if (groceryIndex !== -1) {
@@ -157,9 +157,8 @@ const GroceryList = ({ setPantry, pantry }) => {
         // Check if the item exists in the pantry
         const pantryIndex = pantry.findIndex((pantryItem) => (pantryItem.ingredient === groceryItem.ingredient) && (pantryItem.units === groceryItem.units));
         if (pantryIndex !== -1) {
-          // Item exists in pantry, check units
-          const pantryItem = pantry[pantryIndex];
           // Units are compatible, update quantity
+          pantryItem = pantry[pantryIndex];
           const updatedQuantity = pantryItem.quantity + groceryItem.quantity;
           // Update item in pantry
           setPantry((prevPantry) => {
@@ -172,17 +171,15 @@ const GroceryList = ({ setPantry, pantry }) => {
             // console.log(updatedPantry); // Log the updated state here
             return updatedPantry;
           });
-          handleDelete(tempListId);
+          handleDelete(groceryListID);
           //We don't want to add the list id in the database
-          const { id, ...updatedPantryItem } = pantryItem;
-          updatedPantryItem.quantity = updatedQuantity;
+          const { id, ...updatedPantryItem } = pantry[pantryIndex];
           await updateDocFB(collectionName = "pantry", documentID = updatedPantryItem.dbID, data = updatedPantryItem);
         } else {
           // Item does not exist in pantry, add it as new
           groceryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
-          const newPantryItem = { ...groceryItem, id: groceryIndex};
-          setPantry((prevPantry) => [...prevPantry, newPantryItem]);
-          handleDelete(tempListId);
+          setPantry((prevPantry) => [...prevPantry, { ...groceryItem, id: groceryIndex}]);
+          handleDelete(groceryListID);
           const dbID = await addDocFB(
             docData = groceryItem,
             collectionName = "pantry");
