@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { View, TextInput, TouchableOpacity, Animated} from 'react-native';
 import styles from '../styles/styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import RNPickerSelect from 'react-native-picker-select';
 import { Button } from 'react-native-elements';
 import { Swipeable } from 'react-native-gesture-handler';
 import { updateDocFB } from '../firebase';
@@ -22,6 +23,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
     }, [item.quantity]);
 
     const handleEdit = async () => {
+        console.log(currUnits);
         setEditing(false);
         setInputStyling(null);
 
@@ -71,22 +73,52 @@ export default function PantryItem({item, handleDelete, setPantry}) {
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem, editing ? styles.editableItem : {}]}>
                 <TextInput 
+                    placeholder={editing ? "ingredient" : ""}
                     style={inputStyling}
                     editable={editing}
                     onChangeText={text => setCurrName(text)}
                     value={currName}
                 />
                 <TextInput 
+                    placeholder={editing ? "quantity" : ""}
                     style={inputStyling}
                     editable={editing}
-                    onChangeText={text => setCurrQuantity(parseFloat(text))}
+                    onChangeText={(text) => {
+                        const decimalRegex = /^\d*(\.\d{0,2})?$/;
+                        if (decimalRegex.test(text) || text === '') {
+                            setCurrQuantity(parseFloat(text));
+                        }
+                    }}
                     value={isNaN(currQuantity) ? '' : String(currQuantity)}
+                    keyboardType="numeric"
                 />
-                <TextInput 
-                    style={inputStyling}
-                    editable={editing}
-                    onChangeText={text => setCurrUnits(text)}
-                    value={currUnits}
+                <RNPickerSelect
+                    value={currUnits ? currUnits.toString() : ''}
+                    placeholder={{
+                        label: editing? "unit" : "",
+                        value: null,
+                        color: '#A9A9A9' 
+                    }}
+                    onValueChange={(value) => setCurrUnits(value)}
+                    items={[
+                        { label: 'tbsp', value: 'tablespoon' },
+                        { label: 'tsp', value: 'teaspoon' },
+                        { label: 'oz', value: 'ounce' },
+                        { label: 'lb', value: 'pound' },
+                        { label: 'g', value: 'gram' },
+                        { label: 'kg', value: 'kilogram' },
+                        { label: 'c', value: 'cup' },
+                        { label: 'pt', value: 'pint' },
+                        { label: 'gal', value: 'gallon' },
+                        { label: 'doz', value: 'dozen' },
+                        { label: 'pkg', value: 'package' },
+                    ]}
+                    useNativeAndroidPickerStyle={false}
+                    style={{
+                        inputIOS: styles.inputStyling,
+                        inputAndroid: styles.inputStyling, 
+                        placeholder: { color: '#A9A9A9' },
+                    }}
                 />
                 <View>
                     <TouchableOpacity style={{ marginRight: 0
