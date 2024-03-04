@@ -12,7 +12,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
     const [editing, setEditing] = useState(false);
     const swipeableRef = useRef(null);
     const [currName, setCurrName] = useState(item.ingredient);
-    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity));
+    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity).toFixed(2));
     const [currUnits, setCurrUnits] = useState(item.units);
     const [inputStyling, setInputStyling] = useState(null);
     // console.log("Current quantity: ", currQuantity)
@@ -33,7 +33,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                     return {
                         ...pantryItem,
                         ingredient: currName,
-                        quantity: parseFloat(currQuantity),
+                        quantity: parseFloat(currQuantity).toFixed(2),
                         units: currUnits
                     };
                 }
@@ -43,11 +43,10 @@ export default function PantryItem({item, handleDelete, setPantry}) {
 
         await updateDocFB(collectionName = "pantry", documentID = item.dbID, docData = {
             ingredient: currName,
-            quantity: parseFloat(currQuantity),
+            quantity: parseFloat(currQuantity).toFixed(2),
             units: currUnits
         });
         console.log(`Updated ${item.ingredient}`);
-        // console.log("New Quantity:", parseFloat(currQuantity));
     };
 
     const renderRightAction = (progress, dragX) => {
@@ -91,10 +90,10 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                     onChangeText={(text) => {
                         const decimalRegex = /^\d*(\.\d{0,2})?$/;
                         if (decimalRegex.test(text) || text === '') {
-                            setCurrQuantity(parseFloat(text));
+                            setCurrQuantity(parseFloat(text).toFixed(2));
                         }
                     }}
-                    value={isNaN(currQuantity) ? '' : String(currQuantity)}
+                    value={isNaN(currQuantity) ? '' : String(+(currQuantity))}
                     keyboardType="numeric"
                 />
                 <RNPickerSelect
