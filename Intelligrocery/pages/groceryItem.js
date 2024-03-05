@@ -98,14 +98,14 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                 <View style={[styles.groceryItem2]}>
                     <TextInput 
                         placeholder={editing ? "ingredient" : ""}
-                        style={inputStyling}
+                        style={styles.nameInput}
                         editable={editing}
                         onChangeText={text => setCurrName(text)}
                         value={currName}
                     />
                     <TextInput 
                         placeholder={editing ? "quantity" : ""}
-                        style={inputStyling}
+                        style={styles.quantityInput}
                         editable={editing}
                         onChangeText={(text) => {
                             const decimalRegex = /^\d*(\.\d{0,2})?$/;
@@ -116,34 +116,37 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                         value={isNaN(currQuantity) ? '' : (currQuantity == 0) ? "" : String(+(currQuantity))}
                         keyboardType="numeric"
                     />
-                    <RNPickerSelect
-                        value={currUnits ? currUnits.toString() : ''}
-                        placeholder={{
-                            label: editing? "unit" : "",
-                            value: null,
-                            color: '#A9A9A9' 
-                        }}
-                        onValueChange={(value) => setCurrUnits(value)}
-                        items={[
-                            { label: 'tbsp', value: 'tablespoon' },
-                            { label: 'tsp', value: 'teaspoon' },
-                            { label: 'oz', value: 'ounce' },
-                            { label: 'lb', value: 'pound' },
-                            { label: 'g', value: 'gram' },
-                            { label: 'kg', value: 'kilogram' },
-                            { label: 'c', value: 'cup' },
-                            { label: 'pt', value: 'pint' },
-                            { label: 'gal', value: 'gallon' },
-                            { label: 'doz', value: 'dozen' },
-                            { label: 'pkg', value: 'package' },
-                        ]}
-                        useNativeAndroidPickerStyle={false}
-                        style={{
-                            inputIOS: styles.inputStyling,
-                            inputAndroid: styles.inputStyling, 
-                            placeholder: { color: '#A9A9A9' },
-                        }}
-                    />
+                    <View style={styles.unitsInput}>
+                        <RNPickerSelect
+                            value={currUnits ? currUnits.toString() : ''}
+                            placeholder={{
+                                label: editing? "unit" : "",
+                                value: null,
+                                color: '#A9A9A9' 
+                            }}
+                            onValueChange={(value) => setCurrUnits(value)}
+                            items={[
+                                { label: 'ct', value: 'count' },
+                                { label: 'tbsp', value: 'tablespoon' },
+                                { label: 'tsp', value: 'teaspoon' },
+                                { label: 'oz', value: 'ounce' },
+                                { label: 'lb', value: 'pound' },
+                                { label: 'g', value: 'gram' },
+                                { label: 'kg', value: 'kilogram' },
+                                { label: 'c', value: 'cup' },
+                                { label: 'pt', value: 'pint' },
+                                { label: 'gal', value: 'gallon' },
+                                { label: 'doz', value: 'dozen' },
+                                { label: 'pkg', value: 'package' },
+                            ]}
+                            useNativeAndroidPickerStyle={false}
+                            style={{
+                                inputIOS: styles.unitsInput,
+                                inputAndroid: styles.unitsInput, 
+                                placeholder: { color: '#A9A9A9' },
+                            }}
+                        />
+                    </View>
                     <View>
                         <TouchableOpacity style={{ marginRight: 50
                          }} onPress={editing ? handleEdit : () => setEditing(true)} testID="edit-button">
