@@ -58,10 +58,10 @@ export default function RecipeItem({ ingredient, quantity, units }) {
   });
   }
   }
-
+  
   return (
     <View style={styles.recipeItem}>
-        <Text style={styles.ingredientText}>{parseFloat(quantity.toFixed(2))} {units} {ingredient}</Text>
+        <Text style={styles.ingredientText}>{quantity == 0 ? (units == null ? `${ingredient}` : `${units} ${ingredient}`) : `${+quantity} ${units} ${ingredient}`}</Text>
         <TouchableOpacity style={styles.addButton} onPress={handleAddToGrocery}>
             <Icon name="plus" size={10} color="white" />
         </TouchableOpacity>

@@ -113,7 +113,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                                 setCurrQuantity(parseFloat(text).toFixed(2));
                             }
                         }}
-                        value={isNaN(currQuantity) ? '' : String(+(currQuantity))}
+                        value={isNaN(currQuantity) ? '' : (currQuantity == 0) ? "" : String(+(currQuantity))}
                         keyboardType="numeric"
                     />
                     <RNPickerSelect

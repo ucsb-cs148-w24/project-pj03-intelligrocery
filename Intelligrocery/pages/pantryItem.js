@@ -93,7 +93,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                             setCurrQuantity(parseFloat(text).toFixed(2));
                         }
                     }}
-                    value={isNaN(currQuantity) ? '' : String(+(currQuantity))}
+                    value={isNaN(currQuantity) ? '' : (currQuantity == 0) ? "" : String(+(currQuantity))}
                     keyboardType="numeric"
                 />
                 <RNPickerSelect
