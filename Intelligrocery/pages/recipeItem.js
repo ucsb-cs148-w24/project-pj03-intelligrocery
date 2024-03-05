@@ -35,7 +35,7 @@ export default function RecipeItem({ ingredient, quantity, units }) {
     await updateDocFB(collectionName = "groceryList", documentID = updatedGroceryItem.dbID, data = updatedGroceryItem);
   } else {
     groceryListID = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
-    setGroceryList((prevGroceryList) => [...prevGroceryList, {ingredient, quantity, units, id: groceryListID}]);
+    setGroceryList((prevGroceryList) => [{ingredient, quantity, units, id: groceryListID}, ...prevGroceryList]);
     console.log("Next id in groceryList: ", groceryListID);
       const dbID = await addDocFB(
         docData = {
