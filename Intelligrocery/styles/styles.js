@@ -93,9 +93,18 @@ export default StyleSheet.create({
         width: '100%',
         marginRight: 'auto',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         alignItems: 'center',
 
+    },
+    nameInput: {
+        width: '40%',
+    },
+    quantityInput: {
+        width: '10%',
+    },
+    unitsInput: {
+        width: '30%',
     },
     checkedItem: {
         backgroundColor: '#eee',
