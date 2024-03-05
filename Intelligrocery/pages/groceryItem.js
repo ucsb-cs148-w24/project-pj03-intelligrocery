@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
-import { View, TextInput, TouchableOpacity, Animated } from 'react-native';
+import { View, TextInput, TouchableOpacity, Animated, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
+import RNPickerSelect from 'react-native-picker-select';
 import { Swipeable } from 'react-native-gesture-handler';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { updateDocFB } from '../firebase';
@@ -12,7 +13,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
     const swipeableRef = useRef(null);
     const [editing, setEditing] = useState(false);
     const [currName, setCurrName] = useState(item.ingredient);
-    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity));
+    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity).toFixed(2));
     const [currUnits, setCurrUnits] = useState(item.units);
     const [inputStyling, setInputStyling] = useState(null);
 
@@ -31,7 +32,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                     return {
                         ...groceryItem,
                         ingredient: currName,
-                        quantity: parseFloat(currQuantity),
+                        quantity: parseFloat(currQuantity).toFixed(2),
                         units: currUnits
                     };
                 }
@@ -45,7 +46,6 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             units: currUnits
         });
         console.log(`Updated ${item.ingredient}`);
-        // console.log("New Quantity:", parseFloat(currQuantity));
     };
     
     useEffect(() => {
@@ -68,16 +68,24 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             <Animated.View style={{ transform: [{ scale }], flexDirection: 'row' }}>
                 <Button
                     buttonStyle={styles.addToPantryButton}
-                    titleStyle={styles.deleteTitle} //same font as delete button
-                    onPress={() => handleAddToPantry(item.id)} //handleAddToPantryFromGroceryList
-                    title="Add to pantry"
+                    onPress={() => handleAddToPantry(item.id)}
+                    icon={
+                        <Image
+                            source={require('../assets/addtopantry.png')}
+                            style={{ width: 30, height: 30 }}
+                        />
+                    }
                 />
-
                 <Button
                     buttonStyle={styles.deleteButton}
-                    titleStyle={styles.deleteTitle}
                     onPress={() => handleDelete(item.id)}
-                    title="Delete"
+                    icon={
+                        <Icon
+                            name='trash'
+                            color='white'
+                            size={30}
+                        />
+                    }
                 />
             </Animated.View>
         );
@@ -87,24 +95,54 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem, isChecked ? styles.checkedItem : {}]}>
                 <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
-                <View style={[styles.groceryItem2, editing ? styles.editableItem : {}]}>
+                <View style={[styles.groceryItem2]}>
                     <TextInput 
-                        style={styles.nameInput}
+                        placeholder={editing ? "ingredient" : ""}
+                        style={inputStyling}
                         editable={editing}
                         onChangeText={text => setCurrName(text)}
                         value={currName}
                     />
                     <TextInput 
-                        style={styles.quantityInput}
+                        placeholder={editing ? "quantity" : ""}
+                        style={inputStyling}
                         editable={editing}
-                        onChangeText={text => setCurrQuantity(parseFloat(text))}
-                        value={isNaN(currQuantity) ? '' : String(currQuantity)}
+                        onChangeText={(text) => {
+                            const decimalRegex = /^\d*(\.\d{0,2})?$/;
+                            if (decimalRegex.test(text) || text === '') {
+                                setCurrQuantity(parseFloat(text).toFixed(2));
+                            }
+                        }}
+                        value={isNaN(currQuantity) ? '' : (currQuantity == 0) ? "" : String(+(currQuantity))}
+                        keyboardType="numeric"
                     />
-                    <TextInput 
-                        style={styles.unitsInput}
-                        editable={editing}
-                        onChangeText={text => setCurrUnits(text)}
-                        value={currUnits ?? ''}
+                    <RNPickerSelect
+                        value={currUnits ? currUnits.toString() : ''}
+                        placeholder={{
+                            label: editing? "unit" : "",
+                            value: null,
+                            color: '#A9A9A9' 
+                        }}
+                        onValueChange={(value) => setCurrUnits(value)}
+                        items={[
+                            { label: 'tbsp', value: 'tablespoon' },
+                            { label: 'tsp', value: 'teaspoon' },
+                            { label: 'oz', value: 'ounce' },
+                            { label: 'lb', value: 'pound' },
+                            { label: 'g', value: 'gram' },
+                            { label: 'kg', value: 'kilogram' },
+                            { label: 'c', value: 'cup' },
+                            { label: 'pt', value: 'pint' },
+                            { label: 'gal', value: 'gallon' },
+                            { label: 'doz', value: 'dozen' },
+                            { label: 'pkg', value: 'package' },
+                        ]}
+                        useNativeAndroidPickerStyle={false}
+                        style={{
+                            inputIOS: styles.inputStyling,
+                            inputAndroid: styles.inputStyling, 
+                            placeholder: { color: '#A9A9A9' },
+                        }}
                     />
                     <View>
                         <TouchableOpacity style={{ marginRight: 50

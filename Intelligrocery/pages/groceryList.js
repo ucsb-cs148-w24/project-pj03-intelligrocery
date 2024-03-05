@@ -64,7 +64,7 @@ const GroceryList = ({ setPantry, pantry }) => {
 
     const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        quantity = parseFloat(quantity)
+        quantity = parseFloat(quantity).toFixed(2)
         // const id = Math.random().toFixed(16).slice(2)
         id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
         setGroceryList((prevGroceryList) => [...prevGroceryList, {ingredient, quantity, units, id}]);
