@@ -89,19 +89,19 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                 <BouncyCheckbox onPress={handleToggleCheck} fillColor='tomato' isChecked={isChecked} />
                 <View style={[styles.groceryItem2, editing ? styles.editableItem : {}]}>
                     <TextInput 
-                        style={inputStyling}
+                        style={styles.nameInput}
                         editable={editing}
                         onChangeText={text => setCurrName(text)}
                         value={currName}
                     />
                     <TextInput 
-                        style={inputStyling}
+                        style={styles.quantityInput}
                         editable={editing}
                         onChangeText={text => setCurrQuantity(parseFloat(text))}
                         value={isNaN(currQuantity) ? '' : String(currQuantity)}
                     />
                     <TextInput 
-                        style={inputStyling}
+                        style={styles.unitsInput}
                         editable={editing}
                         onChangeText={text => setCurrUnits(text)}
                         value={currUnits ?? ''}

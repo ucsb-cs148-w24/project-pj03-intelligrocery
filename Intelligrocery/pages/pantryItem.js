@@ -71,19 +71,19 @@ export default function PantryItem({item, handleDelete, setPantry}) {
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem, editing ? styles.editableItem : {}]}>
                 <TextInput 
-                    style={inputStyling}
+                    style={styles.nameInput}
                     editable={editing}
                     onChangeText={text => setCurrName(text)}
                     value={currName}
                 />
                 <TextInput 
-                    style={inputStyling}
+                    style={styles.quantityInput}
                     editable={editing}
                     onChangeText={text => setCurrQuantity(parseFloat(text))}
                     value={isNaN(currQuantity) ? '' : String(currQuantity)}
                 />
                 <TextInput 
-                    style={inputStyling}
+                    style={styles.unitsInput}
                     editable={editing}
                     onChangeText={text => setCurrUnits(text)}
                     value={currUnits}
