@@ -13,7 +13,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
     const swipeableRef = useRef(null);
     const [editing, setEditing] = useState(false);
     const [currName, setCurrName] = useState(item.ingredient);
-    const [currQuantity, setCurrQuantity] = useState(parseFloat(item.quantity).toFixed(2));
+    const [currQuantity, setCurrQuantity] = useState(item.quantity);
     const [currUnits, setCurrUnits] = useState(item.units);
     const [inputStyling, setInputStyling] = useState(null);
 
@@ -32,7 +32,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                     return {
                         ...groceryItem,
                         ingredient: currName,
-                        quantity: parseFloat(currQuantity).toFixed(2),
+                        quantity: parseFloat(Number(currQuantity).toFixed(2)),
                         units: currUnits
                     };
                 }
@@ -42,7 +42,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
 
         await updateDocFB(collectionName = "groceryList", documentID = item.dbID, docData = {
             ingredient: currName,
-            quantity: parseFloat(currQuantity),
+            quantity: parseFloat(Number(currQuantity).toFixed(2)),
             units: currUnits
         });
         console.log(`Updated ${item.ingredient}`);
@@ -110,7 +110,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                         onChangeText={(text) => {
                             const decimalRegex = /^\d*(\.\d{0,2})?$/;
                             if (decimalRegex.test(text) || text === '') {
-                                setCurrQuantity(parseFloat(text).toFixed(2));
+                                setCurrQuantity(parseFloat(Number(text).toFixed(2)));
                             }
                         }}
                         value={isNaN(currQuantity) ? '' : (currQuantity == 0) ? "" : String(+(currQuantity))}

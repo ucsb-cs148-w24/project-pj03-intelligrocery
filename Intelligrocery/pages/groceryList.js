@@ -64,7 +64,8 @@ const GroceryList = ({ setPantry, pantry }) => {
 
     const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        quantity = parseFloat(quantity).toFixed(2)
+        quantity = parseFloat(Number(quantity).toFixed(2))
+        print(typeof quantity)
         // const id = Math.random().toFixed(16).slice(2)
         id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
         setGroceryList((prevGroceryList) => [...prevGroceryList, {ingredient, quantity, units, id}]);
@@ -164,6 +165,7 @@ const GroceryList = ({ setPantry, pantry }) => {
           setPantry((prevPantry) => {
             const updatedPantry = prevPantry.map((item, index) => {
                 if (index === pantryIndex) {
+                  console.log(item.ingredient)
                     return { ...item, quantity: updatedQuantity };
                 }
                 return item;
@@ -174,6 +176,7 @@ const GroceryList = ({ setPantry, pantry }) => {
           handleDelete(groceryListID);
           //We don't want to add the list id in the database
           const { id, ...updatedPantryItem } = pantry[pantryIndex];
+          console.log(updatedPantryItem)
           await updateDocFB(collectionName = "pantry", documentID = updatedPantryItem.dbID, data = updatedPantryItem);
         } else {
           // Item does not exist in pantry, add it as new

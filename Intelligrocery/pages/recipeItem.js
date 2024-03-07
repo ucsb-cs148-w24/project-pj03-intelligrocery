@@ -8,18 +8,18 @@ export default function RecipeItem({ ingredient, quantity, units }) {
   if (units == '<unit>') {
       units = 'count';
   }
+  quantity = parseFloat(Number(quantity).toFixed(2))
 
   const { groceryList, setGroceryList } = useGroceryList();
 
   const handleAddToGrocery = async () => {
-  quantity = parseFloat(quantity).toFixed(2)
   // Check if the item exists in the pantry
   //not calling it id since there seems to be some global variable issue where it becomes undefined soon
   let groceryListID = groceryList.findIndex((item) => item.ingredient === ingredient && item.units === units);
   if (groceryListID !== -1) {
     // Units are compatible, update quantity
     const groceryItem = groceryList[groceryListID];
-    const updatedQuantity = groceryItem.quantity + quantity;
+    const updatedQuantity = parseFloat(Number((groceryItem.quantity + quantity)).toFixed(2));
     // Update item in grocery list
     setGroceryList((prevGroceryList) => {
       const updatedGroceryList = prevGroceryList.map((item, index) => {
@@ -31,7 +31,10 @@ export default function RecipeItem({ ingredient, quantity, units }) {
       return updatedGroceryList;
     });
     //We don't want to add variable list id in the database
+    // console.log("Updating database with quantity: ", updatedGroceryItem.quantity)
     const { id, ...updatedGroceryItem } = groceryList[groceryListID];
+    updatedGroceryItem.quantity = updatedQuantity //since setGroceryList occurs asynchronously
+    console.log(updatedGroceryItem)
     await updateDocFB(collectionName = "groceryList", documentID = updatedGroceryItem.dbID, data = updatedGroceryItem);
   } else {
     groceryListID = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;

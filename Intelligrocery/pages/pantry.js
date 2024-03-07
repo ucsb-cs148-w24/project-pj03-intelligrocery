@@ -43,13 +43,13 @@ const Pantry = ({ pantry, setPantry }) => {
 
     const handleOverlayAdd = async (ingredient, quantity, units) => {
         setOverlayVisible(false);
-        quantity = parseFloat(quantity).toFixed(2)
+        quantity = parseFloat(Number(quantity).toFixed(2))
         id = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0;
         setPantry((prevPantry) => [...prevPantry, {ingredient, quantity, units, id}]);
         console.log("Next id in pantry: ", id);
         
         const dbID = await addDocFB(
-          docData = {ingredient, quantity: parseFloat(quantity).toFixed(2), units},
+          docData = {ingredient, quantity: parseFloat(Number(quantity).toFixed(2)), units},
           collectionName = "pantry");
           console.log("Added to pantry: ", ingredient);
           setPantry(prevList => { //calling setPantry seems to let the past set finish first
