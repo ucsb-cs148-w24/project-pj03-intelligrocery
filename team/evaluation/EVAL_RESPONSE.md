@@ -20,3 +20,10 @@
   5.  The other team's final closing thoughts: something they liked, the most impactful opportunity for improvement,
       and one more thing they thought was good.
   - They liked our app overall, thinking it was cool to integrate a recipe UI for suggested recipes with maintained user lists. They thought it was cool that our app was authenticated and the user data seamlessly stored with our database so any reloads of the app would reload our lists in the intuitive UI format that existed before closing the app.
+
+## Response
+
+- We have added a "count" unit to grocery list and pantry list items
+- We are working on adding the saving favorite recipes functionality
+- We are going to make the add ingredient overlay bigger
+- We are going to add an app/text description to the login page
