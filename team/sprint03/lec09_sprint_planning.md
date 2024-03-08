@@ -1,4 +1,4 @@
-# Sprint03 planning (Lectures)
+# Sprint03 planning (Lecture 9)
 
 #Attendence
 - All present
