@@ -44,22 +44,22 @@
 
 ## Team Roles
 ### Nadav
-- Retro 1 leader, week 3 scrum master, design document coordinator, final presentation leader
+- Retro 1 leader, sprint 3 scrum master, design document coordinator, final presentation leader
 
 ### Eric
-- Week 1 product owner, week 4 scribe, user manual coordinator
+- sprint 1 product owner, sprint 4 scribe, user manual coordinator
 
 ### Danny
-- Week 1 scrum master, week 3 scribe, final scrum master, final scribe, deployment document coordinator
+- sprint 1 scrum master, sprint 3 scribe, final scrum master, final scribe, deployment document coordinator
 
 ### Audrey
-- Week 3 product owner, testing/QA coordinator
+- sprint 3 product owner, testing/QA coordinator
 
 ### Anderson
-- Week 2 scribe, week 4 product owner, retro 3 leader
+- sprint 2 scribe, sprint 4 product owner, retro 3 leader
 
 ### Josh
-- Week 2 product owner, week 4 scrum master, UX coordinator
+- sprint 2 product owner, sprint 4 scrum master, UX coordinator
 
 ### Michael
-- Week 2 scrum master, retro 2 leader, final product owner
+- sprint 2 scrum master, retro 2 leader, final product owner
