@@ -1,0 +1,14 @@
+# Sprint04 planning (Lectures)
+
+#Attendence
+- All present
+
+#Scribe
+- Eric Marzouk/Danny Rose (edits)
+
+#Scribed Discussion
+- While planning out our design document, we prioritized the tasks we need to do for our next demo
+- We decided the importance of page interactions (adding to pantry from grocery list, adding from recipe page to grocery list), and that this would require changes in app stucture/storing of our grocery/pantry DS
+- We wanted to change our styling to be consistent add/swipe/delete/edit in both grocery list and pantry, as well as restrict edits to our number pad and unit drop down menu
+- We mentioned the need to completely integrate firebase into new functions
+- We split up work for code vs design document creation
