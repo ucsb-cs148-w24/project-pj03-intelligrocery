@@ -1,21 +1,21 @@
 # Leadership roles
 
-# Week one
+# Sprint one
 | Product Owner      | Scrum Master | Retro 1 Leader| Scribe                                | 
 |-----------|-------------------|---------------------------|-----------------------------|
 | Eric Marzouk | Danny Rose | Nadav Avital | Danny + Anderson
 
-# Week two
+# Sprint two
 | Product Owner      | Scrum Master              | Scribe                                | 
 |-----------|-------------------|--------------------------------------------------------|
 | Josh Son | Michael Hu | Anderson Lee
 
-# Week three
+# Sprint three
 | Product Owner      | Scrum Master              | Scribe                                |
 |-----------|-------------------|--------------------------------------------------------|
 | Audrey Zhou | Nadav Avital | Danny Rose
 
-# Week four
+# Sprint four
 | Product Owner      | Scrum Master        | Retro Leader 2       | Scribe                  |
 |-----------|-------------------|-------------------|-------------------------------------|
 | Anderson Lee | Josh Son | Michael Hu | Eric Marzouk
