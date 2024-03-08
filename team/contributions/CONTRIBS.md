@@ -33,7 +33,7 @@
 
 ### Josh
 - All user testing
-- Converted units to a drop down menu to limit initial input
+- Converted units to a drop down menu to limit initial input and restricted quantity to numbers only
 - Initial research on backend and database choice
 
 ### Michael
