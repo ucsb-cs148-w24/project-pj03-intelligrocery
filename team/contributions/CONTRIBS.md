@@ -21,9 +21,9 @@
 
 ### Audrey
 - Implemented edit function in pantry and grocery list
-- Added input restrictions for ingredients
+- Added input restrictions for editing pantry and grocery list items
 - Styling changes to make UI more intuitive and clean such as replacing words with icons
-- implemented initial separate version of pantry and grocery list including adding and deleting items
+- Implemented initial separate version of pantry and grocery list including adding and deleting items
 
 ### Anderson
 - Integrating intial API with the app
