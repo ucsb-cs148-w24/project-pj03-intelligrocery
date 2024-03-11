@@ -87,10 +87,6 @@ export default function PantryItem({item, handleDelete, setPantry}) {
         dozen: 'doz',
         package: 'pkg',
     };
-    
-    const getUnitLabel = (unitValue) => {
-        return unitLabels[unitValue] || '';
-    };
 
     return (
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
