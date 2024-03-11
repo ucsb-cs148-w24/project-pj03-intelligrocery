@@ -1,13 +1,13 @@
 //ReactNative Libraries
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FlashMessage from "react-native-flash-message";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Entypo, MaterialIcons } from 'react-native-vector-icons'; // Import Entypo from react-native-vector-icons
 import Pantry from './pages/pantry';
-import PantryItem from './pages/pantryItem';
 import Recipes from './pages/recipes';
 import GroceryList from './pages/groceryList';
 import Login from './pages/login';
@@ -20,6 +20,7 @@ import { useGroceryList, GroceryListProvider } from './context/groceryListContex
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const Stack2 = createNativeStackNavigator();
+
 const RecipeStack = ({groceryList, setGroceryList}) => {
   return (
     <Stack2.Navigator>
@@ -160,6 +161,7 @@ export default function App() {
     <GroceryListProvider>
       <NavigationContainer>
         <LoginStack />
+        <FlashMessage position="top"/>
       </NavigationContainer>
     </GroceryListProvider>
   );

@@ -33,6 +33,7 @@
     "react-native-bouncy-checkbox": "^3.0.7",
     "react-native-dialog": "^9.3.0",
     "react-native-elements": "^3.4.3",
+    "react-native-flash-message": "^0.4.2",
     "react-native-flex-layout": "^0.1.5",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.15.0",
