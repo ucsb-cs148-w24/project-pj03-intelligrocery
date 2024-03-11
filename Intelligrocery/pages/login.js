@@ -1,12 +1,14 @@
 //React Native
 import React, { useState, useEffect } from 'react'
-import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ImageBackground, Alert} from 'react-native'
+import {View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity, Image, Alert} from 'react-native'
+import { Dimensions } from 'react-native';
 
 //Firebase
 import { db, auth, handleSignOut } from '../firebase'
 import { createUserWithEmailAndPassword,  signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc} from "firebase/firestore";
 
+const windowWidth = Dimensions.get('window').width;
 
 const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('')
@@ -68,9 +70,10 @@ const LoginScreen = ({navigation}) => {
             style={styles.container}
             behavior="padding"
         >
-            <ImageBackground style={ styles.imgBackground } 
-                 resizeMode='cover' 
-                 source={require('../images/wooden_background.png')}>
+            <Image
+                source={require('../images/IntelliGrocery.png')}
+                style={{ width: windowWidth * 0.8, height: windowWidth * 0.15, marginBottom: 50 }} // Adjust percentages as needed
+            />
             <View style={styles.inputContainer}>
                 <TextInput
                     placeholder="Email"
@@ -102,7 +105,6 @@ const LoginScreen = ({navigation}) => {
                     <Text style={styles.buttonPasswordText}>Register</Text>
                 </TouchableOpacity>
             </View>
-            </ImageBackground>
         </KeyboardAvoidingView>
     )
 }
@@ -130,10 +132,12 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40,
+        // marginTop: 40,
+        marginTop: 50, // Adjusted marginTop to create space between the title and buttons
+        marginBottom: 40, // Added marginBottom to create space between the title and buttons
     },
     buttonLogInOut: {
-        backgroundColor: '#0782F9',
+        backgroundColor: 'tomato',
         width: '50%',
         padding: 15,
         borderRadius: 10,
@@ -142,7 +146,7 @@ const styles = StyleSheet.create({
     buttonLogOut: {
         backgroundColor: 'white',
         marginTop: 5,
-        borderColor: '#0782F9',
+        borderColor: 'tomato',
         borderWidth: 1,
     },
     buttonLoginText: {
@@ -151,7 +155,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     buttonPasswordText: {
-        color: '#0782F9',
+        color: 'tomato',
         fontWeight: '700',
         fontSize: 16,
     },
@@ -160,5 +164,14 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    titleContainer: {
+        marginBottom: 50,
+        alignItems: 'center', // Center title horizontally
+    },
+    title: {
+        color: 'tomato',
+        fontSize: 50,
+        fontWeight: 'semibold',
     },
 });
