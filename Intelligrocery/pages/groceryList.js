@@ -22,6 +22,12 @@ const GroceryList = ({ setPantry, pantry }) => {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const navigation = useNavigation();
     const { groceryList, setGroceryList } = useGroceryList();
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+      {label: 'Delete Selected', value: 'delete'},
+      {label: 'Add Selected to Pantry', value: 'addToPantry'}
+    ]);
     // const isMounted = useRef(false); // Ref to track whether the component is mounted or not
 
     useEffect(() => {
@@ -103,45 +109,33 @@ const GroceryList = ({ setPantry, pantry }) => {
       });
     };
 
-    const handleDropdown = () => {
-      
-      const [value, setValue] = useState(null);
-      const [items, setItems] = useState([
-        {label: 'Apple', value: 'apple'},
-        {label: 'Banana', value: 'banana'}
-      ]);
-    }
-
-    const handleDropdownClick = () => {
-      const [open, setOpen] = useState(false);
-      setOpen(!open);
-    }
+    const handleAddToPantrySelected = async () => {
+      addToPantryList = groceryList.filter(item => item.checked);
+      setGroceryList(groceryList.filter(item => !item.checked));
+      addToPantryList.forEach(item => {
+        handleAddToPantry(item.id);
+      });
+    };
 
     React.useLayoutEffect(() => {
       navigation.setOptions({
           headerLeft: () => (
               <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
                   <DropDownPicker
-                    onclick={handleDropdownClick}
-                    open = {open}
-                    items={[
-                      { label: 'Delete Selected', value: 'deleteSelected' }, 
-                      { label: 'Add Selected to Pantry', value: 'addToPantry'}
-                      // Add more options as needed
-                    ]}
-                    defaultValue={ 'default' }
-                    containerStyle={{ height: 40, width: 100 }}
-                    style={styles.plusButton}
-                    itemStyle={{
-                      justifyContent: 'flex-start',
-                    }}
-                    dropDownStyle={{ backgroundColor: '#fafafa' }}
-                    onChangeItem={(item) => {
-                      if (item.value === 'deleteSelected') {
+                    open={open}
+                    onPress={setOpen(!open)}
+                    //setOpen={setOpen(!open)}
+                    items={items}
+                    value={value}
+                    setValue={setValue}
+                    setItems={setItems}
+                    onSelectItem={(item) => {
+                      console.log(item)
+                      if (item.value === 'delete') {
                         handleDeleteSelected();
                       }
                       if (item.value === 'addToPantry') {
-                        handleAddToPantry();
+                        handleAddToPantrySelected();
                       }
                       // Add more conditions/options as needed
                     }}
