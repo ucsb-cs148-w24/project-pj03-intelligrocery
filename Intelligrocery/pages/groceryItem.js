@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { View, TextInput, TouchableOpacity, Animated, Image } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Animated, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 import { Button } from 'react-native-elements';
@@ -90,6 +90,25 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             </Animated.View>
         );
     };
+    
+    const unitLabels = {
+        count: 'ct',
+        tablespoon: 'tbsp',
+        teaspoon: 'tsp',
+        ounce: 'oz',
+        pound: 'lb',
+        gram: 'g',
+        kilogram: 'kg',
+        cup: 'c',
+        pint: 'pt',
+        gallon: 'gal',
+        dozen: 'doz',
+        package: 'pkg',
+    };
+    
+    const getUnitLabel = (unitValue) => {
+        return unitLabels[unitValue] || '';
+    };
 
     return (
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
@@ -104,7 +123,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                         value={currName}
                     />
                     <TextInput 
-                        placeholder={editing ? "quantity" : ""}
+                        placeholder={editing ? "qty" : ""}
                         style={styles.quantityInput}
                         editable={editing}
                         onChangeText={(text) => {
@@ -117,35 +136,29 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                         keyboardType="numeric"
                     />
                     <View style={styles.unitsInput}>
-                        <RNPickerSelect
-                            value={currUnits ? currUnits.toString() : ''}
-                            placeholder={{
-                                label: "",
-                                value: null,
-                                color: '#A9A9A9' 
-                            }}
-                            onValueChange={(value) => setCurrUnits(value)}
-                            items={[
-                                { label: 'ct', value: 'count' },
-                                { label: 'tbsp', value: 'tablespoon' },
-                                { label: 'tsp', value: 'teaspoon' },
-                                { label: 'oz', value: 'ounce' },
-                                { label: 'lb', value: 'pound' },
-                                { label: 'g', value: 'gram' },
-                                { label: 'kg', value: 'kilogram' },
-                                { label: 'c', value: 'cup' },
-                                { label: 'pt', value: 'pint' },
-                                { label: 'gal', value: 'gallon' },
-                                { label: 'doz', value: 'dozen' },
-                                { label: 'pkg', value: 'package' },
-                            ]}
-                            useNativeAndroidPickerStyle={false}
-                            style={{
-                                inputIOS: styles.unitsInput,
-                                inputAndroid: styles.unitsInput, 
-                                placeholder: { color: '#A9A9A9' },
-                            }}
-                        />
+                        {editing ? (
+                            <RNPickerSelect
+                                value={currUnits ? currUnits.toString() : ''}
+                                placeholder={{
+                                    label: "unit",
+                                    value: null,
+                                    color: '#A9A9A9' 
+                                }}
+                                onValueChange={(value) => setCurrUnits(value)}
+                                items={Object.keys(unitLabels).map(unitValue => ({
+                                    label: unitLabels[unitValue],
+                                    value: unitValue,
+                                }))}
+                                useNativeAndroidPickerStyle={false}
+                                style={{
+                                    inputIOS: styles.unitsInput,
+                                    inputAndroid: styles.unitsInput, 
+                                    placeholder: { color: '#A9A9A9' },
+                                }}
+                            />
+                        ) : (
+                            <Text>{getUnitLabel(currUnits)}</Text>
+                        )}
                     </View>
                     <View>
                         <TouchableOpacity style={{ marginRight: 50

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { View, TextInput, TouchableOpacity, Animated} from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, Animated} from 'react-native';
 import styles from '../styles/styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RNPickerSelect from 'react-native-picker-select';
@@ -73,6 +73,25 @@ export default function PantryItem({item, handleDelete, setPantry}) {
         );
     };
     
+    const unitLabels = {
+        count: 'ct',
+        tablespoon: 'tbsp',
+        teaspoon: 'tsp',
+        ounce: 'oz',
+        pound: 'lb',
+        gram: 'g',
+        kilogram: 'kg',
+        cup: 'c',
+        pint: 'pt',
+        gallon: 'gal',
+        dozen: 'doz',
+        package: 'pkg',
+    };
+    
+    const getUnitLabel = (unitValue) => {
+        return unitLabels[unitValue] || '';
+    };
+
     return (
         <Swipeable ref = {swipeableRef} friction={2} renderRightActions={renderRightAction}>
             <View style={[styles.groceryItem]}>
@@ -97,28 +116,19 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                     keyboardType="numeric"
                 />
                 <View style={styles.unitsInput}>
+                    {editing ? (
                         <RNPickerSelect
                             value={currUnits ? currUnits.toString() : ''}
                             placeholder={{
-                                label: editing? "unit" : "",
+                                label: "unit",
                                 value: null,
                                 color: '#A9A9A9' 
                             }}
                             onValueChange={(value) => setCurrUnits(value)}
-                            items={[
-                                { label: 'ct', value: 'count' },
-                                { label: 'tbsp', value: 'tablespoon' },
-                                { label: 'tsp', value: 'teaspoon' },
-                                { label: 'oz', value: 'ounce' },
-                                { label: 'lb', value: 'pound' },
-                                { label: 'g', value: 'gram' },
-                                { label: 'kg', value: 'kilogram' },
-                                { label: 'c', value: 'cup' },
-                                { label: 'pt', value: 'pint' },
-                                { label: 'gal', value: 'gallon' },
-                                { label: 'doz', value: 'dozen' },
-                                { label: 'pkg', value: 'package' },
-                            ]}
+                            items={Object.keys(unitLabels).map(unitValue => ({
+                                label: unitLabels[unitValue],
+                                value: unitValue,
+                            }))}
                             useNativeAndroidPickerStyle={false}
                             style={{
                                 inputIOS: styles.unitsInput,
@@ -126,7 +136,10 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                                 placeholder: { color: '#A9A9A9' },
                             }}
                         />
-                    </View>
+                    ) : (
+                        <Text>{getUnitLabel(currUnits)}</Text>
+                    )}
+                </View>
                 <View>
                     <TouchableOpacity style={{ marginRight: 0
                     }} onPress={editing ? handleEdit : () => setEditing(true)} testID="edit-button">
