@@ -265,4 +265,7 @@ export default StyleSheet.create({
         gap: 10,
         width: '90%',
     },
+    dropdown: {
+        color: 'black'
+    }
 });

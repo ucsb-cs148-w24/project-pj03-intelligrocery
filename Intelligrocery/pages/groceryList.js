@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/core'
+import DropDownPicker from 'react-native-dropdown-picker';
 
 //Pages
 import AddIngredient from './addIngredient';
@@ -102,13 +103,49 @@ const GroceryList = ({ setPantry, pantry }) => {
       });
     };
 
+    const handleDropdown = () => {
+      
+      const [value, setValue] = useState(null);
+      const [items, setItems] = useState([
+        {label: 'Apple', value: 'apple'},
+        {label: 'Banana', value: 'banana'}
+      ]);
+    }
+
+    const handleDropdownClick = () => {
+      const [open, setOpen] = useState(false);
+      setOpen(!open);
+    }
+
     React.useLayoutEffect(() => {
       navigation.setOptions({
           headerLeft: () => (
               <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
-                  <TouchableOpacity onPress={handleDeleteSelected} style={styles.plusButton}>
-                      <Text style={styles.buttonText}>-</Text>
-                  </TouchableOpacity>
+                  <DropDownPicker
+                    onclick={handleDropdownClick}
+                    open = {open}
+                    items={[
+                      { label: 'Delete Selected', value: 'deleteSelected' }, 
+                      { label: 'Add Selected to Pantry', value: 'addToPantry'}
+                      // Add more options as needed
+                    ]}
+                    defaultValue={ 'default' }
+                    containerStyle={{ height: 40, width: 100 }}
+                    style={styles.plusButton}
+                    itemStyle={{
+                      justifyContent: 'flex-start',
+                    }}
+                    dropDownStyle={{ backgroundColor: '#fafafa' }}
+                    onChangeItem={(item) => {
+                      if (item.value === 'deleteSelected') {
+                        handleDeleteSelected();
+                      }
+                      if (item.value === 'addToPantry') {
+                        handleAddToPantry();
+                      }
+                      // Add more conditions/options as needed
+                    }}
+                  />
               </View>
           ),
       });
