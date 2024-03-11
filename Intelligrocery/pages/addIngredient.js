@@ -37,18 +37,18 @@ const AddIngredient = ({ isVisible, onClose, onAdd }) => {
               placeholder={{ label: "Unit", value: null, color: '#A9A9A9' }}
               onValueChange={(value) => setUnits(value)}
               items={[
-                  { label: 'count', value: 'ct' },
-                  { label: 'tablespoon', value: 'tbsp' },
-                  { label: 'teaspoon', value: 'tsp' },
-                  { label: 'ounce', value: 'oz' },
-                  { label: 'pound', value: 'lb' },
-                  { label: 'gram', value: 'g' },
-                  { label: 'kilogram', value: 'kg' },
-                  { label: 'cup', value: 'c' },
-                  { label: 'pint', value: 'pt' },
-                  { label: 'gallon', value: 'gal' },
-                  { label: 'dozen', value: 'doz' },
-                  { label: 'package', value: 'pkg' },
+                  { label: 'ct', value: 'count' },
+                  { label: 'tbsp', value: 'tablespoon' },
+                  { label: 'tsp', value: 'teaspoon' },
+                  { label: 'oz', value: 'ounce' },
+                  { label: 'lb', value: 'pound' },
+                  { label: 'g', value: 'gram' },
+                  { label: 'kg', value: 'kilogram' },
+                  { label: 'c', value: 'cup' },
+                  { label: 'pt', value: 'pint' },
+                  { label: 'gal', value: 'gallon' },
+                  { label: 'doz', value: 'dozen' },
+                  { label: 'pkg', value: 'package' },
               ]}
               useNativeAndroidPickerStyle={false}
               style={{
