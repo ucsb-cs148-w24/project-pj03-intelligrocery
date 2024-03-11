@@ -137,7 +137,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                             }}
                         />
                     ) : (
-                        <Text>{getUnitLabel(currUnits)}</Text>
+                        <Text>{currUnits}</Text>
                     )}
                 </View>
                 <View>

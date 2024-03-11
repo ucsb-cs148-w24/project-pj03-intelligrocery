@@ -90,7 +90,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
             </Animated.View>
         );
     };
-    
+
     const unitLabels = {
         count: 'ct',
         tablespoon: 'tbsp',
@@ -157,7 +157,7 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                                 }}
                             />
                         ) : (
-                            <Text>{getUnitLabel(currUnits)}</Text>
+                            <Text>{currUnits}</Text>
                         )}
                     </View>
                     <View>
