@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/styles';
 import { useGroceryList } from '../context/groceryListContext';
 import { addDocFB, updateDocFB } from '../firebase'
+import FlashMessage, { showMessage } from "react-native-flash-message"
 
 export default function RecipeItem({ ingredient, quantity, units }) {
   if (units == '<unit>') {
@@ -15,6 +16,11 @@ export default function RecipeItem({ ingredient, quantity, units }) {
   const handleAddToGrocery = async () => {
   // Check if the item exists in the pantry
   //not calling it id since there seems to be some global variable issue where it becomes undefined soon
+  showMessage({
+    message: "Added to grocery list",
+    type: "info",
+  });
+
   let groceryListID = groceryList.findIndex((item) => item.ingredient === ingredient && item.units === units);
   if (groceryListID !== -1) {
     // Units are compatible, update quantity
