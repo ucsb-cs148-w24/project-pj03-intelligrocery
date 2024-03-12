@@ -122,21 +122,22 @@ const GroceryList = ({ setPantry, pantry }) => {
           headerLeft: () => (
               <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
                   <DropDownPicker
+                    placeholder='•••'
                     open={open}
-                    onPress={setOpen(!open)}
-                    //setOpen={setOpen(!open)}
                     items={items}
                     value={value}
+                    setOpen={setOpen}
                     setValue={setValue}
                     setItems={setItems}
                     onSelectItem={(item) => {
-                      console.log(item)
+                      //console.log(item)
                       if (item.value === 'delete') {
                         handleDeleteSelected();
                       }
                       if (item.value === 'addToPantry') {
                         handleAddToPantrySelected();
                       }
+                      setOpen(false);
                       // Add more conditions/options as needed
                     }}
                   />
