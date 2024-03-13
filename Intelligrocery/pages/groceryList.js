@@ -110,41 +110,44 @@ const GroceryList = ({ setPantry, pantry }) => {
     };
 
     const handleAddToPantrySelected = async () => {
+      console.log("hi");
       addToPantryList = groceryList.filter(item => item.checked);
       setGroceryList(groceryList.filter(item => !item.checked));
       addToPantryList.forEach(item => {
         handleAddToPantry(item.id);
+        //console.log(item.id);
       });
     };
 
     React.useLayoutEffect(() => {
       navigation.setOptions({
           headerLeft: () => (
-              <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
-                  <DropDownPicker
-                    placeholder='•••'
-                    open={open}
-                    items={items}
-                    value={value}
-                    setOpen={setOpen}
-                    setValue={setValue}
-                    setItems={setItems}
-                    onSelectItem={(item) => {
-                      //console.log(item)
-                      if (item.value === 'delete') {
-                        handleDeleteSelected();
-                      }
-                      if (item.value === 'addToPantry') {
-                        handleAddToPantrySelected();
-                      }
-                      setOpen(false);
-                      // Add more conditions/options as needed
-                    }}
-                  />
-              </View>
+              <TouchableOpacity onPress={() => setOpen(!open)} style={{ flexDirection: 'row', paddingLeft: 20 }}>
+                  <View>
+                      <DropDownPicker
+                          placeholder='•••'
+                          open={open}
+                          items={items}
+                          value={value}
+                          setOpen={setOpen}
+                          setValue={setValue}
+                          setItems={setItems}
+                          onSelectItem={(item) => {
+                              if (item.value === 'delete') {
+                                  handleDeleteSelected();
+                              }
+                              if (item.value === 'addToPantry') {
+                                  handleAddToPantrySelected();
+                              }
+                              // It's important to close the dropdown after selection
+                              setOpen(false);
+                          }}
+                      />
+                  </View>
+              </TouchableOpacity>
           ),
       });
-  }, [navigation, groceryList]); // Add groceryList to the dependency array to re-render when items are checked/unchecked
+  }, [navigation, open, items, value]); // Add groceryList to the dependency array to re-render when items are checked/unchecked
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
