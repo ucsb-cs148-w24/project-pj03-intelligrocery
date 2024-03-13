@@ -99,7 +99,7 @@ export default function PantryItem({item, handleDelete, setPantry}) {
                     value={currName}
                 />
                 <TextInput 
-                    placeholder={editing ? "quantity" : ""}
+                    placeholder={editing ? "qty" : ""}
                     style={styles.quantityInput}
                     editable={editing}
                     onChangeText={(text) => {
