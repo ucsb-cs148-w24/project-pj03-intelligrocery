@@ -19,7 +19,7 @@ For frontend, we are using React Native, and for backend we are using Cloud Fire
 ## Testing/Viewing the Application
 To test the application, we require three additional downloads.
 
-1. Expo. We recommend downloading the application on your mobile device.
+1. Expo. We recommend downloading the Expo Go application on your mobile device.
 2. Edamam RecipeAPI <br/>
     a. Make an account at [this site](https://www.edamam.com/) and create an api key for Recipe Search API. <br/>
     b. Click "Accounts" at the top right, "Go To Dashboard", "Applications", "Create a New Application" <br/>
