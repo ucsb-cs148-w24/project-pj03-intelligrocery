@@ -39,7 +39,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         padding: 5,
         borderRadius: 5,
-        width: '110%',
+        width: '80%',
     },
     inputQuantity:{
         borderColor: 'lightgray',
@@ -60,7 +60,7 @@ export default StyleSheet.create({
         gap: 10,
     },
     overlayButtons: {
-        width: '100%',
+        width: '80%',
         flexDirection: 'row',
         marginTop: 10,
         justifyContent: 'space-between',
