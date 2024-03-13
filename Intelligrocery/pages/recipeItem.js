@@ -17,8 +17,10 @@ export default function RecipeItem({ ingredient, quantity, units }) {
   // Check if the item exists in the pantry
   //not calling it id since there seems to be some global variable issue where it becomes undefined soon
   showMessage({
-    message: "Added to grocery list",
+    message: `Added ${ingredient} to Grocery List!`,
     type: "info",
+    style: { backgroundColor: 'tomato' },
+    titleStyle: { color: 'white', textAlign: 'center', fontWeight: 'bold' }, 
   });
 
   let groceryListID = groceryList.findIndex((item) => item.ingredient === ingredient && item.units === units);
