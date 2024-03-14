@@ -110,37 +110,45 @@ const GroceryList = ({ setPantry, pantry }) => {
     };
 
     const handleAddToPantrySelected = async () => {
-      console.log("hi");
+      //console.log("hi");
       addToPantryList = groceryList.filter(item => item.checked);
       setGroceryList(groceryList.filter(item => !item.checked));
       addToPantryList.forEach(item => {
         handleAddToPantry(item.id);
+        //deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
         //console.log(item.id);
       });
     };
-
+    
+    const handleDropdownItemClick = (item) => {
+        if (item.value === 'delete') {
+            handleDeleteSelected();
+        }
+        if (item.value === 'addToPantry') {
+            handleAddToPantrySelected();
+        }
+    }
     React.useLayoutEffect(() => {
       navigation.setOptions({
           headerLeft: () => (
-              <TouchableOpacity onPress={() => setOpen(!open)} style={{ flexDirection: 'row', paddingLeft: 20 }}>
+              <TouchableOpacity onPress={() => setOpen(!open)} style={{ flexDirection: 'row', paddingLeft: 20, position: 'absolute' }}>
                   <View>
                       <DropDownPicker
+                          style={styles.dropdown}
                           placeholder='•••'
+                          placeholderStyle={styles.dropdownPlaceholder}
+                          dropDownContainerStyle={styles.dropDownContainer}
+                          closeIconStyle={styles.dropdownPlaceholder}
                           open={open}
                           items={items}
                           value={value}
                           setOpen={setOpen}
                           setValue={setValue}
                           setItems={setItems}
-                          onSelectItem={(item) => {
-                              if (item.value === 'delete') {
-                                  handleDeleteSelected();
-                              }
-                              if (item.value === 'addToPantry') {
-                                  handleAddToPantrySelected();
-                              }
-                              // It's important to close the dropdown after selection
-                              setOpen(false);
+                          showArrowIcon={false}
+                          onSelectItem={handleDropdownItemClick}
+                          onClose={() => {
+                            setValue(null);
                           }}
                       />
                   </View>

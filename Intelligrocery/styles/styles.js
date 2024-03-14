@@ -266,6 +266,16 @@ export default StyleSheet.create({
         width: '90%',
     },
     dropdown: {
-        color: 'black'
+        backgroundColor: 'tomato',
+        borderRadius: 50,
+        width: 50,
+        borderColor: 'white'
+    },
+    dropdownPlaceholder: {
+        textAlign: 'center',
+        color: 'white'
+    },
+    dropDownContainer: {
+        width: 180
     }
 });
