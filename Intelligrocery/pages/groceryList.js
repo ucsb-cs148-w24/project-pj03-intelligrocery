@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/core'
+import { showMessage } from "react-native-flash-message"
 
 //Pages
 import AddIngredient from './addIngredient';
@@ -136,7 +137,15 @@ const GroceryList = ({ setPantry, pantry }) => {
         await updateDocFB("groceryList", item.dbID, { checked: item.checked });
     };
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, hideMessage = false) => {
+      if (!hideMessage) {
+        showMessage({
+          message: `Deleted ${groceryList.find(item => item.id === id).ingredient} from Grocery List!`,
+          type: "info",
+          style: { backgroundColor: 'tomato' },
+          titleStyle: { color: 'white', textAlign: 'center', fontWeight: 'bold' }, 
+        });      
+      }
       console.log("Id to try and delete from grocery list: ", id)
       const index = groceryList.findIndex((item) => item.id === id);
       if (index != -1) {
@@ -173,7 +182,7 @@ const GroceryList = ({ setPantry, pantry }) => {
             // console.log(updatedPantry); // Log the updated state here
             return updatedPantry;
           });
-          handleDelete(groceryListID);
+          handleDelete(groceryListID, true);
           //We don't want to add the list id in the database
           const { id, ...updatedPantryItem } = pantry[pantryIndex];
           console.log(updatedPantryItem)
@@ -182,7 +191,7 @@ const GroceryList = ({ setPantry, pantry }) => {
           // Item does not exist in pantry, add it as new
           groceryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
           setPantry((prevPantry) => [...prevPantry, { ...groceryItem, id: groceryIndex}]);
-          handleDelete(groceryListID);
+          handleDelete(groceryListID, true);
           const dbID = await addDocFB(
             docData = groceryItem,
             collectionName = "pantry");
@@ -197,6 +206,12 @@ const GroceryList = ({ setPantry, pantry }) => {
             return updatedList;
         });
         }
+        showMessage({
+          message: `Added ${groceryList.find(item => item.id === id).ingredient} to Pantry!`,
+          type: "info",
+          style: { backgroundColor: 'tomato' },
+          titleStyle: { color: 'white', textAlign: 'center', fontWeight: 'bold' }, 
+        });
       }
     };
     

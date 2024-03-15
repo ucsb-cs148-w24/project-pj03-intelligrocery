@@ -5,6 +5,7 @@ import styles from '../styles/styles';
 import AddIngredient from './addIngredient';
 import PantryItem from './pantryItem';
 import { useNavigation } from '@react-navigation/core'
+import { showMessage } from "react-native-flash-message"
 
 import { auth, addDocFB, deleteDocFB, queryCollectionFB } from '../firebase'
 import { where, orderBy } from "firebase/firestore";
@@ -74,6 +75,12 @@ const Pantry = ({ pantry, setPantry }) => {
     }, [navigation]);
 
     const handleDelete = (id) => {
+      showMessage({
+        message: `Deleted ${pantry.find(item => item.id === id).ingredient} from Pantry!`,
+        type: "info",
+        style: { backgroundColor: 'tomato' },
+        titleStyle: { color: 'white', textAlign: 'center', fontWeight: 'bold' }, 
+      });      
       console.log("Id to try and delete from pantry: ", id)
       const index = pantry.findIndex((item) => item.id === id);
       if (index != -1) {
