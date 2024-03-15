@@ -134,10 +134,10 @@ export default function GroceryItem({item, toggleCheck, setGroceryList, handleDe
                     <View style={styles.unitsInput}>
                         {editing ? (
                             <RNPickerSelect
-                                value={currUnits ? currUnits.toString() : ''}
+                                value={currUnits.toString()}
                                 placeholder={{
                                     label: "unit",
-                                    value: null,
+                                    value: "",
                                     color: '#A9A9A9' 
                                 }}
                                 onValueChange={(value) => setCurrUnits(value)}
