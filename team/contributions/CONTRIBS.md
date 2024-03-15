@@ -24,7 +24,7 @@
 - Added input restrictions for editing pantry and grocery list items
 - Styling changes to make UI more intuitive and clean such as replacing words with icons
 - Implemented initial separate version of pantry and grocery list including adding and deleting items
-- Added banner messages for when user adds ingredients from a recipe to their grocery list
+- Added banner messages for when user adds ingredients from a recipe to their grocery list, deleting items, moving items between pantry/grocery
 
 ### Anderson
 - Integrating intial API with the app
