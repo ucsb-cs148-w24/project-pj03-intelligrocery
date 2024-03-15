@@ -69,7 +69,7 @@ const GroceryList = ({ setPantry, pantry }) => {
         print(typeof quantity)
         // const id = Math.random().toFixed(16).slice(2)
         id = groceryList.length > 0 ? Math.max(...groceryList.map(item => item.id)) + 1 : 0;
-        setGroceryList((prevGroceryList) => [...prevGroceryList, {ingredient, quantity, units, id}]);
+        setGroceryList((prevGroceryList) => [{ingredient, quantity, units, id}, ...prevGroceryList]);
 
         console.log("Next id in groceryList: ", id);
           const dbID = await addDocFB(
