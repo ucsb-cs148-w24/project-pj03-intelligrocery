@@ -14,12 +14,12 @@ export default StyleSheet.create({
     },
     plusButton: {
         backgroundColor: 'tomato',
-        borderRadius: 300,
+        borderRadius: 300, // Set a large value for a circular shape
         alignItems: 'center',
         justifyContent: 'center',
         marginRight: 20,
-        width: 25,
-        height: 25,
+        width: 25, // Adjusted to match the height
+        height: 25, // Adjusted to match the width
     },
     buttonText: {
         color: 'white',
@@ -267,9 +267,12 @@ export default StyleSheet.create({
     },
     dropdown: {
         backgroundColor: 'tomato',
-        borderRadius: 50,
-        width: 50,
-        borderColor: 'white'
+        borderRadius: 300,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 20,
+        width: 25,
+        height: 25,
     },
     dropdownPlaceholder: {
         textAlign: 'center',

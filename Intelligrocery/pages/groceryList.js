@@ -112,12 +112,18 @@ const GroceryList = ({ setPantry, pantry }) => {
     const handleAddToPantrySelected = async () => {
       //console.log("hi");
       addToPantryList = groceryList.filter(item => item.checked);
+      let currentNewPantryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
+      for (const item of addToPantryList) {
+        handleAddToPantry(item.id, currentNewPantryIndex);
+        currentNewPantryIndex++;
+      }
       setGroceryList(groceryList.filter(item => !item.checked));
-      addToPantryList.forEach(item => {
-        handleAddToPantry(item.id);
-        //deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
-        //console.log(item.id);
-      });
+
+      // addToPantryList.forEach(item => {
+      //   await handleAddToPantry(item.id);
+      //   //deleteDocFB(collectionName = "groceryList", documentID = item.dbID);
+      //   //console.log(item.id);
+      // });
     };
     
     const handleDropdownItemClick = (item) => {
@@ -131,11 +137,12 @@ const GroceryList = ({ setPantry, pantry }) => {
     React.useLayoutEffect(() => {
       navigation.setOptions({
           headerLeft: () => (
-              <TouchableOpacity onPress={() => setOpen(!open)} style={{ flexDirection: 'row', paddingLeft: 20, position: 'absolute' }}>
+              // <TouchableOpacity onPress={() => setOpen(!open)}>
                   <View>
                       <DropDownPicker
-                          style={styles.dropdown}
-                          placeholder='•••'
+                          style={{placeholder: '-', borderWidth: 0, backgroundColor: 'tomato', marginLeft: 20, flexDirection: 'row', paddingLeft: 20, position: 'absolute', width: 0, height: 10, borderRadius: 100000, marginTop: -20}}
+                          containerStyle={{ borderRadius: 999 }} // Set a large value for a circular shape
+                          placeholder='-'
                           placeholderStyle={styles.dropdownPlaceholder}
                           dropDownContainerStyle={styles.dropDownContainer}
                           closeIconStyle={styles.dropdownPlaceholder}
@@ -152,7 +159,7 @@ const GroceryList = ({ setPantry, pantry }) => {
                           }}
                       />
                   </View>
-              </TouchableOpacity>
+              // </TouchableOpacity>
           ),
       });
   }, [navigation, open, items, value]); // Add groceryList to the dependency array to re-render when items are checked/unchecked
@@ -192,14 +199,15 @@ const GroceryList = ({ setPantry, pantry }) => {
       }
     };
 
-    const handleAddToPantry = async (id) => {
+    const handleAddToPantry = async (id, currentNewPantryIndex = null) => {
+      console.log("Id being added ", id)
       let groceryListID = id; //Keeping the variable here since it seemed to become undefined otherwise, global variable issue
       // Find the item in the grocery list
       let groceryIndex = groceryList.findIndex((item) => item.id === id);
       if (groceryIndex !== -1) {
         const groceryItem = groceryList[groceryIndex];
         // Check if the item exists in the pantry
-        const pantryIndex = pantry.findIndex((pantryItem) => (pantryItem.ingredient === groceryItem.ingredient) && (pantryItem.units === groceryItem.units));
+        let pantryIndex = pantry.findIndex((pantryItem) => (pantryItem.ingredient === groceryItem.ingredient) && (pantryItem.units === groceryItem.units));
         if (pantryIndex !== -1) {
           // Units are compatible, update quantity
           pantryItem = pantry[pantryIndex];
@@ -216,6 +224,7 @@ const GroceryList = ({ setPantry, pantry }) => {
             // console.log(updatedPantry); // Log the updated state here
             return updatedPantry;
           });
+          console.log("Trying to delete id: ", id)
           handleDelete(groceryListID);
           //We don't want to add the list id in the database
           const { id, ...updatedPantryItem } = pantry[pantryIndex];
@@ -223,16 +232,18 @@ const GroceryList = ({ setPantry, pantry }) => {
           await updateDocFB(collectionName = "pantry", documentID = updatedPantryItem.dbID, data = updatedPantryItem);
         } else {
           // Item does not exist in pantry, add it as new
-          groceryIndex = pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
-          setPantry((prevPantry) => [...prevPantry, { ...groceryItem, id: groceryIndex}]);
+          const newPantryIndex = currentNewPantryIndex ? currentNewPantryIndex  : pantry.length > 0 ? Math.max(...pantry.map(item => item.id)) + 1 : 0
+          console.log("New pantry index: ", newPantryIndex)
+          console.log("Trying to delete id: ", groceryListID)
           handleDelete(groceryListID);
+          setPantry((prevPantry) => [...prevPantry, { ...groceryItem, id: newPantryIndex}]);
           const dbID = await addDocFB(
             docData = groceryItem,
             collectionName = "pantry");
             console.log("Added to pantry: ", groceryItem.ingredient);
             setPantry(prevList => { //calling setPantry seems to let the past set finish first
               const updatedList = prevList.map(item => {
-                  if (item.id === groceryIndex) {
+                  if (item.id === newPantryIndex) {
                       return { ...item, dbID };
                   }
                   return item;
