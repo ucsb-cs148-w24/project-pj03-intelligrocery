@@ -34,7 +34,7 @@ const AddIngredient = ({ isVisible, onClose, onAdd }) => {
             keyboardType="numeric"
             />
           <RNPickerSelect
-              placeholder={{ label: "Unit", value: null, color: '#A9A9A9' }}
+              placeholder={{ label: "Unit", value: '', color: '#A9A9A9' }}
               onValueChange={(value) => setUnits(value)}
               items={[
                   { label: 'ct', value: 'count' },
